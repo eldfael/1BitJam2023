@@ -1,29 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-
+    bool control;
     Vector2 moveDirection;
     Vector2 target;
     Vector2 pos;
     bool moving = false;
+    Scene scene;
 
     private void Start()
     {
         moveDirection = Vector2.zero;
+        control = true;
+        scene = SceneManager.GetActiveScene();
     }
 
     private void Update()
     {
-        if (moveDirection == Vector2.zero)
+        if (moveDirection == Vector2.zero && control)
         {
             moveDirection.x = Input.GetAxisRaw("Horizontal");
             if (moveDirection.x == 0)
             {
                 moveDirection.y = Input.GetAxisRaw("Vertical");
             }
+        }
+        if(Input.GetKeyDown("r"))
+        {
+            SceneManager.LoadScene(scene.name);
         }
     }
 
@@ -73,30 +81,23 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        //Debug.Log(transform.position);
+    }
 
-        /*
-        Vector3 v3 = moveDir;
-        RaycastHit2D rchit = Physics2D.Raycast(transform.position + v3, moveDir, 0.25f);
-        if (rchit.collider == null)
-        {
-            transform.SetPositionAndRotation(new Vector3(transform.position.x + moveDir.x, transform.position.y + moveDir.y, transform.position.z)
-            , Quaternion.identity);
-        }
-        else if (rchit.collider.tag == "Pushable")
-        {
-            Debug.Log("Yep");
-            rchit.transform.SetPositionAndRotation(new Vector3(rchit.transform.position.x + moveDir.x, rchit.transform.position.y + moveDir.y, rchit.transform.position.z), Quaternion.identity);
-            transform.SetPositionAndRotation(new Vector3(transform.position.x + moveDir.x, transform.position.y + moveDir.y, transform.position.z)
-            , Quaternion.identity);
-        }
-        else if (rchit.collider.tag != "Wall")
-        {
-            transform.SetPositionAndRotation(new Vector3(transform.position.x + moveDir.x, transform.position.y + moveDir.y, transform.position.z)
-            , Quaternion.identity);
-        }
-        
-        */
-        //moveDir = Vector2.zero;
+    public void SetControl(bool control)
+    {
+        this.control = control;
+    }
+
+    public void PlayerDeath()
+    {
+        // Add animation ~ and anything else we are gonna do on player death here !!
+        SetControl(false);
+    }
+
+    public void PlayerWin()
+    {
+        //Temporary
+        if (control) { Debug.Log("You Win!"); }
+        SetControl(false);
     }
 }

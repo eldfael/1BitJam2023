@@ -57,6 +57,11 @@ public class LightCast : MonoBehaviour
             {
                 //If raycast has hit collidable object - draw vertex at point of collision
                 vertices[vertexIndex] = raycastHit.point - new Vector2 (transform.position.x, transform.position.y);
+                if (raycastHit.collider.tag == "Player")
+                {
+                    //If light hits player - player die ! 
+                    raycastHit.collider.gameObject.GetComponent<PlayerController>().PlayerDeath();
+                }
             }
             
             if (i > 0)
