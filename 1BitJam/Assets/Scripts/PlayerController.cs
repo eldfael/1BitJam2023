@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator animator;
     bool control;
     Vector2 moveDirection;
     Vector2 target;
@@ -17,6 +18,8 @@ public class PlayerController : MonoBehaviour
         moveDirection = Vector2.zero;
         control = true;
         scene = SceneManager.GetActiveScene();
+        animator.SetBool("Die", false);
+        animator.SetBool("Win", false);
     }
 
     private void Update()
@@ -27,6 +30,7 @@ public class PlayerController : MonoBehaviour
             if (moveDirection.x == 0)
             {
                 moveDirection.y = Input.GetAxisRaw("Vertical");
+                animator.SetFloat("Vert", moveDirection.y+2);
             }
         }
         if(Input.GetKeyDown("r"))
@@ -37,6 +41,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        animator.SetBool("Move",false);
+        animator.SetBool("Push",false);
         pos = transform.position;
         if (!moving && moveDirection != Vector2.zero)
         {
@@ -61,6 +67,7 @@ public class PlayerController : MonoBehaviour
                 {
                     //Pushable ahead returned true - Move ahead !
                     moving = true;
+                    animator.SetBool("Push",true);
                 }
                 else
                 {
@@ -72,6 +79,7 @@ public class PlayerController : MonoBehaviour
         
         if (moving)
         {
+            animator.SetBool("Move",true);
             transform.position = new Vector3 (transform.position.x + moveDirection.x/8, transform.position.y + moveDirection.y/8, transform.position.z);
             if ((Vector2)transform.position == target)
             {
@@ -89,12 +97,14 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerDeath()
     {
+        animator.SetBool("Die", true);
         // Add animation ~ and anything else we are gonna do on player death here !!
         SetControl(false);
     }
 
     public void PlayerWin()
     {
+        animator.SetBool("Win", true);
         //Temporary
         if (control) { Debug.Log("You Win!"); }
         SetControl(false);
