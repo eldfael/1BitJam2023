@@ -2284,6 +2284,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 6344722826808499906, guid: 6ac90042f2a70c94ca27e802ba2082bc, type: 3}
+      propertyPath: intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344722826808499906, guid: 6ac90042f2a70c94ca27e802ba2082bc, type: 3}
+      propertyPath: backgroundB
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344722826808499906, guid: 6ac90042f2a70c94ca27e802ba2082bc, type: 3}
+      propertyPath: backgroundG
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344722826808499906, guid: 6ac90042f2a70c94ca27e802ba2082bc, type: 3}
+      propertyPath: backgroundR
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344722826808499906, guid: 6ac90042f2a70c94ca27e802ba2082bc, type: 3}
+      propertyPath: foregroundB
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344722826808499906, guid: 6ac90042f2a70c94ca27e802ba2082bc, type: 3}
+      propertyPath: foregroundG
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344722826808499906, guid: 6ac90042f2a70c94ca27e802ba2082bc, type: 3}
+      propertyPath: foregroundR
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

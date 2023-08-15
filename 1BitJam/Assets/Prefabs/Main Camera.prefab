@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ee4e790bd2b394e8d451ce01ede0e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 0
+  intensity: 1
   foregroundR: 1
   foregroundG: 1
   foregroundB: 1
