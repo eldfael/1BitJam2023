@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 360
-  rays: 720
+  rays: 725
   distance: 100
   angle: 0
 --- !u!114 &3307627109939433143
