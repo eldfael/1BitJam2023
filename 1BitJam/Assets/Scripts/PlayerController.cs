@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     Vector2 target;
     Vector2 pos;
     bool moving = false;
+    bool facingForward = true;
     Scene scene;
 
     private void Start()
@@ -24,25 +25,42 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
         if (moveDirection == Vector2.zero && control)
         {
+
             moveDirection.x = Input.GetAxisRaw("Horizontal");
+            if (moveDirection.x == 1 && !facingForward)
+            {
+                facingForward = true;
+                transform.localScale = new Vector3(1, 1, 1);
+                Debug.Log("Flip");
+
+            }else if (moveDirection.x == -1 && facingForward)
+            {
+                facingForward = false;
+                transform.localScale = new Vector3(-1, 1, 1);
+                Debug.Log("Flip");
+            }
+
             if (moveDirection.x == 0)
             {
                 moveDirection.y = Input.GetAxisRaw("Vertical");
                 animator.SetFloat("Vert", moveDirection.y+2);
+                Debug.Log(animator.GetFloat("Vert"));
             }
         }
         if(Input.GetKeyDown("r"))
         {
             SceneManager.LoadScene(scene.name);
         }
+
     }
 
     private void FixedUpdate()
     {
         animator.SetBool("Move",false);
-        animator.SetBool("Push",false);
+        animator.SetBool("Push", false);
         pos = transform.position;
         if (!moving && moveDirection != Vector2.zero)
         {
@@ -98,6 +116,7 @@ public class PlayerController : MonoBehaviour
     public void PlayerDeath()
     {
         animator.SetBool("Die", true);
+        gameObject.layer = 1;
         // Add animation ~ and anything else we are gonna do on player death here !!
         SetControl(false);
     }
