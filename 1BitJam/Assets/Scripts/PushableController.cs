@@ -6,13 +6,18 @@ public class PushableController : MonoBehaviour
 {
     Vector2 pos;
     Vector2 target;
+    
     bool moving = false;
     Vector2 moveDirection;
+
     public bool OnPush(Vector2 moveDirection)
     {
+        pos = transform.position;
         if (!moving)
         {
-            pos = transform.position;
+            // if moving horizontally -> and HEIGHT >= 2 then do height number of raycasts
+            // if moving vertically -> and WIDTH >= 2 then do width number of raycasts
+
             target = pos + moveDirection;
             RaycastHit2D raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero);
 
@@ -57,6 +62,7 @@ public class PushableController : MonoBehaviour
             transform.position = new Vector3(transform.position.x + moveDirection.x / 8, transform.position.y + moveDirection.y / 8, transform.position.z);
             if ((Vector2)transform.position == target)
             {
+                Debug.Log("Done Moving");
                 moving = false;
                 moveDirection = Vector2.zero;
             }
