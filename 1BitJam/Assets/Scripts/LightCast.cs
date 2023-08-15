@@ -5,6 +5,7 @@ using UnityEngine;
 public class LightCast : MonoBehaviour
 {
     Mesh mesh;
+    LayerMask lmask;
 
     static float DEFAULTRADIUS = 90f;
     static int DEFAULTRAYS = 32;
@@ -30,6 +31,9 @@ public class LightCast : MonoBehaviour
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
 
+        lmask = LayerMask.GetMask("Default");
+        
+
         angleIncrease = radius / rays;
     }
 
@@ -46,7 +50,7 @@ public class LightCast : MonoBehaviour
 
         for (int i = 0; i <= rays; i++)
         {
-            RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, GetVectorFromAngle(currentAngle), distance);
+            RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, GetVectorFromAngle(currentAngle), distance, lmask);
 
             if (raycastHit.collider == null)
             {
