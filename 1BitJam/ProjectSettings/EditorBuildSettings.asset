@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Top Menu.unity
     guid: 84953c4f1a1fa16478a9885ec1e672c2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level Select.unity
     guid: 813230aec968ef34cb164122958ae3c7
   - enabled: 1
@@ -92,4 +92,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/World 3/Level_9.unity
     guid: 44474dc37160e0348b849502453d6a25
+  - enabled: 1
+    path: Assets/Scenes/Levels/End Screen.unity
+    guid: e05b8836eebf2744e8c869441a24bc7f
   m_configObjects: {}
