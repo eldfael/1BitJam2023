@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     bool control;
     Vector2 moveDirection;
+    Vector2 lastDirection;
     Vector2 target;
     Vector2 pos;
     bool moving = false;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         moveDirection = Vector2.zero;
+        lastDirection = moveDirection;
         control = true;
         scene = SceneManager.GetActiveScene();
         animator.SetBool("Die", false);
@@ -28,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
         if (moveDirection == Vector2.zero && control)
         {
+
+            
 
             moveDirection.x = Input.GetAxisRaw("Horizontal");
             if (moveDirection.x == 1 && !facingForward)
@@ -46,9 +50,17 @@ public class PlayerController : MonoBehaviour
             if (moveDirection.x == 0)
             {
                 moveDirection.y = Input.GetAxisRaw("Vertical");
-                animator.SetFloat("Vert", moveDirection.y+2);
+                
                 Debug.Log(animator.GetFloat("Vert"));
             }
+            
+            animator.SetFloat("Vert", moveDirection.y+2);
+            
+            if (animator.GetBool("Push") && moveDirection != lastDirection)
+            {
+                animator.SetBool("Push", false);
+            }
+
         }
         if(Input.GetKeyDown("r"))
         {
@@ -60,7 +72,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         animator.SetBool("Move",false);
-        animator.SetBool("Push", false);
+        //animator.SetBool("Push", false);
         pos = transform.position;
         if (!moving && moveDirection != Vector2.zero)
         {
@@ -102,6 +114,7 @@ public class PlayerController : MonoBehaviour
             if ((Vector2)transform.position == target)
             {
                 moving = false;
+                lastDirection = moveDirection;
                 moveDirection = Vector2.zero;
             }
         }
