@@ -7,7 +7,7 @@ public class ButtonController : MonoBehaviour
     bool buttonState = false;
     private void FixedUpdate()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(transform.position, Vector2.one * 0.5f, 0f, Vector2.zero);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(transform.position, Vector2.one * 0.05f, 0f, Vector2.zero);
         if (raycastHit.collider != null)
         {
             // if there is object on top of button - open doors

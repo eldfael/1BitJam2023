@@ -68,4 +68,9 @@ public class PushableController : MonoBehaviour
             }
         }
     }
+
+    public bool IsMoving()
+    {
+        return moving;
+    }
 }

@@ -85,6 +85,11 @@ public class PlayerController : MonoBehaviour
                 //Empty space ahead - Move as usual
                 moving = true;
             }
+            else if (raycastHit.collider.tag == "LightDetector")
+            {
+                //Empty space ahead - Move as usual
+                moving = true;
+            }
             else if (raycastHit.collider.tag == "Wall")
             {
                 //Wall ahead - don't move
@@ -140,5 +145,10 @@ public class PlayerController : MonoBehaviour
         //Temporary
         if (control) { Debug.Log("You Win!"); }
         SetControl(false);
+    }
+
+    public bool IsMoving()
+    {
+        return moving;
     }
 }

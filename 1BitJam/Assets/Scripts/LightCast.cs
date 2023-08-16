@@ -23,6 +23,7 @@ public class LightCast : MonoBehaviour
     float distance;
     float angle;
     */
+    
     float currentAngle;
     float angleIncrease;
 
@@ -65,6 +66,10 @@ public class LightCast : MonoBehaviour
                 {
                     //If light hits player - player die ! 
                     raycastHit.collider.gameObject.GetComponent<PlayerController>().PlayerDeath();
+                }
+                else if (raycastHit.collider.tag == "LightDetector")
+                {
+                    raycastHit.collider.gameObject.GetComponent<LightDetectorController>().SetState(true);
                 }
             }
             
