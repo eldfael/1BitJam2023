@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public Animator animator;
+    public Animator crossfade;
+    public Animator swipe;
+    public float transitionTime = 1f;
     bool control;
     Vector2 moveDirection;
     Vector2 lastDirection;
@@ -51,7 +54,7 @@ public class PlayerController : MonoBehaviour
             {
                 moveDirection.y = Input.GetAxisRaw("Vertical");
                 
-                Debug.Log(animator.GetFloat("Vert"));
+                //Debug.Log(animator.GetFloat("Vert"));
             }
             
             animator.SetFloat("Vert", moveDirection.y+2);
@@ -64,7 +67,7 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetKeyDown("r"))
         {
-            SceneManager.LoadScene(scene.name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
     }
@@ -142,9 +145,18 @@ public class PlayerController : MonoBehaviour
     public void PlayerWin()
     {
         animator.SetBool("Win", true);
+        StartCoroutine(LevelUp(SceneManager.GetActiveScene().buildIndex + 1));
+
         //Temporary
-        if (control) { Debug.Log("You Win!"); }
-        SetControl(false);
+        //if (control) { Debug.Log("You Win!"); }
+        //SetControl(false);
+    }
+    IEnumerator LevelUp(int levelIndex)
+    {
+        crossfade.SetTrigger("NextLevel");
+        swipe.SetTrigger("NextLevel");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(levelIndex);
     }
 
     public bool IsMoving()
