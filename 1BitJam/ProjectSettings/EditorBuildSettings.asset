@@ -96,6 +96,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/World 3/Level_9.unity
     guid: 44474dc37160e0348b849502453d6a25
   - enabled: 1
+    path: Assets/Scenes/Levels/World 4/Level_1.unity
+    guid: c7caf2b7368e9b44d9bd8d1449a25aa5
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 4/Level_2.unity
+    guid: 1dc424102340d2546b5f6d832a69cde8
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 4/Level_3.unity
+    guid: 60beec14556c32147a0b127c9f236c44
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 4/Level_4.unity
+    guid: 9f41f8630d4ac0143bbabe60d0b2bd99
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 4/Level_5.unity
+    guid: b618b93f41c0b124cb20c8980c8fd080
+  - enabled: 1
     path: Assets/Scenes/Menus/End Screen.unity
     guid: e05b8836eebf2744e8c869441a24bc7f
   - enabled: 0
