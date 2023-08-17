@@ -9,12 +9,12 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Level_1");
     }
-    public void Settings()
-    {
-        SceneManager.LoadScene("Settings");
-    }
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Top Menu");
     }
 }
