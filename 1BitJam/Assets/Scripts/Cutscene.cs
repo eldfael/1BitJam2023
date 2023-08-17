@@ -25,7 +25,7 @@ public class Cutscene : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("Level_1");
+                SceneManager.LoadScene("Level_0");
             }
             
         }
