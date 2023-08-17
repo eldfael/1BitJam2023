@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Animator crossfade;
     public Animator swipe;
     public float transitionTime = 1f;
+    public float waitTime = 0.5f;
     bool control;
     Vector2 moveDirection;
     Vector2 lastDirection;
@@ -155,6 +156,7 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator LevelUp(int levelIndex)
     {
+        yield return new WaitForSeconds(waitTime);
         crossfade.SetTrigger("NextLevel");
         swipe.SetTrigger("NextLevel");
         yield return new WaitForSeconds(transitionTime);
