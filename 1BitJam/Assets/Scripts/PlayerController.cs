@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     Vector2 target;
     Vector2 pos;
     bool moving = false;
+    bool readyToMove = true;
     bool facingForward = true;
     Scene scene;
     
@@ -38,11 +39,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
 
-        if (moveDirection == Vector2.zero && control)
+        if (moveDirection == Vector2.zero && control && readyToMove)
         {
-
-
-
             moveDirection.x = Input.GetAxisRaw("Horizontal");
             if (moveDirection.x == 1 && !facingForward)
             {
@@ -95,12 +93,14 @@ public class PlayerController : MonoBehaviour
                 //Empty space ahead - Move as usual
                 moveSound.Play();
                 moving = true;
+                readyToMove = false;
             }
             else if (raycastHit.collider.tag == "LightDetector")
             {
                 //Empty space ahead - Move as usual
                 moveSound.Play();
                 moving = true;
+                readyToMove = false;
             }
             else if (raycastHit.collider.tag == "Wall")
             {
@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
                     pushSound.Play();
 
                     moving = true;
+                    readyToMove = false;
                     animator.SetBool("Push", true);
                 }
                 else
@@ -136,9 +137,17 @@ public class PlayerController : MonoBehaviour
                 moving = false;
                 lastDirection = moveDirection;
                 moveDirection = Vector2.zero;
+                StartCoroutine(WaitToMove());
             }
         }
 
+    }
+
+    IEnumerator WaitToMove()
+    {
+        yield return new WaitForSeconds(0.05f);
+        readyToMove = true;
+        Debug.Log(readyToMove);
     }
 
     public void SetControl(bool control)
