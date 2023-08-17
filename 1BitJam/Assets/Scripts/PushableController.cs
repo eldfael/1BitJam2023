@@ -62,7 +62,7 @@ public class PushableController : MonoBehaviour
             transform.position = new Vector3(transform.position.x + moveDirection.x / 8, transform.position.y + moveDirection.y / 8, transform.position.z);
             if ((Vector2)transform.position == target)
             {
-                Debug.Log("Done Moving");
+                //Debug.Log("Done Moving");
                 moving = false;
                 moveDirection = Vector2.zero;
             }
