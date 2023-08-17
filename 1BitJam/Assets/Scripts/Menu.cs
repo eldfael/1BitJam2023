@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Level_1");
+        SceneManager.LoadScene("Cutscene");
     }
     public void QuitGame()
     {
