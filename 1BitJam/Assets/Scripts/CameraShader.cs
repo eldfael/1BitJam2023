@@ -16,7 +16,8 @@ public class TwoColourEffect : MonoBehaviour {
     {
         // world colours - intensity, foregroundR, foregroundG, foregroundB, backgroundR, backgroundR, backgroundB
         {1, new int[] {1,1,1,1,0,0,0} },
-        {2, new int[] {1,1,0,0,0,0,0} } // TEMP just to test if colours were working (they do!)
+        {2, new int[] {1,1,0,0,0,0,0} },
+        {3, new int[] {1,1,1,0,0,0,0} }// TEMP just to test if colours were working (they do!)
     };
     
     public int world = 1;

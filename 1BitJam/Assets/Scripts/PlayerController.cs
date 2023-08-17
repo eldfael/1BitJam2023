@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         if (moveDirection == Vector2.zero && control)
         {
 
-            
+
 
             moveDirection.x = Input.GetAxisRaw("Horizontal");
             if (moveDirection.x == 1 && !facingForward)
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = new Vector3(1, 1, 1);
                 Debug.Log("Flip");
 
-            }else if (moveDirection.x == -1 && facingForward)
+            } else if (moveDirection.x == -1 && facingForward)
             {
                 facingForward = false;
                 transform.localScale = new Vector3(-1, 1, 1);
@@ -54,19 +54,19 @@ public class PlayerController : MonoBehaviour
             if (moveDirection.x == 0)
             {
                 moveDirection.y = Input.GetAxisRaw("Vertical");
-                
+
                 //Debug.Log(animator.GetFloat("Vert"));
             }
-            
-            animator.SetFloat("Vert", moveDirection.y+2);
-            
+
+            animator.SetFloat("Vert", moveDirection.y + 2);
+
             if (animator.GetBool("Push") && moveDirection != lastDirection)
             {
                 animator.SetBool("Push", false);
             }
 
         }
-        if(Input.GetKeyDown("r"))
+        if (Input.GetKeyDown("r"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
@@ -75,14 +75,14 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        animator.SetBool("Move",false);
+        animator.SetBool("Move", false);
         //animator.SetBool("Push", false);
         pos = transform.position;
         if (!moving && moveDirection != Vector2.zero)
         {
             target = pos + moveDirection;
 
-            RaycastHit2D raycastHit = Physics2D.BoxCast(target, Vector2.one*0.5f, 0f, Vector2.zero);
+            RaycastHit2D raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero);
 
             if (raycastHit.collider == null)
             {
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
                 {
                     //Pushable ahead returned true - Move ahead !
                     moving = true;
-                    animator.SetBool("Push",true);
+                    animator.SetBool("Push", true);
                 }
                 else
                 {
@@ -115,11 +115,11 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        
+
         if (moving)
         {
-            animator.SetBool("Move",true);
-            transform.position = new Vector3 (transform.position.x + moveDirection.x/8, transform.position.y + moveDirection.y/8, transform.position.z);
+            animator.SetBool("Move", true);
+            transform.position = new Vector3(transform.position.x + moveDirection.x / 8, transform.position.y + moveDirection.y / 8, transform.position.z);
             if ((Vector2)transform.position == target)
             {
                 moving = false;
@@ -141,15 +141,17 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Die", true);
         gameObject.layer = 1;
         // Add animation ~ and anything else we are gonna do on player death here !!
-        
+
     }
 
     public void PlayerWin()
     {
-        animator.SetBool("Win", true);
-        SetControl(false);
-        StartCoroutine(LevelUp(SceneManager.GetActiveScene().buildIndex + 1));
-
+        if (control)
+        { 
+            animator.SetBool("Win", true);
+            SetControl(false);
+            StartCoroutine(LevelUp(SceneManager.GetActiveScene().buildIndex + 1));
+        }
         //Temporary
         //if (control) { Debug.Log("You Win!"); }
         //SetControl(false);
