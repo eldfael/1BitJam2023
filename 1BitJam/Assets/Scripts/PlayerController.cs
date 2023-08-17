@@ -18,6 +18,12 @@ public class PlayerController : MonoBehaviour
     bool moving = false;
     bool facingForward = true;
     Scene scene;
+    
+    public AudioSource pushSound;
+    public AudioSource moveSound;
+    public AudioSource winSound;
+    public AudioSource dieSound;
+
 
     private void Start()
     {
@@ -87,16 +93,19 @@ public class PlayerController : MonoBehaviour
             if (raycastHit.collider == null)
             {
                 //Empty space ahead - Move as usual
+                moveSound.Play();
                 moving = true;
             }
             else if (raycastHit.collider.tag == "LightDetector")
             {
                 //Empty space ahead - Move as usual
+                moveSound.Play();
                 moving = true;
             }
             else if (raycastHit.collider.tag == "Wall")
             {
                 //Wall ahead - don't move
+                
                 moveDirection = Vector2.zero;
             }
             else if (raycastHit.collider.tag == "Pushable")
@@ -105,6 +114,8 @@ public class PlayerController : MonoBehaviour
                 if (raycastHit.collider.gameObject.GetComponent<PushableController>().OnPush(moveDirection))
                 {
                     //Pushable ahead returned true - Move ahead !
+                    pushSound.Play();
+
                     moving = true;
                     animator.SetBool("Push", true);
                 }
@@ -138,6 +149,7 @@ public class PlayerController : MonoBehaviour
     public void PlayerDeath()
     {
         SetControl(false);
+        dieSound.Play();
         animator.SetBool("Die", true);
         gameObject.layer = 1;
         // Add animation ~ and anything else we are gonna do on player death here !!
@@ -147,7 +159,8 @@ public class PlayerController : MonoBehaviour
     public void PlayerWin()
     {
         if (control)
-        { 
+        {
+            winSound.Play();
             animator.SetBool("Win", true);
             SetControl(false);
             StartCoroutine(LevelUp(SceneManager.GetActiveScene().buildIndex + 1));
