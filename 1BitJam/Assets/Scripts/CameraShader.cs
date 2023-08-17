@@ -12,12 +12,13 @@ public class TwoColourEffect : MonoBehaviour {
     float backgroundB = 0;
     private Material material;
 
-    Dictionary<int, int[]> worldToColour = new Dictionary<int, int[]>()
+    Dictionary<int, float[]> worldToColour = new Dictionary<int, float[]>()
     {
         // world colours - intensity, foregroundR, foregroundG, foregroundB, backgroundR, backgroundR, backgroundB
-        {1, new int[] {1,1,1,1,0,0,0} },
-        {2, new int[] {1,1,0,0,0,0,0} },
-        {3, new int[] {1,1,1,0,0,0,0} }// TEMP just to test if colours were working (they do!)
+        {1, new float[] {1,255,255,255,0,0,0} },
+        {2, new float[] {1,180,230,235,10,40,70} },
+        {3, new float[] {1,225,240,145,40,75,25} },
+        {4, new float[] {1,255,195,110,70,15,30} }// TEMP just to test if colours were working (they do!)
     };
     
     public int world = 1;
@@ -30,12 +31,12 @@ public class TwoColourEffect : MonoBehaviour {
     private void Start()
     {
         intensity = worldToColour[world][0];
-        foregroundR = worldToColour[world][1];
-        foregroundG = worldToColour[world][2];
-        foregroundB = worldToColour[world][3];
-        backgroundR = worldToColour[world][4];
-        backgroundG = worldToColour[world][5];
-        backgroundB = worldToColour[world][6];
+        foregroundR = (worldToColour[world][1])/255;
+        foregroundG = (worldToColour[world][2])/255;
+        foregroundB = (worldToColour[world][3])/255;
+        backgroundR = (worldToColour[world][4])/255;
+        backgroundG = (worldToColour[world][5])/255;
+        backgroundB = (worldToColour[world][6])/255;
     }
 
     // Postprocess the image

@@ -97,7 +97,7 @@ EditorBuildSettings:
     guid: 01d15358ea9647c4aad00ca23561efef
   - enabled: 1
     path: Assets/Scenes/Levels/World 3/Level_9.unity
-    guid: 44474dc37160e0348b849502453d6a25
+    guid: afc0ba023bf815e4c8bb66cd7ac84634
   - enabled: 1
     path: Assets/Scenes/Levels/World 4/Level_1.unity
     guid: 1dc424102340d2546b5f6d832a69cde8
@@ -110,9 +110,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/World 4/Level_4.unity
     guid: 17bff3a5604826444a1033c95adc2d93
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/Level_5.unity
-    guid: b618b93f41c0b124cb20c8980c8fd080
   - enabled: 1
     path: Assets/Scenes/Levels/World 4/Level_6.unity
     guid: 07be3752170c71648b78117dec312398
