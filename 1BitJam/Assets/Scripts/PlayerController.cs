@@ -136,15 +136,17 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerDeath()
     {
+        SetControl(false);
         animator.SetBool("Die", true);
         gameObject.layer = 1;
         // Add animation ~ and anything else we are gonna do on player death here !!
-        SetControl(false);
+        
     }
 
     public void PlayerWin()
     {
         animator.SetBool("Win", true);
+        SetControl(false);
         StartCoroutine(LevelUp(SceneManager.GetActiveScene().buildIndex + 1));
 
         //Temporary
