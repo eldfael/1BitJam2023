@@ -87,9 +87,9 @@ public class GameController : MonoBehaviour
     public void OnGamePause()
     {
         //Do pausing stuff here 
-        paused = true;
         if (playerInScene) 
         {
+            paused = true;
             playerController.SetPause(true);
             pauseScreen.SetActive(true);
         }
@@ -100,9 +100,9 @@ public class GameController : MonoBehaviour
     public void OnGameUnpause()
     {
         //Do unpausing stuff here
-        paused = false;
         if(playerInScene)
         {
+            paused = false;
             playerController.SetPause(false);
             pauseScreen.SetActive(false);
         }
