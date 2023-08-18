@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown("r"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            RestartLevel();
         }
 
     }
@@ -148,9 +148,15 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator WaitToMove()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.04f);
         readyToMove = true;
         Debug.Log(readyToMove);
+    }
+
+    IEnumerator WaitToRestart()
+    {
+        yield return new WaitForSeconds(1.2f);
+        RestartLevel();
     }
 
     public void SetControl(bool control)
@@ -167,6 +173,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Die", true);
         death.SetTrigger("Death");
         gameObject.layer = 1;
+        StartCoroutine(WaitToRestart());
         // Add animation ~ and anything else we are gonna do on player death here !!
 
     }
@@ -196,5 +203,10 @@ public class PlayerController : MonoBehaviour
     public bool IsMoving()
     {
         return moving;
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
