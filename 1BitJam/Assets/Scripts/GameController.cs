@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameController : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class GameController : MonoBehaviour
     public AudioSource topMenuMusic;
     public AudioSource cutsceneMusic;
     public AudioSource mainMusic;
-
+    public PlayerController playerController;
+    bool playerInScene;
+    bool paused;
 
     private void Awake()
     {
@@ -23,9 +26,21 @@ public class GameController : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        
         Debug.Log("OnSceneLoaded: " + scene.name);
         Debug.Log(mode);
 
+        try
+        {
+            playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+            playerInScene = true;
+        }
+        catch (Exception e)
+        {
+            Debug.Log("No Player in Scene");
+            playerInScene = false;
+        }
+        
         //Need to add fade out audio ? or we can just use 1 track for the whole game and ignore this script - unsure 
 
         if(scene.name=="Top Menu" && !topMenuMusic.isPlaying)
@@ -53,5 +68,42 @@ public class GameController : MonoBehaviour
         }
     }
 
-    
+    private void Update()
+    {
+        if(Input.GetKeyDown("escape"))
+        {
+            if(!paused)
+            {
+                OnGamePause();
+            }
+            else
+            {
+                OnGameUnpause();
+            }
+        }
+    }
+
+    public void OnGamePause()
+    {
+        //Do pausing stuff here 
+        paused = true;
+        if (playerInScene) 
+        {
+            playerController.SetPause(true);
+        }
+
+       
+    }
+
+    public void OnGameUnpause()
+    {
+        //Do unpausing stuff here
+        paused = false;
+        if(playerInScene)
+        {
+            playerController.SetPause(false);
+        }
+    }
+
+
 }

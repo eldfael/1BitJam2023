@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     bool moving = false;
     bool readyToMove = true;
     bool facingForward = true;
+    bool paused = false;
     Scene scene;
     
     public AudioSource pushSound;
@@ -41,41 +42,44 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
-        if (moveDirection == Vector2.zero && control && readyToMove)
+        if (!paused)
         {
-            moveDirection.x = Input.GetAxisRaw("Horizontal");
-            if (moveDirection.x == 1 && !facingForward)
+            if (moveDirection == Vector2.zero && control && readyToMove)
             {
-                facingForward = true;
-                transform.localScale = new Vector3(1, 1, 1);
-                Debug.Log("Flip");
+                moveDirection.x = Input.GetAxisRaw("Horizontal");
+                if (moveDirection.x == 1 && !facingForward)
+                {
+                    facingForward = true;
+                    transform.localScale = new Vector3(1, 1, 1);
+                    Debug.Log("Flip");
 
-            } else if (moveDirection.x == -1 && facingForward)
-            {
-                facingForward = false;
-                transform.localScale = new Vector3(-1, 1, 1);
-                Debug.Log("Flip");
+                }
+                else if (moveDirection.x == -1 && facingForward)
+                {
+                    facingForward = false;
+                    transform.localScale = new Vector3(-1, 1, 1);
+                    Debug.Log("Flip");
+                }
+
+                if (moveDirection.x == 0)
+                {
+                    moveDirection.y = Input.GetAxisRaw("Vertical");
+
+                    //Debug.Log(animator.GetFloat("Vert"));
+                }
+
+                animator.SetFloat("Vert", moveDirection.y + 2);
+
+                if (animator.GetBool("Push") && moveDirection != lastDirection)
+                {
+                    animator.SetBool("Push", false);
+                }
+
             }
-
-            if (moveDirection.x == 0)
+            if (Input.GetKeyDown("r"))
             {
-                moveDirection.y = Input.GetAxisRaw("Vertical");
-
-                //Debug.Log(animator.GetFloat("Vert"));
+                RestartLevel();
             }
-
-            animator.SetFloat("Vert", moveDirection.y + 2);
-
-            if (animator.GetBool("Push") && moveDirection != lastDirection)
-            {
-                animator.SetBool("Push", false);
-            }
-
-        }
-        if (Input.GetKeyDown("r"))
-        {
-            RestartLevel();
         }
 
     }
@@ -208,5 +212,10 @@ public class PlayerController : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void SetPause(bool paused)
+    {
+        this.paused = paused;
     }
 }
