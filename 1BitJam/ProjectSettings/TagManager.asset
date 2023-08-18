@@ -41,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: FloorDecor
+    uniqueID: 1898900573
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
