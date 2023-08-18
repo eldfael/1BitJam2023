@@ -184,12 +184,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15470651}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1792816361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &183470963
 GameObject:
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -272,7 +272,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 183470966}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1268960483}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &183470966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,7 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -710,6 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5036c439bf5ed664aafa061de30b573a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gc: {fileID: 0}
 --- !u!1001 &618667100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -893,7 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -993,7 +1006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1268960478
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1095,6 +1108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5036c439bf5ed664aafa061de30b573a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gc: {fileID: 1792816360}
 --- !u!1 &1321941643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,6 +1487,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 15470654}
   - {fileID: 1321941644}
   - {fileID: 1734468787}
   - {fileID: 2041516939}
@@ -1952,5 +1967,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 618667100}
   - {fileID: 557074547}
-  - {fileID: 15470654}
   - {fileID: 1792816361}
