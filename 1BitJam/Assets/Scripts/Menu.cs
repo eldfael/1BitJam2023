@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+
+    public GameController gc;
     public void StartGame()
     {
         SceneManager.LoadScene("Cutscene");
@@ -21,4 +23,12 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Level Select");
     }
+
+    public void Resume()
+    {
+        gc.OnGameUnpause();
+        
+    }
+
+
 }

@@ -31,6 +31,8 @@ public class GameController : MonoBehaviour
         Debug.Log("OnSceneLoaded: " + scene.name);
         Debug.Log(mode);
 
+        OnGameUnpause();
+
         try
         {
             playerController = GameObject.Find("Player").GetComponent<PlayerController>();
