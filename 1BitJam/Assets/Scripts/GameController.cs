@@ -43,8 +43,9 @@ public class GameController : MonoBehaviour
             mainMusic.Stop();
             
         }
-        else if(scene.name.Substring(0,5)=="Level" && !mainMusic.isPlaying)
+        else if(scene.buildIndex > 1 && !mainMusic.isPlaying)
         {
+            Debug.Log("Main Music");
             mainMusic.Play();
             topMenuMusic.Stop();
             cutsceneMusic.Stop();

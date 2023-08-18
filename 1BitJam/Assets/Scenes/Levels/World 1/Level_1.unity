@@ -1762,7 +1762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1799,6 +1799,14 @@ PrefabInstance:
     - target: {fileID: 2510100039751384724, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
       propertyPath: m_Name
       value: Floor Decor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2796562426098647795, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2796562426098647795, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

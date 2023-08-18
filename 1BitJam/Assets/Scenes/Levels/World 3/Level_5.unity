@@ -359,177 +359,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d2d10f7504c55c40bbc952064c02639, type: 3}
---- !u!1001 &595650256
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2510100039751384724, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_Name
-      value: Floor Decor (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
---- !u!1001 &883793414
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2510100039751384724, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_Name
-      value: Floor Decor (5)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
---- !u!1001 &1372540455
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2510100039751384724, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_Name
-      value: Floor Decor (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
 --- !u!1001 &1432630726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -540,11 +369,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
       propertyPath: m_LocalPosition.z
@@ -581,6 +410,14 @@ PrefabInstance:
     - target: {fileID: 2510100039751384724, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
       propertyPath: m_Name
       value: Floor Decor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2796562426098647795, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2796562426098647795, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2596,120 +2433,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c43fdebbb7d915d4fb925f9ae50dde91, type: 3}
---- !u!1001 &1902784115
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2510100039751384724, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_Name
-      value: Floor Decor (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
---- !u!1001 &1969067176
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091316173270628740, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2510100039751384724, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
-      propertyPath: m_Name
-      value: Floor Decor (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19b21669aaa948b48b05b0f124326753, type: 3}
 --- !u!1001 &2047167735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2836,11 +2559,6 @@ SceneRoots:
   - {fileID: 1597808411}
   - {fileID: 139086317}
   - {fileID: 1432630726}
-  - {fileID: 1969067176}
-  - {fileID: 1372540455}
-  - {fileID: 883793414}
-  - {fileID: 1902784115}
-  - {fileID: 595650256}
   - {fileID: 508666590}
   - {fileID: 1528087698}
   - {fileID: 539007693}

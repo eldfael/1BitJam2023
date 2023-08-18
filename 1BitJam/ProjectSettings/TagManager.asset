@@ -44,3 +44,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: DeathScreen
+    uniqueID: 2641994463
+    locked: 0

@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class PlayerController : MonoBehaviour
 {
     public Animator animator;
     public Animator crossfade;
     public Animator swipe;
+    public Animator death;
+    public GameObject deathMask;
     public float transitionTime = 1f;
     public float waitTime = 0.5f;
     bool control;
@@ -157,9 +160,12 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerDeath()
     {
+        deathMask.transform.position = transform.position;
+        Debug.Log(deathMask.transform.position);
         SetControl(false);
         dieSound.Play();
         animator.SetBool("Die", true);
+        death.SetTrigger("Death");
         gameObject.layer = 1;
         // Add animation ~ and anything else we are gonna do on player death here !!
 
