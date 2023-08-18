@@ -74,6 +74,10 @@ public class PlayerController : MonoBehaviour
                 {
                     animator.SetBool("Push", false);
                 }
+                if(moveDirection == Vector2.zero)
+                {
+                    animator.SetBool("Move", false);
+                }
 
             }
             if (Input.GetKeyDown("r"))
@@ -86,7 +90,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        animator.SetBool("Move", false);
+        //animator.SetBool("Move", false);
         //animator.SetBool("Push", false);
         pos = transform.position;
         if (!moving && moveDirection != Vector2.zero)
@@ -114,6 +118,7 @@ public class PlayerController : MonoBehaviour
                 //Wall ahead - don't move
                 
                 moveDirection = Vector2.zero;
+                animator.SetBool("Move", false);
             }
             else if (raycastHit.collider.tag == "Pushable")
             {
@@ -131,6 +136,8 @@ public class PlayerController : MonoBehaviour
                 {
                     //Pushable ahead returned false - don't move
                     moveDirection = Vector2.zero;
+                    animator.SetBool("Move", false);
+                    animator.SetBool("Push", false);
                 }
             }
         }
