@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public AudioSource cutsceneMusic;
     public AudioSource mainMusic;
     public PlayerController playerController;
+    public GameObject pauseScreen;
     bool playerInScene;
     bool paused;
 
@@ -90,6 +91,7 @@ public class GameController : MonoBehaviour
         if (playerInScene) 
         {
             playerController.SetPause(true);
+            pauseScreen.SetActive(true);
         }
 
        
@@ -102,6 +104,7 @@ public class GameController : MonoBehaviour
         if(playerInScene)
         {
             playerController.SetPause(false);
+            pauseScreen.SetActive(false);
         }
     }
 

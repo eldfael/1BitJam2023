@@ -17,4 +17,8 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Top Menu");
     }
+    public void LevelSelect()
+    {
+        SceneManager.LoadScene("Level Select");
+    }
 }
