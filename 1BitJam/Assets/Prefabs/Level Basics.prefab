@@ -64,11 +64,11 @@ Transform:
   m_GameObject: {fileID: 5267910095587816608}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 6.374}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 40, y: 40, z: 6.374}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8594962615024987017}
+  m_Father: {fileID: 1883862045181844543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!331 &8134240885766527989
 SpriteMask:
@@ -113,13 +113,13 @@ SpriteMask:
   m_SortingOrder: 0
   m_Sprite: {fileID: 8177471321811730583, guid: 87aaca0a643d54397ba969dab4fc8875, type: 3}
   m_MaskAlphaCutoff: 0.2
-  m_FrontSortingLayerID: 0
-  m_BackSortingLayerID: 0
-  m_FrontSortingLayer: 0
-  m_BackSortingLayer: 0
-  m_FrontSortingOrder: 0
+  m_FrontSortingLayerID: -1652972833
+  m_BackSortingLayerID: -1652972833
+  m_FrontSortingLayer: 1
+  m_BackSortingLayer: 1
+  m_FrontSortingOrder: 1
   m_BackSortingOrder: 0
-  m_IsCustomRangeActive: 0
+  m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
 --- !u!95 &5046186895196028116
 Animator:
@@ -406,8 +406,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2814546505135375634}
+  m_Children: []
   m_Father: {fileID: 3936668936112803334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7781750558467499026
@@ -572,7 +571,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1710524460522514517, guid: 56f60994dc5ac9a4a8e00f0809bf2888, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2814546505135375634}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56f60994dc5ac9a4a8e00f0809bf2888, type: 3}
 --- !u!4 &1883862045181844543 stripped

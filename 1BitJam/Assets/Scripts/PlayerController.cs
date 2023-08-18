@@ -160,8 +160,8 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerDeath()
     {
-        deathMask.transform.position = transform.position;
-        Debug.Log(deathMask.transform.position);
+        //deathMask.transform.position = transform.position;
+        //Debug.Log(deathMask.transform.position);
         SetControl(false);
         dieSound.Play();
         animator.SetBool("Die", true);
