@@ -14,10 +14,12 @@ public class GameController : MonoBehaviour
     public GameObject pauseScreen;
     bool playerInScene;
     bool paused;
+    bool[] levelsCompleted;
 
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+        bool[] levelsCompleted = new bool[36];
     }
 
     private void OnEnable()
