@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
         
         //Need to add fade out audio ? or we can just use 1 track for the whole game and ignore this script - unsure 
 
-        if(scene.name=="Top Menu" && !topMenuMusic.isPlaying)
+        if((scene.name=="Top Menu" || scene.name=="Level Select") && !topMenuMusic.isPlaying)
         {    
             topMenuMusic.Play();
             mainMusic.Stop();
