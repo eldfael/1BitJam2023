@@ -97,4 +97,20 @@ public class LightCast : MonoBehaviour
         return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
     }
 
+    public bool CheckLight(GameObject obj)
+    {
+        float cur = 0;
+        for (int i = 0; i < rays; i++)
+        {
+            RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, GetVectorFromAngle(cur), distance, lmask);
+            if (raycastHit.collider != null && raycastHit.collider.gameObject == obj)
+            {
+                return true;            
+            }
+            cur -= angleIncrease;
+
+        }
+        return false;
+    }
+
 }

@@ -51,14 +51,12 @@ public class PlayerController : MonoBehaviour
                 {
                     facingForward = true;
                     transform.localScale = new Vector3(1, 1, 1);
-                    Debug.Log("Flip");
 
                 }
                 else if (moveDirection.x == -1 && facingForward)
                 {
                     facingForward = false;
                     transform.localScale = new Vector3(-1, 1, 1);
-                    Debug.Log("Flip");
                 }
 
                 if (moveDirection.x == 0)
@@ -161,7 +159,6 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.04f);
         readyToMove = true;
-        Debug.Log(readyToMove);
     }
 
     IEnumerator WaitToRestart()

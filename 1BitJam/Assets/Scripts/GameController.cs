@@ -31,7 +31,6 @@ public class GameController : MonoBehaviour
     {
         
         Debug.Log("OnSceneLoaded: " + scene.name);
-        Debug.Log(mode);
 
         OnGameUnpause();
 
