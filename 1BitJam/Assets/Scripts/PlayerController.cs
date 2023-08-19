@@ -177,6 +177,8 @@ public class PlayerController : MonoBehaviour
         //deathMask.transform.position = transform.position;
         //Debug.Log(deathMask.transform.position);
         SetControl(false);
+        moving = false;
+        moveDirection = Vector2.zero;
         dieSound.Play();
         animator.SetBool("Die", true);
         death.SetTrigger("Death");
