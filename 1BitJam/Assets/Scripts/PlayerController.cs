@@ -23,7 +23,9 @@ public class PlayerController : MonoBehaviour
     bool facingForward = true;
     bool paused = false;
     Scene scene;
-    
+    bool readyToWin = false;
+
+
     public AudioSource pushSound;
     public AudioSource moveSound;
     public AudioSource winSound;
@@ -190,7 +192,11 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerWin()
     {
-        if (control)
+        if (control && !moving)
+        {
+            StartCoroutine(WaitToWin());
+        }
+        if (readyToWin && control && !moving)
         {
             winSound.Play();
             animator.SetBool("Win", true);
@@ -223,5 +229,12 @@ public class PlayerController : MonoBehaviour
     public void SetPause(bool paused)
     {
         this.paused = paused;
+    }
+
+    IEnumerator WaitToWin()
+    {
+        yield return new WaitForSeconds(0.1f);
+        //yield return new WaitForFixedUpdate();
+        readyToWin = true;
     }
 }
