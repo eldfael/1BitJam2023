@@ -233,8 +233,9 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator WaitToWin()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.03f);
         //yield return new WaitForFixedUpdate();
         readyToWin = true;
     }
+
 }
