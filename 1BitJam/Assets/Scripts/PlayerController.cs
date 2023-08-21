@@ -25,6 +25,11 @@ public class PlayerController : MonoBehaviour
     Scene scene;
     bool readyToWin = false;
 
+    Touch touch;
+    Vector2 firstTouch;
+    Vector2 lastTouch;
+    float swipeDistance;
+
 
     public AudioSource pushSound;
     public AudioSource moveSound;
@@ -40,12 +45,68 @@ public class PlayerController : MonoBehaviour
         scene = SceneManager.GetActiveScene();
         animator.SetBool("Die", false);
         animator.SetBool("Win", false);
+        swipeDistance = Screen.height * 15 / 100;
     }
 
     private void Update()
     {
         if (!paused)
         {
+            //Mobile inputs
+            if (moveDirection == Vector2.zero && control && readyToMove)
+            {
+                if (Input.touchCount == 1)
+                {
+                    touch = Input.GetTouch(0);
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        firstTouch = touch.position;
+                        lastTouch = touch.position;
+                    }
+                    else if (touch.phase == TouchPhase.Moved)
+                    {
+                        lastTouch = touch.position;
+                    }
+                    else if (touch.phase == TouchPhase.Ended)
+                    {
+                        lastTouch = touch.position;
+
+                    }
+                    if (Mathf.Abs(lastTouch.x - firstTouch.x) > swipeDistance || Mathf.Abs(lastTouch.y - firstTouch.y) > swipeDistance)
+                    {
+                        if (Mathf.Abs(lastTouch.x - firstTouch.x) >= Mathf.Abs(lastTouch.y - firstTouch.y))
+                        {
+                            if (lastTouch.x > firstTouch.x)
+                            {
+                                //Right movement
+                                moveDirection.x = 1;
+                                transform.localScale = new Vector3(1, 1, 1);
+                            }
+                            else
+                            {
+                                //Left movement
+                                moveDirection.x = -1;
+                                transform.localScale = new Vector3(-1, 1, 1);
+                            }
+                        }
+                        else
+                        {
+                            if (lastTouch.y > firstTouch.y)
+                            {
+                                //Up movement
+                                moveDirection.y = 1;
+                            }
+                            else
+                            {
+                                //Down movement
+                                moveDirection.y = -1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            //PC inputs 
             if (moveDirection == Vector2.zero && control && readyToMove)
             {
                 moveDirection.x = Input.GetAxisRaw("Horizontal");
@@ -149,10 +210,14 @@ public class PlayerController : MonoBehaviour
         }
         if ((Vector2)transform.position == target)
         {
-            moving = false;
+            
             lastDirection = moveDirection;
             moveDirection = Vector2.zero;
-            StartCoroutine(WaitToMove());
+            if(moving)
+            {
+                StartCoroutine(WaitToMove());
+            }
+            moving = false;
         }
 
     }
