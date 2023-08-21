@@ -146,13 +146,13 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Move", true);
             transform.position = new Vector3(transform.position.x + moveDirection.x / 8, transform.position.y + moveDirection.y / 8, transform.position.z);
-            if ((Vector2)transform.position == target)
-            {
-                moving = false;
-                lastDirection = moveDirection;
-                moveDirection = Vector2.zero;
-                StartCoroutine(WaitToMove());
-            }
+        }
+        if ((Vector2)transform.position == target)
+        {
+            moving = false;
+            lastDirection = moveDirection;
+            moveDirection = Vector2.zero;
+            StartCoroutine(WaitToMove());
         }
 
     }
@@ -179,12 +179,15 @@ public class PlayerController : MonoBehaviour
         //deathMask.transform.position = transform.position;
         //Debug.Log(deathMask.transform.position);
         SetControl(false);
-        moving = false;
-        moveDirection = Vector2.zero;
+        gameObject.layer = 1;
+        StartCoroutine(WaitToDie());
+        //moving = false;
+        //moveDirection = Vector2.zero;
+        
         dieSound.Play();
         animator.SetBool("Die", true);
         death.SetTrigger("Death");
-        gameObject.layer = 1;
+   
         StartCoroutine(WaitToRestart());
         // Add animation ~ and anything else we are gonna do on player death here !!
 
@@ -236,6 +239,14 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.03f);
         //yield return new WaitForFixedUpdate();
         readyToWin = true;
+    }
+
+    IEnumerator WaitToDie()
+    {
+        yield return new WaitForSeconds(0.1f);
+        moving = false;
+        moveDirection = Vector2.zero;
+
     }
 
 }

@@ -53,21 +53,26 @@ public class LightCast : MonoBehaviour
         {
             RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, GetVectorFromAngle(currentAngle), distance, lmask);
 
-            if (raycastHit.collider == null)
+            if (raycastHit.collider == null || raycastHit.collider.tag == "Player")
             {
                 //If raycast has hit nothing - draw vertex at max distance
                 vertices[vertexIndex] = GetVectorFromAngle(currentAngle) * distance;
+                if (raycastHit.collider != null)
+                {
+                    raycastHit.collider.gameObject.GetComponent<PlayerController>().PlayerDeath();
+                    raycastHit = Physics2D.Raycast(transform.position, GetVectorFromAngle(currentAngle), distance, lmask);
+                    if (raycastHit.collider != null)
+                    {
+                        vertices[vertexIndex] = raycastHit.point - new Vector2(transform.position.x, transform.position.y);
+                    }
+                }
+
             }
             else
             {
                 //If raycast has hit collidable object - draw vertex at point of collision
                 vertices[vertexIndex] = raycastHit.point - new Vector2 (transform.position.x, transform.position.y);
-                if (raycastHit.collider.tag == "Player")
-                {
-                    //If light hits player - player die ! 
-                    raycastHit.collider.gameObject.GetComponent<PlayerController>().PlayerDeath();
-                }
-                else if (raycastHit.collider.tag == "LightDetector")
+                if (raycastHit.collider.tag == "LightDetector")
                 {
                     raycastHit.collider.gameObject.GetComponent<LightDetectorController>().SetState(true);
                 }
