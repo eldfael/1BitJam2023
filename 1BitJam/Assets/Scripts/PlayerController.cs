@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     Vector2 lastTouch;
     float swipeDistance;
 
+    Stack undoStack;
 
     public AudioSource pushSound;
     public AudioSource moveSound;
