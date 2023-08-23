@@ -259,7 +259,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(deathMask.transform.position);
         SetControl(false);
         gameObject.layer = 1;
-        StartCoroutine(WaitToDie());
+        //StartCoroutine(WaitToDie());
         //moving = false;
         //moveDirection = Vector2.zero;
         
@@ -322,7 +322,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator WaitToDie()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         moving = false;
         moveDirection = Vector2.zero;
 
