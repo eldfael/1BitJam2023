@@ -17,10 +17,14 @@ public class WidePushableController : MonoBehaviour, Pushable
         filter = new ContactFilter2D();
         raycastHits = new RaycastHit2D[2];
     }
-    public (Vector2, GameObject) OnPush(Vector2 moveDirection)
+    public List<(Vector2, GameObject)> OnPush(Vector2 moveDirection, List<(Vector2, GameObject)> tupleList)
     {
-        Debug.Log(moveDirection);
         pos = transform.position;
+        if(!tupleList.Contains((pos, gameObject)))
+        {
+            tupleList.Add((pos, gameObject));
+        }
+
         moveDir = moveDirection;
         target = pos + moveDirection;
         moving = true;
@@ -33,7 +37,7 @@ public class WidePushableController : MonoBehaviour, Pushable
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
                 {
-                    raycastHits[i].collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection);
+                    tupleList = raycastHits[i].collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection, tupleList);
                 }
             }
 
@@ -47,11 +51,11 @@ public class WidePushableController : MonoBehaviour, Pushable
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
                 {
-                    raycastHits[i].collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection);
+                    tupleList = raycastHits[i].collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection, tupleList);
                 }
             }
         }
-        return (pos, gameObject);
+        return tupleList;
     }
     public bool TryPush(Vector2 moveDirection)
     {
@@ -73,7 +77,6 @@ public class WidePushableController : MonoBehaviour, Pushable
                 }
                 else if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Wall")
                 {
-                    Debug.Log("Wall");
                     return false;
                 }
             }
@@ -117,9 +120,12 @@ public class WidePushableController : MonoBehaviour, Pushable
         }
     }
 
-    public void OnUndo()
+    public void OnUndo(Vector2 originalPosition)
     {
-
+        moving = true;
+        target = originalPosition;
+        pos = transform.position;
+        moveDir = originalPosition - pos;
     }
     
     public bool IsMoving()

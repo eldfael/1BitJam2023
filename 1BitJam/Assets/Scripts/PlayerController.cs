@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
@@ -30,7 +31,9 @@ public class PlayerController : MonoBehaviour
     Vector2 lastTouch;
     float swipeDistance;
 
+    bool readyToUndo;
     Stack undoStack;
+    List<(Vector2, GameObject)> tupleList;
 
     public AudioSource pushSound;
     public AudioSource moveSound;
@@ -47,6 +50,8 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Die", false);
         animator.SetBool("Win", false);
         swipeDistance = Screen.height * 15 / 100;
+        undoStack = new Stack();
+       
     }
 
     private void Update()
@@ -119,6 +124,15 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
+            if (Input.GetKey("z"))
+            {
+                if (readyToMove)
+                {
+                    OnUndo();
+                }
+
+            }
+
             //PC inputs 
             if (moveDirection == Vector2.zero && control && readyToMove)
             {
@@ -158,6 +172,7 @@ public class PlayerController : MonoBehaviour
             {
                 RestartLevel();
             }
+
         }
 
     }
@@ -176,6 +191,10 @@ public class PlayerController : MonoBehaviour
             if (raycastHit.collider == null)
             {
                 //Empty space ahead - Move as usual
+                tupleList = new List<(Vector2, GameObject)>();
+                tupleList.Add((pos, gameObject));
+                undoStack.Push(tupleList);
+
                 moveSound.Play();
                 moving = true;
                 readyToMove = false;
@@ -183,6 +202,10 @@ public class PlayerController : MonoBehaviour
             else if (raycastHit.collider.tag == "LightDetector")
             {
                 //Empty space ahead - Move as usual
+                tupleList = new List<(Vector2, GameObject)>();
+                tupleList.Add((pos, gameObject));
+                undoStack.Push(tupleList);
+
                 moveSound.Play();
                 moving = true;
                 readyToMove = false;
@@ -200,7 +223,12 @@ public class PlayerController : MonoBehaviour
                 if (raycastHit.collider.gameObject.GetComponent<Pushable>().TryPush(moveDirection))
                 {
                     //Pushable ahead returned true - Move ahead !
-                    raycastHit.collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection);
+                    tupleList = new List<(Vector2, GameObject)>();
+                    tupleList.Add((pos, gameObject));
+
+                    tupleList = raycastHit.collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection, tupleList);
+                    
+                    undoStack.Push(tupleList);
 
                     pushSound.Play();
                     moving = true;
@@ -326,6 +354,74 @@ public class PlayerController : MonoBehaviour
         moving = false;
         moveDirection = Vector2.zero;
 
+    }
+
+    IEnumerator WaitToPlayMove()
+    {
+        yield return new WaitForFixedUpdate();
+        moveSound.Play();
+    }
+
+    IEnumerator WaitToPlayPush()
+    {
+        yield return new WaitForFixedUpdate();
+        pushSound.Play();
+    }
+
+    void OnUndo()
+    {
+        if (undoStack.Count > 0)
+        {
+            tupleList = (List<(Vector2, GameObject)>)undoStack.Pop();
+            
+            
+
+            moving = true;
+            readyToMove = false;
+            pos = transform.position;
+            moveDirection = tupleList[0].Item1 - pos;
+            target = tupleList[0].Item1;
+            
+            
+            if (animator.GetBool("Push") && moveDirection != lastDirection)
+            {
+                animator.SetBool("Push", false);
+            }
+            if (moveDirection == Vector2.zero)
+            {
+                animator.SetBool("Move", false);
+            }
+            
+
+            if (tupleList.Count == 1)
+            {
+                StartCoroutine(WaitToPlayMove());
+            }
+            else
+            {
+                StartCoroutine(WaitToPlayPush());
+                animator.SetBool("Push", true);
+            }
+
+            if (moveDirection.x == -1 && !facingForward)
+            {
+                facingForward = true;
+                transform.localScale = new Vector3(1, 1, 1);
+
+            }
+            else if (moveDirection.x == 1 && facingForward)
+            {
+                facingForward = false;
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            
+            animator.SetFloat("Vert", 2 - moveDirection.y);
+
+            for (int i = 1; i < tupleList.Count; i++)
+            {
+                tupleList[i].Item2.GetComponent<Pushable>().OnUndo(tupleList[i].Item1);
+            }
+        }
     }
 
 }

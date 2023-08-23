@@ -11,20 +11,25 @@ public class PushableController : MonoBehaviour, Pushable
     Vector2 moveDirection;
     RaycastHit2D raycastHit;
 
-    public (Vector2,GameObject) OnPush(Vector2 moveDirection)
+    public List<(Vector2, GameObject)> OnPush(Vector2 moveDirection, List<(Vector2, GameObject)> tupleList)
     {
-        Debug.Log("OnPush");
         pos = transform.position;
+
+        if (!tupleList.Contains((pos, gameObject)))
+        {
+            tupleList.Add((pos, gameObject));
+        }
 
         this.moveDirection = moveDirection;
         target = pos + moveDirection;
         moving = true;
+        
         raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero);
         if (raycastHit.collider != null && raycastHit.collider.tag == "Pushable")
         {
-            raycastHit.collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection);
+            tupleList = raycastHit.collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection, tupleList);
         }
-        return (pos, this.gameObject);
+        return tupleList;
     }
 
     public bool TryPush(Vector2 moveDirection)
@@ -70,11 +75,9 @@ public class PushableController : MonoBehaviour, Pushable
     {
         if (moving)
         {
-            Debug.Log("Moving");
             transform.position = new Vector3(transform.position.x + moveDirection.x / 8, transform.position.y + moveDirection.y / 8, transform.position.z);
             if ((Vector2)transform.position == target)
             {
-                //Debug.Log("Done Moving");
                 moving = false;
                 moveDirection = Vector2.zero;
             }
@@ -86,8 +89,11 @@ public class PushableController : MonoBehaviour, Pushable
         return moving;
     }
 
-    public void OnUndo()
+    public void OnUndo(Vector2 originalPosition)
     {
-
+        moving = true;
+        target = originalPosition;
+        pos = transform.position;
+        moveDirection = originalPosition - pos;
     }
 }
