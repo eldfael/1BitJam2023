@@ -17,12 +17,6 @@ public class WidePushableController : MonoBehaviour, Pushable
         filter = new ContactFilter2D();
         raycastHits = new RaycastHit2D[2];
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawCube(pos + moveDir * 1.5f, Vector3.one * 0.5f);
-    }
-
     public (Vector2, GameObject) OnPush(Vector2 moveDirection)
     {
         Debug.Log(moveDirection);
