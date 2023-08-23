@@ -2,30 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PushableController : MonoBehaviour
+public class PushableController : MonoBehaviour, Pushable
 {
     Vector2 pos;
     Vector2 target;
     
     bool moving = false;
     Vector2 moveDirection;
+    RaycastHit2D raycastHit;
 
-    public bool OnPush(Vector2 moveDirection)
+    public (Vector2,GameObject) OnPush(Vector2 moveDirection)
+    {
+        Debug.Log("OnPush");
+        pos = transform.position;
+
+        this.moveDirection = moveDirection;
+        target = pos + moveDirection;
+        moving = true;
+        raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero);
+        if (raycastHit.collider != null && raycastHit.collider.tag == "Pushable")
+        {
+            raycastHit.collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection);
+        }
+        return (pos, this.gameObject);
+    }
+
+    public bool TryPush(Vector2 moveDirection)
     {
         pos = transform.position;
         if (!moving)
         {
-            // if moving horizontally -> and HEIGHT >= 2 then do height number of raycasts
-            // if moving vertically -> and WIDTH >= 2 then do width number of raycasts
 
             target = pos + moveDirection;
-            RaycastHit2D raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero);
+            raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero);
 
             if (raycastHit.collider == null)
             {
-                // Nothing ahead - Move ahead and return true
-                this.moveDirection = moveDirection;
-                moving = true;
+                // Nothing ahead - Return true
                 return true;
 
             }
@@ -37,11 +50,9 @@ public class PushableController : MonoBehaviour
             if (raycastHit.collider.tag == "Pushable")
             {
                 // Pushable ahead - Check if Pushable ahead returns true - and if so move ahead and return true
-                if (raycastHit.collider.gameObject.GetComponent<PushableController>().OnPush(moveDirection))
+                if (raycastHit.collider.gameObject.GetComponent<Pushable>().TryPush(moveDirection))
                 {
-                    //Pushable ahead returned true - Move ahead and return true
-                    this.moveDirection = moveDirection;
-                    moving = true;
+                    //Pushable ahead returned true - Return true
                     return true;
                 }
                 else
@@ -59,6 +70,7 @@ public class PushableController : MonoBehaviour
     {
         if (moving)
         {
+            Debug.Log("Moving");
             transform.position = new Vector3(transform.position.x + moveDirection.x / 8, transform.position.y + moveDirection.y / 8, transform.position.z);
             if ((Vector2)transform.position == target)
             {
@@ -72,5 +84,10 @@ public class PushableController : MonoBehaviour
     public bool IsMoving()
     {
         return moving;
+    }
+
+    public void OnUndo()
+    {
+
     }
 }

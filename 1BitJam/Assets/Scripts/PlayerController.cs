@@ -103,6 +103,18 @@ public class PlayerController : MonoBehaviour
                             }
                         }
                     }
+                    Debug.Log("we in");
+                    animator.SetFloat("Vert", moveDirection.y + 2);
+
+                    if (animator.GetBool("Push") && moveDirection != lastDirection)
+                    {
+                        animator.SetBool("Push", false);
+                    }
+                    if (moveDirection == Vector2.zero)
+                    {
+                        animator.SetBool("Move", false);
+                    }
+
                 }
             }
 
@@ -184,11 +196,12 @@ public class PlayerController : MonoBehaviour
             else if (raycastHit.collider.tag == "Pushable")
             {
                 //Pushable ahead - move and interact with pushable
-                if (raycastHit.collider.gameObject.GetComponent<PushableController>().OnPush(moveDirection))
+                if (raycastHit.collider.gameObject.GetComponent<Pushable>().TryPush(moveDirection))
                 {
                     //Pushable ahead returned true - Move ahead !
-                    pushSound.Play();
+                    raycastHit.collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection);
 
+                    pushSound.Play();
                     moving = true;
                     readyToMove = false;
                     animator.SetBool("Push", true);
@@ -211,12 +224,12 @@ public class PlayerController : MonoBehaviour
         if ((Vector2)transform.position == target)
         {
             
-            lastDirection = moveDirection;
-            moveDirection = Vector2.zero;
             if(moving)
             {
+                lastDirection = moveDirection;
                 StartCoroutine(WaitToMove());
             }
+            moveDirection = Vector2.zero;
             moving = false;
         }
 

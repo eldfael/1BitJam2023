@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log("No Player in Scene");
+            Debug.Log(e);
             playerInScene = false;
         }
         
