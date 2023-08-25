@@ -371,6 +371,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2062903260698156854, guid: 9eaf7093e38cc4449ab2db70ebade37b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6272591730137064411, guid: 9eaf7093e38cc4449ab2db70ebade37b, type: 3}
       propertyPath: m_Name
       value: Flammable_1 (1)
@@ -432,7 +436,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8348979527688642112, guid: bc247b22217b6b74f928483240185090, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7094418771167447932, guid: bc247b22217b6b74f928483240185090, type: 3}
+    - {fileID: 1104530887649751259, guid: bc247b22217b6b74f928483240185090, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1055,6 +1065,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5498824280584066558, guid: 828157b210cf6104e841d353f72bf40c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6272591730137064411, guid: 828157b210cf6104e841d353f72bf40c, type: 3}
       propertyPath: m_Name
       value: Flammable_3
@@ -1255,11 +1269,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2663532601898242600, guid: 638cec5dfef0e594f8255badd7090e4d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6272591730137064411, guid: 638cec5dfef0e594f8255badd7090e4d, type: 3}
       propertyPath: m_Name
       value: Flammable_2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1104530887649751259, guid: 638cec5dfef0e594f8255badd7090e4d, type: 3}
+    - {fileID: 7094418771167447932, guid: 638cec5dfef0e594f8255badd7090e4d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
