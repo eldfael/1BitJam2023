@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 360
   rays: 725
-  distance: 2
+  distance: 1
   angle: 0
 --- !u!95 &3973239552591408369
 Animator:
