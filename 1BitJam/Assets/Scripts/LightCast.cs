@@ -17,6 +17,8 @@ public class LightCast : MonoBehaviour
     public float distance = DEFAULTDISTANCE;
     public float angle = DEFAULTANGLE;
 
+    bool fire = false;
+
     /*
     float radius;
     int rays;
@@ -34,6 +36,10 @@ public class LightCast : MonoBehaviour
 
         lmask = LayerMask.GetMask("Default");
         
+        if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.gameObject.GetComponent<Flammable>() != null)
+        {
+            fire = true;
+        }
 
         angleIncrease = radius / rays;
     }
@@ -75,6 +81,12 @@ public class LightCast : MonoBehaviour
                 if (raycastHit.collider.tag == "LightDetector")
                 {
                     raycastHit.collider.gameObject.GetComponent<LightDetectorController>().SetState(true);
+                }
+                //spark fire
+                if (fire == true && raycastHit.collider.gameObject.GetComponent<Flammable>() != null)
+                {
+                    Debug.Log("Spread Fire");
+                    raycastHit.collider.gameObject.GetComponent<Flammable>().CatchFire();
                 }
             }
             

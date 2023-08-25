@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8793029327521709352}
   - component: {fileID: 1113121911530341609}
   m_Layer: 0
-  m_Name: Flammable_1
+  m_Name: Flammable_2
   m_TagString: Pushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1748562791, guid: ffd72019181764c45af54ca3f40548d1, type: 3}
+  m_Sprite: {fileID: 411607033, guid: ffd72019181764c45af54ca3f40548d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -170,7 +170,7 @@ Animator:
   m_GameObject: {fileID: 6272591730137064411}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 103f5b7f03e287b4a8a7121c52c0fc7b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 61232e8be82319841b4dda2d98fb7561, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
