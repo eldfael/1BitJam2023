@@ -374,8 +374,6 @@ public class PlayerController : MonoBehaviour
         {
             tupleList = (List<(Vector2, GameObject)>)undoStack.Pop();
             
-            
-
             moving = true;
             readyToMove = false;
             pos = transform.position;
