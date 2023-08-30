@@ -267,7 +267,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator WaitToMove()
     {
         yield return new WaitForSeconds(0.04f);
-        readyToMove = true;
+        if(control) { readyToMove = true; gameObject.layer = 0; }
+        
     }
 
     IEnumerator WaitToRestart()
@@ -286,6 +287,8 @@ public class PlayerController : MonoBehaviour
         //deathMask.transform.position = transform.position;
         //Debug.Log(deathMask.transform.position);
         SetControl(false);
+        readyToMove = false;
+        StartCoroutine(WaitAfterDeath());
         gameObject.layer = 1;
         //StartCoroutine(WaitToDie());
         //moving = false;
@@ -295,7 +298,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Die", true);
         death.SetTrigger("Death");
    
-        StartCoroutine(WaitToRestart());
+        //StartCoroutine(WaitToRestart());
         // Add animation ~ and anything else we are gonna do on player death here !!
 
     }
@@ -348,12 +351,10 @@ public class PlayerController : MonoBehaviour
         readyToWin = true;
     }
 
-    IEnumerator WaitToDie()
+    IEnumerator WaitAfterDeath()
     {
         yield return new WaitForSeconds(1f);
-        moving = false;
-        moveDirection = Vector2.zero;
-
+        readyToMove = true;
     }
 
     IEnumerator WaitToPlayMove()
@@ -379,7 +380,13 @@ public class PlayerController : MonoBehaviour
             pos = transform.position;
             moveDirection = tupleList[0].Item1 - pos;
             target = tupleList[0].Item1;
-            
+
+            if (!control)
+            {
+                control = true;    
+                death.SetTrigger("Revive");
+                animator.SetBool("Die", false);
+            }
             
             if (animator.GetBool("Push") && moveDirection != lastDirection)
             {
