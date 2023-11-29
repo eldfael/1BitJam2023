@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     Scene scene;
     bool readyToWin = false;
 
+    bool readyToRestart = true;
+
     Touch touch;
     Vector2 firstTouch;
     Vector2 lastTouch;
@@ -168,7 +170,7 @@ public class PlayerController : MonoBehaviour
                 }
 
             }
-            if (Input.GetKeyDown("r"))
+            if (Input.GetKeyDown("r") && readyToRestart)
             {
                 RestartLevel();
             }
@@ -273,8 +275,11 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator WaitToRestart()
     {
+        readyToRestart = false;
         yield return new WaitForSeconds(1.2f);
         RestartLevel();
+        yield return new WaitForSeconds(3f);
+        readyToRestart = true;
     }
 
     public void SetControl(bool control)
