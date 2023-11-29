@@ -313,6 +313,7 @@ public class PlayerController : MonoBehaviour
         if (control && !moving)
         {
             StartCoroutine(WaitToWin());
+            SetControl(false);
         }
         if (readyToWin && control && !moving)
         {
