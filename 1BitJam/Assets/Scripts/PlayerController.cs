@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     Scene scene;
     bool readyToWin = false;
 
-    bool readyToRestart = true;
+    bool readyToRestart = false;
 
     Touch touch;
     Vector2 firstTouch;
@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Win", false);
         swipeDistance = Screen.height * 15 / 100;
         undoStack = new Stack();
+        
+        StartCoroutine(WaitToRestart());
        
     }
 
@@ -275,10 +277,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator WaitToRestart()
     {
-        readyToRestart = false;
-        yield return new WaitForSeconds(1.2f);
-        RestartLevel();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.8f);
         readyToRestart = true;
     }
 
