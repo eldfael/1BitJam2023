@@ -310,9 +310,10 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerWin()
     {
-        if (control && !moving)
+        if (control && !moving && !readyToWin)
         {
             StartCoroutine(WaitToWin());
+            SetControl(false);
         }
         if (readyToWin && control && !moving)
         {
@@ -354,6 +355,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.03f);
         //yield return new WaitForFixedUpdate();
         readyToWin = true;
+        control = true;
     }
 
     IEnumerator WaitAfterDeath()
