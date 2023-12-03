@@ -203,18 +203,7 @@ public class PlayerController : MonoBehaviour
                 moving = true;
                 readyToMove = false;
             }
-            else if (raycastHit.collider.tag == "LightDetector")
-            {
-                //Empty space ahead - Move as usual
-                tupleList = new List<(Vector2, GameObject)>();
-                tupleList.Add((pos, gameObject));
-                undoStack.Push(tupleList);
-
-                moveSound.Play();
-                moving = true;
-                readyToMove = false;
-            }
-            else if (raycastHit.collider.tag == "Wall")
+            else if (raycastHit.collider.tag == "Wall" || raycastHit.collider.tag == "LightDetector")
             {
                 //Wall ahead - don't move
                 
