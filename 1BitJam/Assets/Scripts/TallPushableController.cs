@@ -75,7 +75,7 @@ public class TallPushableController : MonoBehaviour, Pushable
                         return false;
                     }
                 }
-                else if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Wall")
+                else if (raycastHits[i].collider != null && (raycastHits[i].collider.tag == "Wall" || raycastHits[i].collider.tag == "LightDetector"))
                 {
                     return false;
                 }
@@ -97,7 +97,7 @@ public class TallPushableController : MonoBehaviour, Pushable
                         return false;
                     }
                 }
-                else if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Wall")
+                else if (raycastHits[i].collider != null && (raycastHits[i].collider.tag == "Wall" || raycastHits[i].collider.tag == "LightDetector"))
                 {
                     return false;
                 }

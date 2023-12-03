@@ -47,9 +47,10 @@ public class PushableController : MonoBehaviour, Pushable
                 return true;
 
             }
-            if (raycastHit.collider.tag == "Wall")
+            if (raycastHit.collider.tag == "Wall" || raycastHit.collider.tag == "LightDetector")
             {
                 // Wall ahead - Return false
+                Debug.Log("Goob");
                 return false;
             }
             if (raycastHit.collider.tag == "Pushable")
@@ -70,6 +71,7 @@ public class PushableController : MonoBehaviour, Pushable
         }
         //This should never happen but hey
         return false;
+        
     }
 
     private void FixedUpdate()
