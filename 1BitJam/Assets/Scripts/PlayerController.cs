@@ -383,7 +383,7 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("Die", false);
             }
             
-            if (animator.GetBool("Push") && moveDirection != lastDirection)
+            if (animator.GetBool("Push") && (moveDirection != lastDirection || tupleList.Count == 1))
             {
                 animator.SetBool("Push", false);
             }
