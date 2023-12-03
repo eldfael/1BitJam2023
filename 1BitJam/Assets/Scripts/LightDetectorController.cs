@@ -7,56 +7,50 @@ public class LightDetectorController : MonoBehaviour
     bool dontClose;
     bool buttonState = false;
     bool closed;
+
+    bool open;
     LightCast[] casters;
+    RaycastHit2D raycastHit;
+
+    private void Start()
+    {
+        casters = FindObjectsOfType<LightCast>();
+    }
     private void FixedUpdate()
     {
-
-        if (buttonState)        
-        {                  
-            for (int i = 0; i < transform.childCount; i++)            
-            {
-                //Temporary open and close for doors - can be changed later                
-                transform.GetChild(i).gameObject.SetActive(false);            
-            }
-            closed = false;
-            buttonState = false;
-           
-        }
-            // no object on top of button - close doors if open
-            
-        else if (!buttonState)        
+        for (int i = 0; i < transform.childCount; i++)
         {
-            if(!closed)
-            {
-                dontClose = false;
-                //StartCoroutine(WaitToClose());
-                casters = FindObjectsOfType<LightCast>();
-                for (int i = 0; i < casters.Length; i++)
+            for (int j = 0; j < casters.Length; j++)
+            { 
+                if (casters[j].CheckLight(this.gameObject))
                 {
-                    if (casters[i].CheckLight(this.gameObject))
-                    {
-                        dontClose = true;
-                        Debug.Log("Flicker protection working lol");
-                    }
+
+                    open = true;
+                    // Open if light is hitting
                 }
-
-                if (!dontClose)
+                else
                 {
-                    closed = true;
-                    for (int i = 0; i < transform.childCount; i++)
+                    raycastHit = Physics2D.BoxCast(transform.GetChild(i).transform.position, Vector2.one * 0.05f, 0f, Vector2.zero);
+                    if (raycastHit.collider == null || raycastHit.collider.tag == "Wall")
                     {
-                        //Temporary open and close for doors - can be changed later                
-                        transform.GetChild(i).gameObject.SetActive(true);
-                        Debug.Log("Closed");
+                        open = false;
                     }
-
+                    else
+                    {
+                        open = true;
+                    }
                 }
             }
-             
+            if (open)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+            else 
+            {
+                transform.GetChild(i).gameObject.SetActive(true);
+            }
         }
-
     }
-
 
     public void SetState(bool state)
     {
