@@ -9,48 +9,55 @@ public class LightDetectorController : MonoBehaviour
     bool closed;
 
     bool open;
+    bool hit;
     LightCast[] casters;
     RaycastHit2D raycastHit;
 
     private void Start()
     {
         casters = FindObjectsOfType<LightCast>();
+        open = false;
+        hit = false;
     }
     private void FixedUpdate()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i< casters.Length; i++) 
         {
-            for (int j = 0; j < casters.Length; j++)
-            { 
-                if (casters[j].CheckLight(this.gameObject))
-                {
+            if (casters[i].CheckLight(this.gameObject))
+            {
+                open = true;
+                hit = true;
+            }
+        }
+        if (!hit)
+        {
+            open = false;
+        }
+        hit = false;
 
-                    open = true;
-                    // Open if light is hitting
+        for (int i = 0; i< transform.childCount; i++)
+        {
+            if (!open)
+            {
+                raycastHit = Physics2D.BoxCast(transform.GetChild(i).transform.position, Vector2.one * 0.05f, 0f, Vector2.zero);
+                if (raycastHit.collider == null || raycastHit.collider.tag == "Wall")
+                {
+                    transform.GetChild(i).gameObject.SetActive(true);
                 }
                 else
                 {
-                    raycastHit = Physics2D.BoxCast(transform.GetChild(i).transform.position, Vector2.one * 0.05f, 0f, Vector2.zero);
-                    if (raycastHit.collider == null || raycastHit.collider.tag == "Wall")
-                    {
-                        open = false;
-                    }
-                    else
-                    {
-                        open = true;
-                    }
+                    transform.GetChild(i).gameObject.SetActive(false);
                 }
             }
-            if (open)
+            else
             {
                 transform.GetChild(i).gameObject.SetActive(false);
             }
-            else 
-            {
-                transform.GetChild(i).gameObject.SetActive(true);
-            }
         }
+
     }
+
+
 
     public void SetState(bool state)
     {
