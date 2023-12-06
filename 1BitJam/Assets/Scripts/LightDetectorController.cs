@@ -21,19 +21,25 @@ public class LightDetectorController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        for (int i = 0; i< casters.Length; i++) 
+        if (buttonState == true)
         {
-            if (casters[i].CheckLight(this.gameObject))
+            for (int i = 0; i < casters.Length; i++)
             {
-                open = true;
-                hit = true;
+                if (casters[i].CheckLight(this.gameObject))
+                {
+                    open = true;
+                    hit = true;
+                    Debug.Log("hit");
+                }
             }
+            if (!hit)
+            {
+                open = false;
+                SetState(false);
+            }
+            hit = false;
         }
-        if (!hit)
-        {
-            open = false;
-        }
-        hit = false;
+        
 
         for (int i = 0; i< transform.childCount; i++)
         {
@@ -51,13 +57,13 @@ public class LightDetectorController : MonoBehaviour
             }
             else
             {
-                transform.GetChild(i).gameObject.SetActive(false);
+                transform.GetChild(i).gameObject.SetActive(false); 
             }
         }
 
     }
 
-
+    
 
     public void SetState(bool state)
     {
