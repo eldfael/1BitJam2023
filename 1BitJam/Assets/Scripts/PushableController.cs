@@ -50,7 +50,6 @@ public class PushableController : MonoBehaviour, Pushable
             if (raycastHit.collider.tag == "Wall" || raycastHit.collider.tag == "LightDetector")
             {
                 // Wall ahead - Return false
-                Debug.Log("Goob");
                 return false;
             }
             if (raycastHit.collider.tag == "Pushable")
