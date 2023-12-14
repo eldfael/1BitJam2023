@@ -18,24 +18,26 @@ public class BeltMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (beltActive == true)
-        {
-            /*raycastHit = Physics2D.BoxCast(transform.position, Vector2.one * 0.05f, 0f, Vector2.zero);
-            if (raycastHit.collider != null && raycastHit.collider.tag == "Pushable")
-            {   
-                Component mv = raycastHit.collider.gameObject.GetComponent<PushableController>();
-                if (!mv.moving)
-                {
-                    Debug.Log("something to move");
-                }
-            }*/
-        }
+        //if (beltActive == true)
+        //{
+            
+        //}
     }
 
     public void BeltOn()
     {
         beltAnim.SetBool("BeltMoving", true);
         beltActive = true;
+        /*raycastHit = Physics2D.BoxCast(transform.position, Vector2.one * 0.05f, 0f, Vector2.zero);
+        if (raycastHit.collider != null && raycastHit.collider.tag == "Pushable")
+        {   
+            Component mv = raycastHit.collider.gameObject.GetComponent<PushableController>();
+            if (!mv.moving)
+            {
+                Debug.Log("something to move");
+            }
+        }*/
+        
     }
 
     public void BeltOff()
