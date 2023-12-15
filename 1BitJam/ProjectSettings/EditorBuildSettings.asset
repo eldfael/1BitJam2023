@@ -108,6 +108,96 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/World 1/1-30 Door City.unity
     guid: 4ae45c3aab12fce42b50e230eea66602
   - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-01 Glass.unity
+    guid: 97e9559ab1e87884484298dc0c3d705c
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-02 Glass Doors A.unity
+    guid: 7f5c0ef9ecb438548acf0ce18ea64e3e
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-03 Now You See Me.unity
+    guid: fe1daa73e6aa33946aefcd731295abfa
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-04 Cover Up A.unity
+    guid: 4d6fba09a3ce7c4469e6db147b765bc9
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-05 Cover Up B.unity
+    guid: 5fb63b6e1f1881d479aa542dc387232d
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-06 Glass Doors B.unity
+    guid: 64018a3256b63f64aab4cf0a50c23b9a
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-07 Extra Reach.unity
+    guid: 354348bcbb54b9c4bbd69d739b59349c
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-08 Moving Hole.unity
+    guid: 2a54db59537f977429a6ca9d36a49da7
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-09 Button Up.unity
+    guid: c49dc1c9fcecba14780c06ccd149c41d
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-10 Separator.unity
+    guid: 5279a092c808a114293a4b3d05513f57
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-11 Glass Doors C.unity
+    guid: 6025ae57b93058c4c8b5e610a7e0139d
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-12 Free the Block.unity
+    guid: dbd5ad19693d20f4eaa37cc7c0edf743
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-13 Climber.unity
+    guid: 708b5a29ffe01bc4191b482f0ff45b25
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-14 Descender.unity
+    guid: c18f4fb4f87c4e8428e04407818f661f
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-15 Glass Doors D.unity
+    guid: 71ee3c926fdf5d344870b5469d2d61c2
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-16 Lattice.unity
+    guid: 12c8c49cf5b23014d8c11b9ad5ea1382
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-17 The Pit A.unity
+    guid: 1dcfe3e08a9c4b04095cd1147e1f3cdd
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-18 The Pit B.unity
+    guid: cbac935b021c3c040b58d51c42664e8e
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-19 Glass Doors E.unity
+    guid: 7cd9ad955bedd104cb70071a58eaf3f6
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-20 Corners A.unity
+    guid: f368cad0331954a488f3a808e560fb03
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-21 Corners B.unity
+    guid: 9b0d36694f9325e4284a2e67f9d0d375
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-22 Long Way Round A.unity
+    guid: 232440c5ac6d9694286d6e8112a00b90
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-23 Long Way Round B.unity
+    guid: 0b381da1ca320c743b947bb4a456fbb2
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-24 Double Doors A.unity
+    guid: 2eba4b6c8cf92a54aa527df9fa76d7e6
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-25 Double Doors B.unity
+    guid: a743a5adca91d104b87c5d095702e2a6
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-26 Discovery A.unity
+    guid: 06ff711ae60eaf04891e7a6763f5a339
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-27 Discovery B.unity
+    guid: ddf03e3e2233d7f49abeafcc1121f6c9
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-28 Routefinder A.unity
+    guid: ea2063fa44ec880478f6a0eaf40f241f
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-29 Routefinder B.unity
+    guid: 214638c397e74b94ba71ea06f342fc2b
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 2/2-30 Glass Doors F.unity
+    guid: aa5418a812e66e84b91b890ec1dad04d
+  - enabled: 1
     path: Assets/Scenes/Menus/End Screen.unity
     guid: e05b8836eebf2744e8c869441a24bc7f
   - enabled: 0
