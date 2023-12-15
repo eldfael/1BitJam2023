@@ -15,6 +15,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/Cutscene.unity
     guid: 84953c4f1a1fa16478a9885ec1e672c2
   - enabled: 1
+    path: Assets/Scenes/Levels/World X/X-01 Monty Hall A.unity
+    guid: c8af9c8f316782b48a79760fa96a82ea
+  - enabled: 1
+    path: Assets/Scenes/Levels/World X/X-02 Monty Hall B.unity
+    guid: db128d5c19599164596f8aa51943fbd3
+  - enabled: 1
+    path: Assets/Scenes/Levels/World X/X-03 Monty Hall C.unity
+    guid: 04dc26d5351b2ed449aca80cc26f137d
+  - enabled: 1
+    path: Assets/Scenes/Levels/World X/X-04 Traffic A.unity
+    guid: 5b1ead3e66ba45740aa7394f5cc59fa2
+  - enabled: 1
+    path: Assets/Scenes/Levels/World X/X-05 Traffic B.unity
+    guid: d828a6f18154bfe4fbf68e8a18bb08d7
+  - enabled: 1
     path: Assets/Scenes/Levels/World 1/1-00 Controls.unity
     guid: 0a2baf42353a7b9479f505595890b87d
   - enabled: 1
@@ -99,11 +114,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/World 1/1-27 Not That Button A.unity
     guid: bfff41a680f9e3d48acebed4aba84063
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/1-29 Not That Button C.unity
-    guid: 8a0196303552ecb4fbafe8af609fdebd
-  - enabled: 1
     path: Assets/Scenes/Levels/World 1/1-28 Not That Button B.unity
     guid: 2210b9b355024c14d8c2812a50b11078
+  - enabled: 1
+    path: Assets/Scenes/Levels/World 1/1-29 Not That Button C.unity
+    guid: 8a0196303552ecb4fbafe8af609fdebd
   - enabled: 1
     path: Assets/Scenes/Levels/World 1/1-30 Door City.unity
     guid: 4ae45c3aab12fce42b50e230eea66602

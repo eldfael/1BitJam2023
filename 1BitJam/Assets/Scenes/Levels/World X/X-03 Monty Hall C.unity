@@ -872,6 +872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelBasics 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1859015974231652224, guid: 6b427b60a74df6e4cb2d3874a46b61f7, type: 3}
+      propertyPath: world
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1883862045181844543, guid: 6b427b60a74df6e4cb2d3874a46b61f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -919,6 +923,10 @@ PrefabInstance:
     - target: {fileID: 3936668936112803334, guid: 6b427b60a74df6e4cb2d3874a46b61f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333411120204135937, guid: 6b427b60a74df6e4cb2d3874a46b61f7, type: 3}
+      propertyPath: GoToLevel
+      value: 123
       objectReference: {fileID: 0}
     - target: {fileID: 8248594046077028199, guid: 6b427b60a74df6e4cb2d3874a46b61f7, type: 3}
       propertyPath: m_LocalPosition.x

@@ -15,6 +15,7 @@ public class TwoColourEffect : MonoBehaviour {
     Dictionary<int, float[]> worldToColour = new Dictionary<int, float[]>()
     {
         // world colours - intensity, foregroundR, foregroundG, foregroundB, backgroundR, backgroundR, backgroundB
+        {0, new float[] {1,255,255,255,224,86,66} },
         {1, new float[] {1,255,255,255,0,0,0} },
         {2, new float[] {1,180,230,235,10,40,70} },
         {3, new float[] {1,225,240,145,40,75,25} },

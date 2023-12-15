@@ -296,7 +296,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void PlayerWin()
+    public void PlayerWin(int WinLevel)
     {
         if (control && !moving && !readyToWin)
         {
@@ -308,7 +308,12 @@ public class PlayerController : MonoBehaviour
             winSound.Play();
             animator.SetBool("Win", true);
             SetControl(false);
-            StartCoroutine(LevelUp(SceneManager.GetActiveScene().buildIndex + 1));
+            if (WinLevel == 0) {
+                StartCoroutine(LevelUp(SceneManager.GetActiveScene().buildIndex + 1));
+            } else {
+                StartCoroutine(LevelUp(WinLevel));
+            }
+            
         }
         //Temporary
         //if (control) { Debug.Log("You Win!"); }
