@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
     public AudioSource winSound;
     public AudioSource dieSound;
 
+    GameController gController;
+
 
     private void Start()
     {
@@ -55,6 +57,8 @@ public class PlayerController : MonoBehaviour
         undoStack = new Stack();
         
         StartCoroutine(WaitToRestart());
+
+        gController = FindObjectOfType<GameController>();
        
     }
 
@@ -313,6 +317,11 @@ public class PlayerController : MonoBehaviour
             } else {
                 StartCoroutine(LevelUp(WinLevel));
             }
+
+           if(!gController.GetLevelCompleted(gController.GetCurrentLevel()))
+           {
+                gController.SetLevelCompleted(gController.GetCurrentLevel());
+           }
             
         }
         //Temporary

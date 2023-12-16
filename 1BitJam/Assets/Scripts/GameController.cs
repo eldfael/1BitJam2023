@@ -14,12 +14,12 @@ public class GameController : MonoBehaviour
     public GameObject pauseScreen;
     bool playerInScene;
     bool paused;
-    bool[] levelsCompleted;
+    Dictionary<string, bool> levelsCompleted;
 
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        bool[] levelsCompleted = new bool[36];
+        levelsCompleted = new Dictionary<string, bool>();
     }
 
     private void OnEnable()
@@ -111,5 +111,37 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public bool GetLevelCompleted(int levelNum)
+    {
+        bool b;
+        if (levelsCompleted.TryGetValue(levelNum.ToString(), out b))
+        {
+            return b;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    public int GetCurrentLevel()
+    {
+        return FindObjectOfType<LevelInfo>().GetLevelNumber();
+        
+    }
+
+    public void SetLevelCompleted(int levelNum)
+    {
+        bool b;
+        if (levelsCompleted.TryGetValue(levelNum.ToString(), out b))
+        {
+            levelsCompleted[levelNum.ToString()] = true;
+        }
+        else
+        {
+            levelsCompleted.Add(levelNum.ToString(), true);
+        }
+    }
 
 }

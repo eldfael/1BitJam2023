@@ -3777,7 +3777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9f04893164b47448071146d905b278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickLevel: 4
+  pickLevel: 100
 --- !u!114 &600166459
 MonoBehaviour:
   m_ObjectHideFlags: 0
