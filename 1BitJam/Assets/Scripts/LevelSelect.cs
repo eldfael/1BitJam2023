@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour
 {
-    public int pickLevel;
+    public string pickLevel;
     GameController gController;
     Image img;
 

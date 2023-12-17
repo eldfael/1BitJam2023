@@ -25,7 +25,7 @@ public class Cutscene : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("1-00 Controls");
+                SceneManager.LoadScene("100");
             }
             
         }

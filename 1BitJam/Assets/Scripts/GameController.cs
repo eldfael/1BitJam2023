@@ -111,10 +111,10 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public bool GetLevelCompleted(int levelNum)
+    public bool GetLevelCompleted(string levelNum)
     {
         bool b;
-        if (levelsCompleted.TryGetValue(levelNum.ToString(), out b))
+        if (levelsCompleted.TryGetValue(levelNum, out b))
         {
             return b;
         }
@@ -125,22 +125,22 @@ public class GameController : MonoBehaviour
 
     }
 
-    public int GetCurrentLevel()
+    public string GetCurrentLevel()
     {
-        return FindObjectOfType<LevelInfo>().GetLevelNumber();
+        return SceneManager.GetActiveScene().name;
         
     }
 
-    public void SetLevelCompleted(int levelNum)
+    public void SetLevelCompleted(string levelNum)
     {
         bool b;
-        if (levelsCompleted.TryGetValue(levelNum.ToString(), out b))
+        if (levelsCompleted.TryGetValue(levelNum, out b))
         {
-            levelsCompleted[levelNum.ToString()] = true;
+            levelsCompleted[levelNum] = true;
         }
         else
         {
-            levelsCompleted.Add(levelNum.ToString(), true);
+            levelsCompleted.Add(levelNum, true);
         }
     }
 
