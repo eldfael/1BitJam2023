@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using System.IO;
 
 public class GameController : MonoBehaviour
 {
@@ -14,12 +15,25 @@ public class GameController : MonoBehaviour
     public GameObject pauseScreen;
     bool playerInScene;
     bool paused;
-    Dictionary<string, bool> levelsCompleted;
+    public List<string> levelsCompleted;
+
+    SaveData saveData;
+
+    private string saveDataPath;
+    private string saveDataName;
 
     private void Awake()
     {
+
         DontDestroyOnLoad(this.gameObject);
-        levelsCompleted = new Dictionary<string, bool>();
+        saveDataPath = Application.persistentDataPath;
+        saveDataName = "savedata.json";
+        Debug.Log(saveDataPath);
+        saveData = LoadGame();
+        if (levelsCompleted == null)
+        {
+            saveData = new SaveData(new List<string>());
+        }
     }
 
     private void OnEnable()
@@ -113,10 +127,9 @@ public class GameController : MonoBehaviour
 
     public bool GetLevelCompleted(string levelNum)
     {
-        bool b;
-        if (levelsCompleted.TryGetValue(levelNum, out b))
+        if (saveData.data.Contains(levelNum))
         {
-            return b;
+            return true;
         }
         else
         {
@@ -133,15 +146,75 @@ public class GameController : MonoBehaviour
 
     public void SetLevelCompleted(string levelNum)
     {
-        bool b;
-        if (levelsCompleted.TryGetValue(levelNum, out b))
+        if (!saveData.data.Contains(levelNum))
         {
-            levelsCompleted[levelNum] = true;
+            saveData.data.Add(levelNum);
         }
-        else
-        {
-            levelsCompleted.Add(levelNum, true);
-        }
+        SaveGame();
     }
 
+    public void SaveGame() 
+    {
+        string saveFullPath = Path.Combine(saveDataPath, saveDataName);
+        try 
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(saveFullPath));
+            string fileData = JsonUtility.ToJson(saveData, true);
+            Debug.Log(fileData);
+            using (FileStream stream = new FileStream(saveFullPath, FileMode.Create))
+            {
+                using (StreamWriter writer = new StreamWriter(stream))
+                {
+                    writer.Write(fileData);
+                }
+            }
+            Debug.Log("Game Saved");
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+        
+    }
+
+    public SaveData LoadGame()
+    {
+        string saveFullPath = Path.Combine(saveDataPath, saveDataName);
+        SaveData saveLoadData = null;
+        if (File.Exists(saveFullPath))
+        {
+            try
+            {
+                string loadData = "";
+                using (FileStream stream = new FileStream(saveFullPath, FileMode.Open))
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        loadData = reader.ReadToEnd();
+                    }
+                }
+                saveLoadData = JsonUtility.FromJson<SaveData>(loadData);
+
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
+        }
+        Debug.Log("Game Loaded");
+        return saveLoadData;
+        
+    }
+
+}
+
+[Serializable]
+public class SaveData
+{
+    public List<string> data;
+
+    public SaveData(List<string> _data)
+    {
+        data = _data;
+    }
 }
