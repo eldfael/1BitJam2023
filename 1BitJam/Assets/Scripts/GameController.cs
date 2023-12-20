@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
         saveDataName = "savedata.json";
         Debug.Log(saveDataPath);
         saveData = LoadGame();
-        if (levelsCompleted == null)
+        if (saveData == null)
         {
             saveData = new SaveData(new List<string>());
         }
@@ -181,6 +181,7 @@ public class GameController : MonoBehaviour
     {
         string saveFullPath = Path.Combine(saveDataPath, saveDataName);
         SaveData saveLoadData = null;
+        Debug.Log(File.Exists(saveFullPath));
         if (File.Exists(saveFullPath))
         {
             try
@@ -202,6 +203,7 @@ public class GameController : MonoBehaviour
             }
         }
         Debug.Log("Game Loaded");
+        Debug.Log(saveLoadData);
         return saveLoadData;
         
     }
