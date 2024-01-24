@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
 
     bool readyToRestart = false;
 
+
+    // UI buttons
+    UndoButton undoButton;
+
     Touch touch;
     Vector2 firstTouch;
     Vector2 lastTouch;
@@ -59,6 +63,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(WaitToRestart());
 
         gController = FindObjectOfType<GameController>();
+        undoButton = FindObjectOfType<UndoButton>();
        
     }
 
@@ -132,7 +137,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if (Input.GetKey("z"))
+            if (Input.GetKey("z") || undoButton.buttonPressed)
             {
                 if (readyToMove)
                 {
