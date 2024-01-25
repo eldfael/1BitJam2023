@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class MenuButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
+public class MenuButton : MonoBehaviour, IPointerDownHandler
 {
 
     public bool buttonPressed;
+    GameController gc;
 
+    public void Start()
+    {
+        gc = GameObject.FindFirstObjectByType<GameController>();
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
-        buttonPressed = true;
+        gc.menuButton = true;
     }
 
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        buttonPressed = false;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        buttonPressed = false;
-    }
 }
 
 

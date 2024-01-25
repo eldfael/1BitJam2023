@@ -18,9 +18,7 @@ public class GameController : MonoBehaviour
     public List<string> levelsCompleted;
 
     SaveData saveData;
-
-    MenuButton menuButton;
-    bool menuButtonInScene;
+    public bool menuButton;
 
     private string saveDataPath;
     private string saveDataName;
@@ -37,7 +35,6 @@ public class GameController : MonoBehaviour
         {
             saveData = new SaveData(new List<string>());
         }
-        menuButton = null;
     }
 
     private void OnEnable()
@@ -64,18 +61,6 @@ public class GameController : MonoBehaviour
             playerInScene = false;
         }
 
-        try
-        {
-            menuButton = GameObject.Find("MenuButton").GetComponent<MenuButton>();
-            menuButtonInScene = true;
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e);
-            menuButton = null;
-            menuButtonInScene = false;
-
-        }
         
         //Need to add fade out audio ? or we can just use 1 track for the whole game and ignore this script - unsure 
 
@@ -108,7 +93,7 @@ public class GameController : MonoBehaviour
     {
         if(Input.GetKeyDown("escape"))
         {
-            if(!paused)
+            if(!paused && !playerController.IsMoving())
             {
                 OnGamePause();
             }
@@ -117,9 +102,10 @@ public class GameController : MonoBehaviour
                 OnGameUnpause();
             }
         }
-        if (menuButtonInScene && menuButton.buttonPressed)
+        if (menuButton)
         {
-            if (!paused)
+            menuButton = false;
+            if (!paused && !playerController.IsMoving())
             {
                 OnGamePause();
             }

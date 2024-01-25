@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 58003375193214961}
   - component: {fileID: 5747012524165459737}
   - component: {fileID: 1918401515022501679}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 208321471997956471}
   - component: {fileID: 8406496671400869781}
   - component: {fileID: 7370956743446709839}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: UndoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}

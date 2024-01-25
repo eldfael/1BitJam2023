@@ -48,6 +48,9 @@ public class PlayerController : MonoBehaviour
 
     GameController gController;
 
+    LayerMask lmask;
+    ContactFilter2D filter;
+
 
     private void Start()
     {
@@ -64,7 +67,8 @@ public class PlayerController : MonoBehaviour
 
         gController = FindObjectOfType<GameController>();
         undoButton = FindObjectOfType<UndoButton>();
-       
+        lmask = LayerMask.GetMask("Wall");
+        filter.layerMask = lmask;
     }
 
     private void Update()
