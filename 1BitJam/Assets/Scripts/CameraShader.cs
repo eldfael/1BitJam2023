@@ -4,22 +4,25 @@ using System.Collections.Generic;
 [ExecuteInEditMode]
 public class TwoColourEffect : MonoBehaviour {
     public float intensity;
-    float foregroundR = 1;
-    float foregroundG = 1;
-    float foregroundB = 1;
-    float backgroundR = 0;
-    float backgroundG = 0;
-    float backgroundB = 0;
+    float foregroundR = 0.75f;
+    float foregroundG = 0.75f;
+    float foregroundB = 0.75f;
+    float midgroundR = 0.5f;
+    float midgroundG = 0.5f;
+    float midgroundB = 0.5f;
+    float backgroundR = 0.25f;
+    float backgroundG = 0.25f;
+    float backgroundB = 0.25f;
     private Material material;
 
     Dictionary<int, float[]> worldToColour = new Dictionary<int, float[]>()
     {
-        // world colours - intensity, foregroundR, foregroundG, foregroundB, backgroundR, backgroundR, backgroundB
-        {0, new float[] {1,255,255,255,224,86,66} },
-        {1, new float[] {1,255,255,255,0,0,0} },
-        {2, new float[] {1,180,230,235,10,40,70} },
-        {3, new float[] {1,225,240,145,40,75,25} },
-        {4, new float[] {1,255,195,110,70,15,30} }// TEMP just to test if colours were working (they do!)
+        // world colours - intensity, foreground RGB, midground RGB, background RGB
+        {0, new float[] {1,255,255,255,255,255,255,224,86,66} },
+        {1, new float[] {1,150,150,150,80,80,80,40,40,40} },
+        {2, new float[] {1,140,180,230,15,60,100,10,40,70} },
+        {3, new float[] {1,170,205,120,60,90,55,30,60,20} },
+        {4, new float[] {1,255,195,110,130,50,50,70,15,30} }
     };
     
     public int world = 1;
@@ -35,9 +38,12 @@ public class TwoColourEffect : MonoBehaviour {
         foregroundR = (worldToColour[world][1])/255;
         foregroundG = (worldToColour[world][2])/255;
         foregroundB = (worldToColour[world][3])/255;
-        backgroundR = (worldToColour[world][4])/255;
-        backgroundG = (worldToColour[world][5])/255;
-        backgroundB = (worldToColour[world][6])/255;
+        midgroundR = (worldToColour[world][4])/255;
+        midgroundG = (worldToColour[world][5])/255;
+        midgroundB = (worldToColour[world][6])/255;
+        backgroundR = (worldToColour[world][7])/255;
+        backgroundG = (worldToColour[world][8])/255;
+        backgroundB = (worldToColour[world][9])/255;
     }
 
     // Postprocess the image
@@ -49,9 +55,11 @@ public class TwoColourEffect : MonoBehaviour {
             return;
         }
         Color fCol = new Vector4(foregroundR, foregroundG, foregroundB, 1);
+        Color mCol = new Vector4(midgroundR, midgroundG, midgroundB, 1);
         Color bCol = new Vector4(backgroundR, backgroundG, backgroundB, 1);
         material.SetFloat("_bwBlend", intensity);
         material.SetColor("_fgColor", fCol);
+        material.SetColor("_mdColor", mCol);
         material.SetColor("_bgColor", bCol);
         Graphics.Blit (source, destination, material);
     }
