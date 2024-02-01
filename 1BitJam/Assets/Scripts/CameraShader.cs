@@ -19,7 +19,7 @@ public class TwoColourEffect : MonoBehaviour {
     {
         // world colours - intensity, foreground RGB, midground RGB, background RGB
         {0, new float[] {1,170,35,45,0,0,0,255,145,55} },
-        {1, new float[] {1,150,150,150,80,80,80,40,40,40} },
+        {1, new float[] {1,170,170,170,70,70,70,40,40,40} },
         {2, new float[] {1,140,180,230,15,60,100,10,40,70} },
         {3, new float[] {1,170,205,120,60,90,55,30,60,20} },
         {4, new float[] {1,255,195,110,130,50,50,70,15,30} }
