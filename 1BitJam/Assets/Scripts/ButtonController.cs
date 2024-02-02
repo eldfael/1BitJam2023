@@ -13,7 +13,8 @@ public class ButtonController : MonoBehaviour
             for (int i = 0; i < transform.childCount; i++)
             {
                 //transform.GetChild(i).gameObject.SetActive(false);
-                transform.GetChild(i).gameObject.GetComponent<DoorUnlock>().doorState(true); // note that TRUE means the door is UNLOCKED (ie something on the button)
+                transform.GetChild(i).GetChild(0).gameObject.GetComponent<DoorUnlock>().doorState(true); // note that TRUE means the door is UNLOCKED (ie something on the button)
+                transform.GetChild(i).gameObject.GetComponent<BoxCollider2D>().enabled = false;
             }
 
         }
@@ -25,12 +26,14 @@ public class ButtonController : MonoBehaviour
                 if (raycastHit.collider == null || raycastHit.collider.tag == "Wall")
                 {
                     //transform.GetChild(i).gameObject.SetActive(true);
-                    transform.GetChild(i).gameObject.GetComponent<DoorUnlock>().doorState(false); // false means door is LOCKED
+                    transform.GetChild(i).GetChild(0).gameObject.GetComponent<DoorUnlock>().doorState(false); // false means door is LOCKED
+                    transform.GetChild(i).gameObject.GetComponent<BoxCollider2D>().enabled = true;
                 }
                 else
                 {
                     //transform.GetChild(i).gameObject.SetActive(false);
-                    transform.GetChild(i).gameObject.GetComponent<DoorUnlock>().doorState(true);
+                    transform.GetChild(i).GetChild(0).gameObject.GetComponent<DoorUnlock>().doorState(true);
+                    transform.GetChild(i).gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 }
             }
         }
