@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject deathMask;
     public float transitionTime = 1f;
     public float waitTime = 0.5f;
-    bool control;
+    public bool control;
     Vector2 moveDirection;
     Vector2 lastDirection;
     Vector2 target;
