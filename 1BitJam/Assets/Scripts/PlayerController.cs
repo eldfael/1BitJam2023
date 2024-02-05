@@ -309,7 +309,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void PlayerWin(int WinLevel)
+    public void PlayerWin(string WinLevel)
     {
         if (control && !moving && !readyToWin)
         {
@@ -321,10 +321,10 @@ public class PlayerController : MonoBehaviour
             winSound.Play();
             animator.SetBool("Win", true);
             SetControl(false);
-            if (WinLevel == 0) {
+            if (WinLevel == "") {
                 StartCoroutine(LevelUp(SceneManager.GetActiveScene().buildIndex + 1));
             } else {
-                StartCoroutine(LevelUp(WinLevel));
+                StartCoroutine(LevelSel(WinLevel));
             }
 
            if(!gController.GetLevelCompleted(gController.GetCurrentLevel()))
@@ -338,6 +338,14 @@ public class PlayerController : MonoBehaviour
         //SetControl(false);
     }
     IEnumerator LevelUp(int levelIndex)
+    {
+        yield return new WaitForSeconds(waitTime);
+        crossfade.SetTrigger("NextLevel");
+        swipe.SetTrigger("NextLevel");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(levelIndex);
+    }
+    IEnumerator LevelSel(string levelIndex)
     {
         yield return new WaitForSeconds(waitTime);
         crossfade.SetTrigger("NextLevel");
