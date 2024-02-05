@@ -22,7 +22,8 @@ public class TwoColourEffect : MonoBehaviour {
         {1, new float[] {1,170,170,170,70,70,70,40,40,40} }, // W1
         {2, new float[] {1,140,180,230,15,60,100,10,40,70} }, // W2 - Glass
         {3, new float[] {1,170,205,120,60,90,55,30,60,20} }, // W3 - Moving Light
-        {4, new float[] {1,255,195,110,130,50,50,70,15,30} } // W4 - Detector
+        {4, new float[] {1,255,195,110,130,50,50,70,15,30} }, // W4 - Detector
+        {5, new float[] {1,170,205,120,70,70,70,40,40,40} }
     };
     
     public int world = 1;
