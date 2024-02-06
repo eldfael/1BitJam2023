@@ -17,8 +17,9 @@ public class LevelSelect : MonoBehaviour
     private void Start()
     {
         //img = GetComponent<Image>();
+        int previousLevel = (pickLevel.Contains("-") || pickLevel.Contains(" ")) ? 0 : int.Parse(pickLevel)-1;
         gController = FindObjectOfType<GameController>();
-        if (gController.GetLevelCompleted(Prerequisite1) || gController.GetLevelCompleted(Prerequisite2))
+        if (gController.GetLevelCompleted(previousLevel.ToString()) || gController.GetLevelCompleted(Prerequisite1) || gController.GetLevelCompleted(Prerequisite2))
         {
             if (gController.GetLevelCompleted(pickLevel))
             {
