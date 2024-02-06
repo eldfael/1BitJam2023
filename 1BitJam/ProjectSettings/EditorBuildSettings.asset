@@ -12,389 +12,332 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/Top Menu.unity
     guid: 70b7402c84b99ed448c509ed094d6dcd
   - enabled: 1
+    path: Assets/Scenes/Menus/Level Select/World 1.unity
+    guid: fc3a139302442c9498522f11239b8a4e
+  - enabled: 1
+    path: Assets/Scenes/Menus/Level Select/World 2.unity
+    guid: 4298ac94c90b8284dbe71d9b55c6e83c
+  - enabled: 1
+    path: Assets/Scenes/Menus/Level Select/World 3.unity
+    guid: 9381050e16f42784193486698e5e5ced
+  - enabled: 1
+    path: Assets/Scenes/Menus/Level Select/World 4.unity
+    guid: 33374e4e661aa0f4cb1fb723cb4e742e
+  - enabled: 1
+    path: Assets/Scenes/Menus/Level Select/World 5.unity
+    guid: f44fa1d33e85f924f915aa098ef71821
+  - enabled: 1
     path: Assets/Scenes/Menus/Cutscene.unity
     guid: 84953c4f1a1fa16478a9885ec1e672c2
   - enabled: 1
-    path: Assets/Scenes/Levels/World X/X-01.unity
-    guid: c8af9c8f316782b48a79760fa96a82ea
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/100.unity
+    guid: e74ede688f3c1aa4a95e7c4ba9015d71
   - enabled: 1
-    path: Assets/Scenes/Levels/World X/X-02.unity
-    guid: db128d5c19599164596f8aa51943fbd3
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/101.unity
+    guid: f9f4eaf0eb1ddbf45812eef4d3819f8b
   - enabled: 1
-    path: Assets/Scenes/Levels/World X/X-03.unity
-    guid: 04dc26d5351b2ed449aca80cc26f137d
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/102.unity
+    guid: b1a02e7583cc3b74ab3652b964fc8c17
   - enabled: 1
-    path: Assets/Scenes/Levels/World X/X-04 Traffic A.unity
-    guid: 5b1ead3e66ba45740aa7394f5cc59fa2
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/103.unity
+    guid: dd9e733e3194f604fa98a5ad63cee3f8
   - enabled: 1
-    path: Assets/Scenes/Levels/World X/X-05 Traffic B.unity
-    guid: d828a6f18154bfe4fbf68e8a18bb08d7
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/104.unity
+    guid: 1739aaccd076e754997a82e1b91dc95c
   - enabled: 1
-    path: Assets/Scenes/Menus/Level Select.unity
-    guid: 813230aec968ef34cb164122958ae3c7
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/105.unity
+    guid: 0f561a938ffbb204a9bbd8db50351a06
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/100.unity
-    guid: 0a2baf42353a7b9479f505595890b87d
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/106.unity
+    guid: 313dbaac4a2ccdf43b71e0524513e624
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/101.unity
-    guid: d18ceff9b25808b4a8916e1121003b6c
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/107.unity
+    guid: b04f704767f9b4641adc255cfc33ac47
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/102.unity
-    guid: 9a9af7cde82c4d148a098e7cf5568df0
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/108.unity
+    guid: 98bb0592fc553684898f582e63882894
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/103.unity
-    guid: 8f582dfc099272c4fb9ab0d6327487bd
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/103-1.unity
+    guid: 3a33e5ed31b470b4f95612e3f96bbad4
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/104.unity
-    guid: a162f947db20a424aae1eba733a90910
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/104-1.unity
+    guid: 50d68c42085736f409da29eba6fab8eb
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/105.unity
-    guid: a7961a29c011a37458211016e8a4b983
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/104-2.unity
+    guid: 36a9e89fe9bdf3645a265e2fb7c9138d
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/106.unity
-    guid: 48d07ac73b87e1e47b5406bb8f603ff1
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/106-1.unity
+    guid: 6f1f0c583b984c6489ac675a00029e1b
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/107.unity
-    guid: 99f07b00d7e4f4e40ba5820ad399f364
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/107-1.unity
+    guid: 3c535c82109faef449c4d94ddcfebf54
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/108.unity
-    guid: fe0db390c5f918143b215ada1341c170
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/107-2.unity
+    guid: 9800a9a3f72377544ad2137db1984524
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/109.unity
-    guid: e63f3c45638628447972bcf6972239d8
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/201.unity
+    guid: d661d4a595734504196e3e05c9eff91e
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/110.unity
-    guid: 01304553a1b4b034490c1394653ef19d
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/202.unity
+    guid: 76628dc1266bbcb4db72ce3b3625a100
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/111.unity
-    guid: 054464bd704d5ab479d1ee0e23df47a3
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/203.unity
+    guid: 6a275d8452142b34c8fcada535fc547a
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/112.unity
-    guid: 208303bf183af5243aa2d9144a2e5c9c
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/204.unity
+    guid: 207e5258409d25044a7ae464b1b0a0a2
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/113.unity
-    guid: 77f2cbb2aecf73e4fa46cfd865f014b4
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/205.unity
+    guid: 051000bd74b95a14b9d4bf150b3be62a
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/114.unity
-    guid: 94b3342cb7003de468e2a55bd11c0e6c
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/206.unity
+    guid: 7ec8304611eeb07428cceaa09027db17
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/115.unity
-    guid: 7cf8722b620c15f42807ff48952707b4
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/207.unity
+    guid: 2facf73377a97e942bc4b7587b919235
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/116.unity
-    guid: ae6ef0e590630c040b5da56f0c687e50
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/208.unity
+    guid: 6a51e84b9dd14b444929c5d4465d89ea
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/117.unity
-    guid: 0dbb88d77ad5af94f9c1188ea19d894a
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/209.unity
+    guid: 517e11c8f049bc04d869860e9b1efa1c
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/118.unity
-    guid: 93de7e4195fb8be4bb56a7a0806f14ee
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/210.unity
+    guid: c89185982a71bda4886c524ce72aa06e
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/119.unity
-    guid: a48e3d15c3555444dae8b704fcddfdcb
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/203-1.unity
+    guid: 0e1e5ea192271aa46a566bde2b214b02
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/120.unity
-    guid: 28b6953077935104d977aa3876516d5e
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/203-2.unity
+    guid: b927f729a8bcc04489781e6ed03a67fc
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/121.unity
-    guid: e42b6a6fe8d6bc346b68f4fade3febe1
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/203-3.unity
+    guid: 443e20ac8fb039a40821f8d92666426a
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/122.unity
-    guid: ba8bd536076433f4ca63e976162139c3
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/204-1.unity
+    guid: a7f163b7158b7a5498802f5b4b618714
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/123.unity
-    guid: 5d2790820f1191d40996ed48d4e2fbd9
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/204-2.unity
+    guid: 60093ed84dbd19e488a46406d7d6d371
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/124.unity
-    guid: b9785d65443e8e5468aeab2e6b98e30f
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/207-1.unity
+    guid: 725ff922b7174fa44835484c955cf232
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/125.unity
-    guid: e7679c167aaed6342a5ae922953145fc
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/209-1.unity
+    guid: a530d00e2a313894bbedafd6696f09e0
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/126.unity
-    guid: 6b800ff915158c540bb97bc4380e99f6
+    path: Assets/Scenes/Levels RESTRUCTURED/1 & 2/210-1.unity
+    guid: 1368e8564ee7a764090827cc1fa3db0d
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/127.unity
-    guid: bfff41a680f9e3d48acebed4aba84063
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/301.unity
+    guid: 3befeb3d770801046917911d085edb73
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/128.unity
-    guid: 2210b9b355024c14d8c2812a50b11078
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/302.unity
+    guid: e56e37d11891c2c46bd2ea25581a8f18
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/129.unity
-    guid: 8a0196303552ecb4fbafe8af609fdebd
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/303.unity
+    guid: 26061c568be8533489b2f8990d3a08f9
   - enabled: 1
-    path: Assets/Scenes/Levels/World 1/130.unity
-    guid: 4ae45c3aab12fce42b50e230eea66602
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/304.unity
+    guid: 7a0d66cf86eebe34d8a02d19aadeeb15
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/201.unity
-    guid: 97e9559ab1e87884484298dc0c3d705c
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/305.unity
+    guid: ffe32a78f8687c7469bc47d42c86bd27
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/202.unity
-    guid: 7f5c0ef9ecb438548acf0ce18ea64e3e
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/306.unity
+    guid: cad17b707d87b79498c750559b245c62
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/203.unity
-    guid: fe1daa73e6aa33946aefcd731295abfa
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/307.unity
+    guid: 537e3676ee28d1b4e9aee65efe5028d6
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/204.unity
-    guid: 4d6fba09a3ce7c4469e6db147b765bc9
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/308.unity
+    guid: 883dfbbd2514c7a44bb91f28db8ff2bc
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/205.unity
-    guid: 5fb63b6e1f1881d479aa542dc387232d
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/309.unity
+    guid: 42b1e796e1c92ee41a348ef0b122abe0
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/206.unity
-    guid: 64018a3256b63f64aab4cf0a50c23b9a
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/310.unity
+    guid: d0beeedd78ccb294e85b0db27aa12f7e
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/207.unity
-    guid: 354348bcbb54b9c4bbd69d739b59349c
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/311.unity
+    guid: 68433c7321c5313469c73e969b3f7d42
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/208.unity
-    guid: 2a54db59537f977429a6ca9d36a49da7
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/312.unity
+    guid: cec1378c39881e84badf44250b456bd0
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/209.unity
-    guid: c49dc1c9fcecba14780c06ccd149c41d
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/313.unity
+    guid: 2e9b2fba3e02183489202cbf94c5d515
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/210.unity
-    guid: 5279a092c808a114293a4b3d05513f57
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/302-1.unity
+    guid: 18b1b40eb4c15004585910b008050c1d
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/211.unity
-    guid: 6025ae57b93058c4c8b5e610a7e0139d
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/302-2.unity
+    guid: 4b1ff7768528af44f9656468e4b62fac
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/212.unity
-    guid: dbd5ad19693d20f4eaa37cc7c0edf743
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/302-3.unity
+    guid: 2de32e7e41ede364e932b9af98a4077c
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/213.unity
-    guid: 708b5a29ffe01bc4191b482f0ff45b25
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/302-4.unity
+    guid: c161c9e6af6538b49b25ffab3be27b36
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/214.unity
-    guid: c18f4fb4f87c4e8428e04407818f661f
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/302-5.unity
+    guid: a588cc5869f4e0042969380e0c9a6b58
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/215.unity
-    guid: 71ee3c926fdf5d344870b5469d2d61c2
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/305-1.unity
+    guid: f3f921dff3b27fd4c8892602e27d5a86
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/216.unity
-    guid: 12c8c49cf5b23014d8c11b9ad5ea1382
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/306-1.unity
+    guid: 197380e50477af84780481f6a04995f9
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/217.unity
-    guid: 1dcfe3e08a9c4b04095cd1147e1f3cdd
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/306-2.unity
+    guid: fae8221b8916fc3408ce62b95e7800db
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/218.unity
-    guid: cbac935b021c3c040b58d51c42664e8e
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/308-1.unity
+    guid: fcf2a5d971b640e4f89556919d11ca2c
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/219.unity
-    guid: 7cd9ad955bedd104cb70071a58eaf3f6
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/308-2.unity
+    guid: 55d0adb6383ba1e4091165db075b33a8
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/220.unity
-    guid: f368cad0331954a488f3a808e560fb03
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/309-1.unity
+    guid: 3cf42fa6c1cfe69418eb663548d9fa0a
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/221.unity
-    guid: 9b0d36694f9325e4284a2e67f9d0d375
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/310-1.unity
+    guid: 8dbd0a668eb694b4f9638165f1fe4206
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/222.unity
-    guid: 232440c5ac6d9694286d6e8112a00b90
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/311-1.unity
+    guid: c19a83b7a76b888469182bd706cab545
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/223.unity
-    guid: 0b381da1ca320c743b947bb4a456fbb2
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/312-1.unity
+    guid: 5c08e40e0368ccf4e9de086827da02e2
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/224.unity
-    guid: 2eba4b6c8cf92a54aa527df9fa76d7e6
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/401.unity
+    guid: 4a83fed6e439eb449a50f05baa6f1f1c
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/225.unity
-    guid: a743a5adca91d104b87c5d095702e2a6
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/402.unity
+    guid: 5c40029c6d39a0148b19944c626fb501
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/226.unity
-    guid: 06ff711ae60eaf04891e7a6763f5a339
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/403.unity
+    guid: 3c8be75af9b29bf48a18dde295d38d4e
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/227.unity
-    guid: ddf03e3e2233d7f49abeafcc1121f6c9
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/404.unity
+    guid: ba694c9b22a596e4cb644fa683d4c8c4
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/228.unity
-    guid: ea2063fa44ec880478f6a0eaf40f241f
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/405.unity
+    guid: f8de8186b79389449bc98fb749f2dbea
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/229.unity
-    guid: 214638c397e74b94ba71ea06f342fc2b
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/406.unity
+    guid: 4cfa7b05ef94f394c93b9d23825cec0d
   - enabled: 1
-    path: Assets/Scenes/Levels/World 2/230.unity
-    guid: aa5418a812e66e84b91b890ec1dad04d
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/407.unity
+    guid: f4f58dab036bde344b529240ff5c0a9a
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/301.unity
-    guid: 53f73d16bcb7974439f0f30f13f4dd57
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/408.unity
+    guid: dadc1bc7f15469c4b91579c152bcb7cc
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/302.unity
-    guid: 091ba53c0bf88324f98815b022e90506
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/409.unity
+    guid: 0618e25ce83aa724387ef7e460ea8cf4
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/303.unity
-    guid: 0600839a3a5677e4da355703ac87a968
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/410.unity
+    guid: c3851f02a3463d34b80e2886c9daa77c
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/304.unity
-    guid: 346091b0ec102c8439fffb4b41cf7511
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/411.unity
+    guid: 5c7583db51ac9b04fbb982a08c8b0700
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/305.unity
-    guid: a75f9f4a7a49aee43a7a05e5d9b89ece
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/403-1.unity
+    guid: d6cff358e63f31647b1c9df7c7f579f5
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/306.unity
-    guid: 01d15358ea9647c4aad00ca23561efef
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/403-2.unity
+    guid: e592cada3197a124eb656e9ccb6b50a1
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/307.unity
-    guid: afc0ba023bf815e4c8bb66cd7ac84634
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/403-3.unity
+    guid: 351b1b5debf3a4846a1c53b28c62d820
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/308.unity
-    guid: 255222e5ccbfd2a4e8382e18fda20428
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/403-4.unity
+    guid: 76057e310ff28834a8589259ac9d0ad2
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/309.unity
-    guid: daf38f27f548ffc45acd6dc42da5d93f
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/404-1.unity
+    guid: d7593f9477510ca4b9adb417e23a4ce1
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/310.unity
-    guid: 5964d369a6558e84aa8a7614ffdd03af
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/406-1.unity
+    guid: c8c3f72a0aef50948a4a72a45123db90
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/311.unity
-    guid: 7e0eb11756f6838408ff6093a1c32631
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/406-2.unity
+    guid: 0a1d52267654cf54e9b8a4a6ec531ba6
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/312.unity
-    guid: 10ee04a12ff8dd04a91682e2dec99c70
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/406-3.unity
+    guid: 049b0a4191d5e8e449907c97fc49db7c
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/313.unity
-    guid: 8bf05d845cf504f4688655e138711768
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/407-1.unity
+    guid: 762df3ee99f84714bb28db345a8d2722
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/314.unity
-    guid: 6189bde8d23ab5d49894266cfcd833fe
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/407-2.unity
+    guid: 7aac8ade9ad1004459457996eefac8b0
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/315.unity
-    guid: 819ceb011cd17c94e8d5ac5d0854f4ef
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/407-3.unity
+    guid: b473903f9d438d04ba868f1bf540aa18
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/316.unity
-    guid: 3231735c4b5b42c42b31d806dbdf0c69
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/408-1.unity
+    guid: bbcf0cad3c166484db7e72c6132817e4
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/317.unity
-    guid: d2a0592612e58a3479c7af6ce17a93d9
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/408-2.unity
+    guid: a29c63dc64d11fe4eacd8d30df9d6f86
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/318.unity
-    guid: a4da8758e28f34a488a6cb95b0637e4d
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/408-3.unity
+    guid: c5e3aec7aae873a4caeff6cf9514e981
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/319.unity
-    guid: 8530deaba8883ed4084c0f8351bcd9ab
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/408-4.unity
+    guid: 69662eac9c4e1e740b9ed31e73a1c576
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/320.unity
-    guid: 498c4806fb5ddb34a82a197c236cb970
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/409-1.unity
+    guid: 2976c3882a006e44ab9d96b1a62fbfdd
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/321.unity
-    guid: 5bd100ddd6667924f8384fc13d3e0ebe
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/409-2.unity
+    guid: 7064ffb7cc2cd334cbfca295aa5f1e66
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/322.unity
-    guid: 90d550e464e2f6043bf995f51312a6ab
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/501.unity
+    guid: 7137b04899a88f645a5713035e336f14
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/323.unity
-    guid: 6caa487c32c302248af46e1c1525a633
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/502.unity
+    guid: bf3b6145d76571340aa2c163b6ebf975
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/324.unity
-    guid: 5873e7192606b284586b013f12b9b30f
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/503.unity
+    guid: 16d871ad3d8315b4287b7f1200b81c81
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/325.unity
-    guid: fedfb155d52552d4fbd19613ecf95431
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/504.unity
+    guid: 5f70ec5e1cd6f4742b33ae39b9de0c33
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/326.unity
-    guid: b6f9bbcaf571bde49a47ed69f6ce9f59
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/505.unity
+    guid: 00806d7b9f460f744a8b0e942498a06c
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/327.unity
-    guid: 48679380e3fcda64bb4026e617948a17
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/501-1.unity
+    guid: 353e2c164b8ba384da29f5dec6751a6a
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/328.unity
-    guid: f59d4560633b52b4ea29019fb36ab49b
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/502-1.unity
+    guid: 46e2241f9323d58479303bc4a11e97d5
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/329.unity
-    guid: 090fb735a256c624abff20d324984221
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/503-1.unity
+    guid: be8e34c7d80cbd94eb8345dc67f2076e
   - enabled: 1
-    path: Assets/Scenes/Levels/World 3/330.unity
-    guid: da40f4603cf69a544bb52e4c4aca15a0
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/503-2.unity
+    guid: 901829fb4ec29834185c3d3796d2f91f
   - enabled: 1
-    path: Assets/Scenes/Levels/World 4/401.unity
-    guid: 1dc424102340d2546b5f6d832a69cde8
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/504-1.unity
+    guid: a5320417a6a578b4c9a71c42adbc2ab3
   - enabled: 1
-    path: Assets/Scenes/Levels/World 4/402.unity
-    guid: c7caf2b7368e9b44d9bd8d1449a25aa5
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/X-01.unity
+    guid: 40fe8705fd9c4754a9acc4f147681a3a
   - enabled: 1
-    path: Assets/Scenes/Levels/World 4/403.unity
-    guid: 60beec14556c32147a0b127c9f236c44
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/X-02.unity
+    guid: c7344373e39fb8640b7e5bcd233414db
   - enabled: 1
-    path: Assets/Scenes/Levels/World 4/404.unity
-    guid: 17bff3a5604826444a1033c95adc2d93
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/X-03.unity
+    guid: d43565fa8f4791647a3a3a298be750f2
   - enabled: 1
-    path: Assets/Scenes/Levels/World 4/405.unity
-    guid: 07be3752170c71648b78117dec312398
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/X-04.unity
+    guid: b23b2ce0d9cd69941bedfb1e52a5af50
   - enabled: 1
-    path: Assets/Scenes/Levels/World 4/406.unity
-    guid: b618b93f41c0b124cb20c8980c8fd080
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/407.unity
-    guid: 9f41f8630d4ac0143bbabe60d0b2bd99
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/408.unity
-    guid: ebde2822fb5a6494081e28a950fd040a
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/409.unity
-    guid: b27d6a799ca29bb44bf11d525b397ecd
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/410.unity
-    guid: 334b6f95570f79440ad2c64038800a4c
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/411.unity
-    guid: 9cd23166b8f88404ca78ebbc06b48f30
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/412.unity
-    guid: 139f68f4dc4d41e4ba0b71e0ead0a073
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/413.unity
-    guid: a5b0aca71721910489dfcead432b19d5
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/414.unity
-    guid: 38a886c5b44cc5b48acbab7fbd65c881
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/415.unity
-    guid: 6929db020ffc7a84e8081f386487ea0b
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/416.unity
-    guid: 4a98cd7bef32bb84d96f4f870770c5ef
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/417.unity
-    guid: 40c890ef7b6d0e44ea73b3db06d6342c
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/418.unity
-    guid: 90ad328753117fc46a2f89d5bfc548cd
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/419.unity
-    guid: 9d64beaf27aab8b44b1e228e3e977dcc
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/420.unity
-    guid: 8b83bd9631e270f42be5b1cae954b842
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/421.unity
-    guid: 13fdf74b55a227d468d2133dfc178cc9
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/422.unity
-    guid: c4f0685803cb446469f719c4df7333a6
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/423.unity
-    guid: ac5f515f51f6cac4398579f375f24218
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/424.unity
-    guid: 57a39db96ae625145b0c4a9991998b73
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/425.unity
-    guid: d73103cdae3db0b4f838d3592f7b460c
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/426.unity
-    guid: 6e4493e198d45ef4b9dbe8c5a38b132e
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/427.unity
-    guid: d794c43c19274764792b19951b17eaea
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/428.unity
-    guid: 20fbca3f2848d4e4888cbfaa32f8f3a9
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/429.unity
-    guid: 9d54267c9a18c29418b1d19d20633545
-  - enabled: 1
-    path: Assets/Scenes/Levels/World 4/430.unity
-    guid: 7de38604eec6f7548a53796a8d9846dc
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/X-05.unity
+    guid: 47e3a3edacd1bc84696a85ce65087ecb
   - enabled: 1
     path: Assets/Scenes/Menus/End Screen.unity
     guid: e05b8836eebf2744e8c869441a24bc7f

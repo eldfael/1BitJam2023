@@ -321,7 +321,7 @@ public class PlayerController : MonoBehaviour
             winSound.Play();
             animator.SetBool("Win", true);
             SetControl(false);
-            if (WinLevel == "") {
+            if (WinLevel == "" || WinLevel == null) {
                 StartCoroutine(LevelUp(SceneManager.GetActiveScene().buildIndex + 1));
             } else {
                 StartCoroutine(LevelSel(WinLevel));
