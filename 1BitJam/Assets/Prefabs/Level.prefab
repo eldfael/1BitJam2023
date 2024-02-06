@@ -130,7 +130,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3613730274407535290}
         m_TargetAssemblyTypeName: LevelSelect, Assembly-CSharp
         m_MethodName: GoToLevel
         m_Mode: 1
