@@ -20,10 +20,11 @@ public class TwoColourEffect : MonoBehaviour {
         // world colours - intensity, foreground RGB, midground RGB, background RGB
         {0, new float[] {1,170,35,45,90,90,90,40,40,40} }, // W1 Secret Levels
         {1, new float[] {1,170,170,170,70,70,70,40,40,40} }, // W1
-        {2, new float[] {1,140,180,230,15,60,100,10,40,70} }, // W2 - Glass
-        {3, new float[] {1,170,205,120,60,90,55,30,60,20} }, // W3 - Moving Light
-        {4, new float[] {1,255,195,110,130,50,50,70,15,30} }, // W4 - Detector
-        {5, new float[] {1,170,205,120,70,70,70,40,40,40} }
+        {2, new float[] {1,200,220,175,60,90,130,10,50,90} }, // W3 - Glass
+        {3, new float[] {1,225,180,100,75,110,80,35,90,25} }, // W4 - Moving Light
+        {4, new float[] {1,230,140,170,120,120,160,70,50,120} }, // W6 - Detector
+        {5, new float[] {1,190,180,170,70,80,90,50,30,30} }, // W2 - Long Blocks
+        {6, new float[] {1,255,195,110,150,65,65,95,15,50} }
     };
     
     public int world = 1;
