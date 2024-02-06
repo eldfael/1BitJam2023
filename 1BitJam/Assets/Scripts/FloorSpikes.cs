@@ -5,19 +5,39 @@ using UnityEngine;
 public class FloorSpikes : MonoBehaviour
 {
     RaycastHit2D raycastHit;
-    PlayerController pcon;
+    PlayerController playercon;
+    Pushable pushablecon;
+    LayerMask lmask;
 
+    private void Start()
+    {
+        lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX");
+        
+    }
     private void FixedUpdate()
     {
-        raycastHit = Physics2D.BoxCast(transform.position, Vector2.one * 0.2f, 0f, Vector2.zero);
-        if (raycastHit.collider != null && raycastHit.collider.tag == "Player")
+        raycastHit = Physics2D.BoxCast(transform.position, Vector2.one * 0.8f, 0f, Vector2.zero, Mathf.Infinity, lmask);
+        if (raycastHit.collider != null)
         {
-            pcon = raycastHit.collider.gameObject.GetComponent<PlayerController>();
-            if (!pcon.IsMoving() && pcon.control)
+            if (raycastHit.collider.tag == "Player")
             {
-                pcon.PlayerDeath();
+                playercon = raycastHit.collider.gameObject.GetComponent<PlayerController>();
+                if (!playercon.IsMoving() && playercon.control)
+                {
+                    playercon.PlayerDeath();
+                }
+            }
+            else if (raycastHit.collider.tag == "Pushable")
+            {
+                pushablecon = raycastHit.collider.gameObject.GetComponent<Pushable>();
+                if (!pushablecon.IsMoving() && pushablecon.IsBreakable())
+                {
+                    // REPLACE THIS WITH A DELAY + ANIMATION ON THE GLASS BLOCKS LATER
+                    raycastHit.collider.gameObject.SetActive(false);
+                }
             }
         }
+        Debug.Log(raycastHit.collider);
     }
 
 }

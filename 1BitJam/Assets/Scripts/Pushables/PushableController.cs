@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PushableController : MonoBehaviour, Pushable
 {
+    // GLASS SHOULD BE SET TO TRUE
+    public bool breakable = false;
+
     Vector2 pos;
     Vector2 target;
     
@@ -91,11 +94,19 @@ public class PushableController : MonoBehaviour, Pushable
         return moving;
     }
 
+    public bool IsBreakable()
+    {
+        return breakable;
+    }
+
     public void OnUndo(Vector2 originalPosition)
     {
+        gameObject.SetActive(true);
         moving = true;
         target = originalPosition;
         pos = transform.position;
         moveDirection = originalPosition - pos;
     }
+
+
 }

@@ -9,5 +9,7 @@ public interface Pushable
     bool TryPush(Vector2 moveDirection); 
     void OnUndo(Vector2 originalPosition);
     bool IsMoving();
+
+    bool IsBreakable();
 }
 

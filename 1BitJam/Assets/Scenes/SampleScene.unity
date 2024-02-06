@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d210ed155ef28428cb222dc41c05df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  breakable: 0
 --- !u!61 &235084542
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -374,6 +375,10 @@ PrefabInstance:
     - target: {fileID: 6971272760944935295, guid: c47a86c74f3497141808507a34190e95, type: 3}
       propertyPath: m_Name
       value: PushableTall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971272760944935295, guid: c47a86c74f3497141808507a34190e95, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1078,6 +1083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d210ed155ef28428cb222dc41c05df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  breakable: 0
 --- !u!61 &1975490091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1324,13 +1330,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: AxeBlock
       objectReference: {fileID: 0}
+    - target: {fileID: 5010479849391693530, guid: a434002f072314240966c7ede4c5df45, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5763446079155074408, guid: a434002f072314240966c7ede4c5df45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 5763446079155074408, guid: a434002f072314240966c7ede4c5df45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5763446079155074408, guid: a434002f072314240966c7ede4c5df45, type: 3}
       propertyPath: m_LocalPosition.z

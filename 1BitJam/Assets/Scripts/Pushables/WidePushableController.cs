@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class WidePushableController : MonoBehaviour, Pushable
 {
+    // GLASS SHOULD BE SET TO TRUE
+    public bool breakable = false;
+
     bool moving;
     Vector2 moveDir;
     RaycastHit2D[] raycastHits;
@@ -122,6 +125,7 @@ public class WidePushableController : MonoBehaviour, Pushable
 
     public void OnUndo(Vector2 originalPosition)
     {
+        gameObject.SetActive(true);
         moving = true;
         target = originalPosition;
         pos = transform.position;
@@ -131,5 +135,10 @@ public class WidePushableController : MonoBehaviour, Pushable
     public bool IsMoving()
     {
         return moving;
+    }
+
+    public bool IsBreakable()
+    {
+        return breakable;
     }
 }
