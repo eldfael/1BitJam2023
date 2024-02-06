@@ -9,6 +9,7 @@ public class LevelSelect : MonoBehaviour
 {
     public string pickLevel;
     GameController gController;
+    public Sprite spr;
     //Image img;
 
     private void Start()
@@ -18,6 +19,7 @@ public class LevelSelect : MonoBehaviour
 
         if (gController.GetLevelCompleted(pickLevel))
         {
+            GetComponent<SpriteRenderer>().sprite = spr;
             //img.color = Color.green;
         }
     }

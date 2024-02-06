@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickLevel: 101
+  spr: {fileID: 21300000, guid: 895bbd4c6c031054bbc81e92d60c876b, type: 3}
 --- !u!61 &-5569218019467725689
 BoxCollider2D:
   m_ObjectHideFlags: 0
