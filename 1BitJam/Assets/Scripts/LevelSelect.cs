@@ -8,16 +8,16 @@ public class LevelSelect : MonoBehaviour
 {
     public string pickLevel;
     GameController gController;
-    Image img;
+    //Image img;
 
     private void Start()
     {
-        img = GetComponent<Image>();
+        //img = GetComponent<Image>();
         gController = FindObjectOfType<GameController>();
 
         if (gController.GetLevelCompleted(pickLevel))
         {
-            img.color = Color.green;
+            //img.color = Color.green;
         }
     }
 
@@ -25,6 +25,7 @@ public class LevelSelect : MonoBehaviour
 
     public void GoToLevel()
     {
+        Debug.Log("Level Loaded");
         SceneManager.LoadScene(pickLevel.ToString());
     }
 }

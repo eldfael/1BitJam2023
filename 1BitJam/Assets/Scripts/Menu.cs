@@ -21,7 +21,7 @@ public class Menu : MonoBehaviour
     }
     public void LevelSelect()
     {
-        SceneManager.LoadScene("Level Select");
+        SceneManager.LoadScene("World 1");
     }
 
     public void Resume()
