@@ -909,7 +909,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3613730274407535290, guid: 4e4dd1a15e9f4c041a2c7328004f08df, type: 3}
       propertyPath: pickLevel
-      value: World 4
+      value: World 6
       objectReference: {fileID: 0}
     - target: {fileID: 3613730274407535290, guid: 4e4dd1a15e9f4c041a2c7328004f08df, type: 3}
       propertyPath: Prerequisite1
@@ -1908,6 +1908,14 @@ PrefabInstance:
       propertyPath: pickLevel
       value: 501
       objectReference: {fileID: 0}
+    - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
+      propertyPath: Prerequisite1
+      value: 411
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
+      propertyPath: Prerequisite2
+      value: 409-2
+      objectReference: {fileID: 0}
     - target: {fileID: 3649380711062045064, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: m_LocalPosition.x
       value: -501
@@ -1976,7 +1984,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: a19182e2e838b204aa40ef0d4876a4da, type: 3}
     - target: {fileID: 3613730274407535290, guid: 4e4dd1a15e9f4c041a2c7328004f08df, type: 3}
       propertyPath: pickLevel
-      value: World 2
+      value: World 4
       objectReference: {fileID: 0}
     - target: {fileID: 3613730274407535290, guid: 4e4dd1a15e9f4c041a2c7328004f08df, type: 3}
       propertyPath: Prerequisite1
