@@ -23,10 +23,10 @@ public class Menu : MonoBehaviour
     }
     public void LevelSelect()
     {
-        
-        if(SceneManager.GetSceneByName("World " + SceneManager.GetActiveScene().ToString().Substring(0, 1)).IsValid())
+        string sceneString = "World " + SceneManager.GetActiveScene().ToString().Substring(0, 1);
+        if (SceneManager.GetSceneByName(sceneString).IsValid())
         {
-            SceneManager.LoadScene("World " + SceneManager.GetActiveScene().ToString().Substring(0, 1));
+            SceneManager.LoadScene(sceneString);
         }
         else
         {
