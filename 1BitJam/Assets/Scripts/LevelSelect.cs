@@ -10,18 +10,25 @@ public class LevelSelect : MonoBehaviour
     public string pickLevel;
     GameController gController;
     public Sprite spr;
+    public string Prerequisite1;
+    public string Prerequisite2;
     //Image img;
 
     private void Start()
     {
         //img = GetComponent<Image>();
         gController = FindObjectOfType<GameController>();
-
-        if (gController.GetLevelCompleted(pickLevel))
+        if (gController.GetLevelCompleted(Prerequisite1) || gController.GetLevelCompleted(Prerequisite2))
         {
-            GetComponent<SpriteRenderer>().sprite = spr;
-            //img.color = Color.green;
+            if (gController.GetLevelCompleted(pickLevel))
+            {
+                GetComponent<SpriteRenderer>().sprite = spr;
+                //img.color = Color.green;
+            }
+        } else {
+            this.gameObject.SetActive(false);
         }
+        
     }
 
     
