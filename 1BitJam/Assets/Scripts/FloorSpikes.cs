@@ -8,6 +8,7 @@ public class FloorSpikes : MonoBehaviour
     PlayerController playercon;
     Pushable pushablecon;
     LayerMask lmask;
+    public Animator WarningSign;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class FloorSpikes : MonoBehaviour
         {
             if (raycastHit.collider.tag == "Player")
             {
+                WarningSign.SetBool("warning",false);
                 playercon = raycastHit.collider.gameObject.GetComponent<PlayerController>();
                 if (!playercon.IsMoving() && playercon.control)
                 {
@@ -32,10 +34,15 @@ public class FloorSpikes : MonoBehaviour
                 pushablecon = raycastHit.collider.gameObject.GetComponent<Pushable>();
                 if (!pushablecon.IsMoving() && pushablecon.IsBreakable())
                 {
-                    // REPLACE THIS WITH A DELAY + ANIMATION ON THE GLASS BLOCKS LATER
+                    WarningSign.SetBool("warning",false);
+                    // BREAK ANIMATION
                     raycastHit.collider.gameObject.SetActive(false);
+                } else {
+                    WarningSign.SetBool("warning",true);
                 }
             }
+        } else {
+            WarningSign.SetBool("warning",false);
         }
         Debug.Log(raycastHit.collider);
     }
