@@ -26,7 +26,7 @@ public class LevelNavigator : MonoBehaviour
     {
         if (!moving && readyToMove)
         {
-            if (Input.GetKey("space"))
+            if (Input.GetKey("space") || Input.GetKey("z"))
             {
                 hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.8f, 0f, Vector2.zero);
                 if (hit.collider != null)
