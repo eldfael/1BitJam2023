@@ -814,6 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b4a09c6552a7a48b63ef99fb829cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WarningSign: {fileID: 0}
 --- !u!212 &1509181944
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -929,6 +930,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6971272760944935294, guid: 7d2d10f7504c55c40bbc952064c02639, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3f0afe58b80cc8343ada87d2a7b3c3cf, type: 3}
     - target: {fileID: 6971272760944935295, guid: 7d2d10f7504c55c40bbc952064c02639, type: 3}
       propertyPath: m_Name
       value: Glass Push

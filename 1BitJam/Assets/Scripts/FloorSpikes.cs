@@ -36,7 +36,8 @@ public class FloorSpikes : MonoBehaviour
                 {
                     WarningSign.SetBool("warning",false);
                     // BREAK ANIMATION
-                    raycastHit.collider.gameObject.SetActive(false);
+                    raycastHit.collider.gameObject.GetComponent<Animator>().SetBool("smash",true);
+                    //raycastHit.collider.gameObject.SetActive(false);
                 } 
                 else 
                 {
