@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     private string saveDataPath;
     private string saveDataName;
 
-    string lastLevel;
+    public string lastLevel;
     public GameObject levelNav;
 
 
