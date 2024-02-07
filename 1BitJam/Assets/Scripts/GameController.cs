@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     private string saveDataName;
 
     string lastLevel;
+    public GameObject levelNav;
 
 
     private void Awake()
@@ -38,6 +39,8 @@ public class GameController : MonoBehaviour
         {
             saveData = new SaveData(new List<string>());
         }
+
+        lastLevel = "World 1";
     }
 
     private void OnEnable()
@@ -75,9 +78,42 @@ public class GameController : MonoBehaviour
 
         }
         // Checking which level you came from 
-        else if (scene.name.Substring(0,5) == "World")
+        else if (scene.name.Length >= 5 && scene.name.Substring(0,5) == "World")
         {
+            Vector3 pos;
+            Debug.Log("Level " + lastLevel);
+            if (lastLevel != null && lastLevel.Contains("World"))
+            {
+                try
+                {
+                    //Last Level in scene
+                    pos = GameObject.Find("WorldSelect (" + lastLevel + ")").transform.position;
+                }
+                catch (Exception e)
+                {
+                    //Last level not in scene
+                    pos = GameObject.Find("Default").transform.position;
 
+                }
+            }
+            else
+            {
+                try
+                {
+                    //Last Level in scene
+                    pos = GameObject.Find("Level " + lastLevel).transform.position;
+                }
+                catch (Exception e)
+                {
+                    //Last level not in scene
+                    pos = GameObject.Find("Default").transform.position;
+
+                }
+            }
+            
+            pos.z = -1;
+            Instantiate(levelNav, pos, Quaternion.identity);
+            lastLevel = scene.name;
         }
         else if (scene.name == "Cutscene" && !cutsceneMusic.isPlaying)
         {
