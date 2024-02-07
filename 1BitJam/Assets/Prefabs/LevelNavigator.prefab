@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3252317917383191965}
   - component: {fileID: 5233993349070618544}
+  - component: {fileID: 3562493452302501661}
   m_Layer: 0
   m_Name: LevelNavigator
   m_TagString: Untagged
@@ -84,3 +85,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3562493452302501661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8436919785146749349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe8cc4fa89cd6243ad7715d2a964130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

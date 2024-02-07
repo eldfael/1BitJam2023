@@ -141,6 +141,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
+
+            //Check for Undo
             if (Input.GetKey("z") || undoButton.buttonPressed)
             {
                 if (readyToMove)
@@ -185,6 +187,8 @@ public class PlayerController : MonoBehaviour
                 }
 
             }
+
+            // Check for Restart
             if (Input.GetKeyDown("r") && readyToRestart)
             {
                 RestartLevel();
