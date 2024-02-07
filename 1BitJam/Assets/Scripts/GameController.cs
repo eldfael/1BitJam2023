@@ -23,6 +23,9 @@ public class GameController : MonoBehaviour
     private string saveDataPath;
     private string saveDataName;
 
+    string lastLevel;
+
+
     private void Awake()
     {
 
@@ -61,32 +64,43 @@ public class GameController : MonoBehaviour
             playerInScene = false;
         }
 
-        
+
         //Need to add fade out audio ? or we can just use 1 track for the whole game and ignore this script - unsure 
 
-        if((scene.name=="Top Menu" || scene.name=="Level Select") && !topMenuMusic.isPlaying)
-        {    
+        if ((scene.name == "Top Menu" || scene.name == "Level Select" || scene.name == "Starting Menu") && !topMenuMusic.isPlaying)
+        {
             topMenuMusic.Play();
             mainMusic.Stop();
             cutsceneMusic.Stop();
-            
-        }
 
+        }
+        // Checking which level you came from 
+        else if (scene.name.Substring(0,5) == "World")
+        {
+
+        }
         else if (scene.name == "Cutscene" && !cutsceneMusic.isPlaying)
         {
             cutsceneMusic.Play();
             topMenuMusic.Stop();
             mainMusic.Stop();
-            
+
         }
-        else if(scene.buildIndex > 1 && !mainMusic.isPlaying)
+        else if (scene.buildIndex > 1 && !mainMusic.isPlaying)
         {
             //Debug.Log("Main Music");
             mainMusic.Play();
             topMenuMusic.Stop();
             cutsceneMusic.Stop();
-            
+            lastLevel = scene.name;
         }
+        else
+        {
+            lastLevel = scene.name;
+        }
+
+        
+
     }
 
     private void Update()
