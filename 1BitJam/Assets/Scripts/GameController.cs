@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         
-        Debug.Log("OnSceneLoaded: " + scene.name);
+        //Debug.Log("OnSceneLoaded: " + scene.name);
 
         OnGameUnpause();
 
@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log(e);
+            //Debug.Log(e);
             playerInScene = false;
         }
 
@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour
         }
         else if(scene.buildIndex > 1 && !mainMusic.isPlaying)
         {
-            Debug.Log("Main Music");
+            //Debug.Log("Main Music");
             mainMusic.Play();
             topMenuMusic.Stop();
             cutsceneMusic.Stop();
@@ -196,7 +196,7 @@ public class GameController : MonoBehaviour
     {
         string saveFullPath = Path.Combine(saveDataPath, saveDataName);
         SaveData saveLoadData = null;
-        Debug.Log(File.Exists(saveFullPath));
+        //Debug.Log(File.Exists(saveFullPath));
         if (File.Exists(saveFullPath))
         {
             try
@@ -217,8 +217,8 @@ public class GameController : MonoBehaviour
                 Debug.Log(e);
             }
         }
-        Debug.Log("Game Loaded");
-        Debug.Log(saveLoadData);
+        //Debug.Log("Game Loaded");
+        //Debug.Log(saveLoadData);
         return saveLoadData;
         
     }

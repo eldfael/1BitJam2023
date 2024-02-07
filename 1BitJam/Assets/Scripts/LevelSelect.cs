@@ -23,7 +23,7 @@ public class LevelSelect : MonoBehaviour
         {
             if (gController.GetLevelCompleted(pickLevel))
             {
-                GetComponent<SpriteRenderer>().sprite = spr;
+                 GetComponent<SpriteRenderer>().sprite = spr;
                 //img.color = Color.green;
             }
         } else {
@@ -36,7 +36,7 @@ public class LevelSelect : MonoBehaviour
 
     public void GoToLevel()
     {
-        Debug.Log("Level Loaded");
+        //Debug.Log("Level Loaded");
         SceneManager.LoadScene(pickLevel.ToString());
     }
 }
