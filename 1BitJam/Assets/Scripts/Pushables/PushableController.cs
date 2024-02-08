@@ -6,7 +6,7 @@ public class PushableController : MonoBehaviour, Pushable
 {
     // GLASS SHOULD BE SET TO TRUE
     public bool breakable = false;
-    public Animator BreakAnimation;
+
 
     Vector2 pos;
     Vector2 target;
@@ -104,7 +104,7 @@ public class PushableController : MonoBehaviour, Pushable
     {
         //gameObject.SetActive(true);
         if (breakable) {
-            BreakAnimation.SetBool("smash",false);
+            this.gameObject.GetComponent<Animator>().SetBool("smash",false);
             this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
             }
         moving = true;

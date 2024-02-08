@@ -7,7 +7,6 @@ public class TallPushableController : MonoBehaviour, Pushable
 {
     // GLASS SHOULD BE SET TO TRUE
     public bool breakable = false;
-    public Animator BreakAnimation;
 
     bool moving;
     Vector2 moveDir;
@@ -128,7 +127,7 @@ public class TallPushableController : MonoBehaviour, Pushable
     {
         gameObject.SetActive(true);
         if (breakable) {
-            BreakAnimation.SetBool("smash",false);
+            this.gameObject.GetComponent<Animator>().SetBool("smash",false);
             this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
             }
         moving = true;
