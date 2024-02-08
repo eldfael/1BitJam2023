@@ -102,8 +102,11 @@ public class PushableController : MonoBehaviour, Pushable
 
     public void OnUndo(Vector2 originalPosition)
     {
-        gameObject.SetActive(true);
-        if (breakable) {BreakAnimation.SetBool("smash",false);}
+        //gameObject.SetActive(true);
+        if (breakable) {
+            BreakAnimation.SetBool("smash",false);
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            }
         moving = true;
         target = originalPosition;
         pos = transform.position;

@@ -37,7 +37,8 @@ public class FloorSpikes : MonoBehaviour
                     WarningSign.SetBool("warning",false);
                     // BREAK ANIMATION
                     raycastHit.collider.gameObject.GetComponent<Animator>().SetBool("smash",true);
-                    StartCoroutine(WaitToBreak(raycastHit.collider.gameObject));
+                    raycastHit.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    //StartCoroutine(WaitToBreak(raycastHit.collider.gameObject));
                     //raycastHit.collider.gameObject.SetActive(false);
                 } 
                 else 
@@ -53,11 +54,11 @@ public class FloorSpikes : MonoBehaviour
         Debug.Log(raycastHit.collider);
     }
 
-    IEnumerator WaitToBreak(GameObject glass)
+    /*IEnumerator WaitToBreak(GameObject glass)
     {
         yield return new WaitForSeconds(0.4f);
-        glass.SetActive(false);
+        if (glass.GetComponent<Animator>().GetBool("smash") == false) {glass.SetActive(false);}
         
-    }
+    }*/
 
 }
