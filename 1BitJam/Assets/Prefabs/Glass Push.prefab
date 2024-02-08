@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakable: 1
+  BreakAnimation: {fileID: 8899263875212138186}
 --- !u!95 &8899263875212138186
 Animator:
   serializedVersion: 5

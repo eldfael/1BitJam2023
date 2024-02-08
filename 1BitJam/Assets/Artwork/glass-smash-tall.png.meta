@@ -172,6 +172,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: glass-smash-tall_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 500
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f0736085d9def4ea59b7ac200633b9
+      internalID: 487181826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -186,6 +207,7 @@ TextureImporter:
       glass-smash-tall_0: -658903901
       glass-smash-tall_1: 1715486497
       glass-smash-tall_2: 1097066878
+      glass-smash-tall_3: 487181826
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

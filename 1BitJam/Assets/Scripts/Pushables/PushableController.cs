@@ -6,6 +6,7 @@ public class PushableController : MonoBehaviour, Pushable
 {
     // GLASS SHOULD BE SET TO TRUE
     public bool breakable = false;
+    public Animator BreakAnimation;
 
     Vector2 pos;
     Vector2 target;
@@ -102,6 +103,7 @@ public class PushableController : MonoBehaviour, Pushable
     public void OnUndo(Vector2 originalPosition)
     {
         gameObject.SetActive(true);
+        if (breakable) {BreakAnimation.SetBool("smash",false);}
         moving = true;
         target = originalPosition;
         pos = transform.position;

@@ -7,6 +7,7 @@ public class WidePushableController : MonoBehaviour, Pushable
 {
     // GLASS SHOULD BE SET TO TRUE
     public bool breakable = false;
+    public Animator BreakAnimation;
 
     bool moving;
     Vector2 moveDir;
@@ -126,6 +127,7 @@ public class WidePushableController : MonoBehaviour, Pushable
     public void OnUndo(Vector2 originalPosition)
     {
         gameObject.SetActive(true);
+        if (breakable) {BreakAnimation.SetBool("smash",false);}
         moving = true;
         target = originalPosition;
         pos = transform.position;
