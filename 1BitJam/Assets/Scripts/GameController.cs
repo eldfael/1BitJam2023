@@ -141,27 +141,30 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown("escape"))
+        if (playerInScene)
         {
-            if(!paused && !playerController.IsMoving())
+            if (Input.GetKeyDown("escape"))
             {
-                OnGamePause();
+                if (!paused && !playerController.IsMoving())
+                {
+                    OnGamePause();
+                }
+                else
+                {
+                    OnGameUnpause();
+                }
             }
-            else
+            if (menuButton)
             {
-                OnGameUnpause();
-            }
-        }
-        if (menuButton)
-        {
-            menuButton = false;
-            if (!paused && !playerController.IsMoving())
-            {
-                OnGamePause();
-            }
-            else
-            {
-                OnGameUnpause();
+                menuButton = false;
+                if (!paused && !playerController.IsMoving())
+                {
+                    OnGamePause();
+                }
+                else
+                {
+                    OnGameUnpause();
+                }
             }
         }
     }
