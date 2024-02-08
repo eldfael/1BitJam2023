@@ -14,9 +14,11 @@ public class LevelNavigator : MonoBehaviour
     bool readyToMove;
     RaycastHit2D hit;
     int counter;
+    int speed;
 
     private void Start()
     {
+        speed = 45;
         moving = false;
         readyToMove = true;
         dir = Vector2.zero;
@@ -76,9 +78,9 @@ public class LevelNavigator : MonoBehaviour
         }
         if (moving)
         {
-            transform.position = new Vector3(transform.position.x + movedir.x / 60, transform.position.y + movedir.y / 60, -1);
+            transform.position = new Vector3(transform.position.x + movedir.x / speed, transform.position.y + movedir.y / speed, -1);
             counter++;
-            if ((Vector2)transform.position == target || counter == 60)
+            if ((Vector2)transform.position == target || counter == speed)
             {
                 transform.position = new Vector3(target.x,target.y,-1);
                 counter = 0;

@@ -309,6 +309,7 @@ MonoBehaviour:
   pauseScreen: {fileID: 741034683}
   levelsCompleted: []
   menuButton: 0
+  lastLevel: 
   levelNav: {fileID: 8436919785146749349, guid: 92310307e6f1f5a438358e8b8f58514d, type: 3}
 --- !u!4 &252353740
 Transform:
@@ -1731,7 +1732,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 741034684}
+      - m_Target: {fileID: 557074548}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: LevelSelect
         m_Mode: 1
