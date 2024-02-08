@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/Level Select/World 5.unity
     guid: f44fa1d33e85f924f915aa098ef71821
   - enabled: 1
+    path: Assets/Scenes/Menus/Level Select/World 6.unity
+    guid: 8e644dd2ba2cadf45a718532984a0138
+  - enabled: 1
     path: Assets/Scenes/Menus/Cutscene.unity
     guid: 84953c4f1a1fa16478a9885ec1e672c2
   - enabled: 1
@@ -320,6 +323,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/503-2.unity
     guid: 901829fb4ec29834185c3d3796d2f91f
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/504-1.unity
+    guid: c20ffa5d59a1b524e8b6751f425269b7
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/505-1.unity
     guid: a5320417a6a578b4c9a71c42adbc2ab3
