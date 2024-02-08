@@ -48,16 +48,19 @@ public class LightDetectorController : MonoBehaviour
                 raycastHit = Physics2D.BoxCast(transform.GetChild(i).transform.position, Vector2.one * 0.05f, 0f, Vector2.zero);
                 if (raycastHit.collider == null || raycastHit.collider.tag == "Wall")
                 {
-                    transform.GetChild(i).gameObject.SetActive(true);
+                    transform.GetChild(i).GetChild(0).gameObject.GetComponent<DoorUnlock>().doorState(false);
+                    transform.GetChild(i).gameObject.GetComponent<BoxCollider2D>().enabled = true;
                 }
                 else
                 {
-                    transform.GetChild(i).gameObject.SetActive(false);
+                    transform.GetChild(i).GetChild(0).gameObject.GetComponent<DoorUnlock>().doorState(true);
+                    transform.GetChild(i).gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 }
             }
             else
             {
-                transform.GetChild(i).gameObject.SetActive(false); 
+                transform.GetChild(i).GetChild(0).gameObject.GetComponent<DoorUnlock>().doorState(true);
+                    transform.GetChild(i).gameObject.GetComponent<BoxCollider2D>().enabled = false; 
             }
         }
 
