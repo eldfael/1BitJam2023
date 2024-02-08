@@ -48,7 +48,7 @@ public class EastAxeController : MonoBehaviour, Pushable
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
                 {
-                    if (raycastHits[i].collider.transform.position.x == transform.position.x + 0.5 && raycastHits[i].collider.GetComponent<Pushable>().IsBreakable())
+                    if (raycastHits[i].collider.transform.position.x >= transform.position.x + 0.5 && raycastHits[i].collider.GetComponent<Pushable>().IsBreakable())
                     {
                         raycastHits[i].collider.GetComponent<Pushable>().OnBreak();
                         tupleList.Add(((Vector2)raycastHits[i].collider.transform.position, raycastHits[i].collider.gameObject));

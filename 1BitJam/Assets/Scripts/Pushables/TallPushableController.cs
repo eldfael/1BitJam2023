@@ -11,14 +11,18 @@ public class TallPushableController : MonoBehaviour, Pushable
     bool moving;
     Vector2 moveDir;
     RaycastHit2D[] raycastHits;
+    RaycastHit2D rayhit;
     ContactFilter2D filter;
     Vector2 pos;
     Vector2 target;
 
     LayerMask lmask;
+    GameObject axeBlock;
+    bool hit;
 
     private void Start()
     {
+        hit = false;
         lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX") + LayerMask.GetMask("AxeBlock");
         filter = new ContactFilter2D();
         filter.SetLayerMask(lmask);
@@ -45,7 +49,41 @@ public class TallPushableController : MonoBehaviour, Pushable
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
                 {
-                    tupleList = raycastHits[i].collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection, tupleList);
+                    if (breakable)
+                    {
+                        axeBlock = null;
+                        if (raycastHits[i].collider.gameObject.GetComponent<Pushable>().GetAxe() == target + new Vector2(0, 0.5f))
+                        {
+                            axeBlock = raycastHits[i].collider.gameObject;
+                            hit = true;
+                            rayhit = Physics2D.BoxCast(target + new Vector2(0, -0.5f), new Vector2(0.5f, 0.5f), 0f, Vector2.zero, Mathf.Infinity, lmask);
+                            if (rayhit.collider != null && rayhit.collider.gameObject == axeBlock)
+                            {
+                                hit = false;
+                            }
+                        }
+                        else if (raycastHits[i].collider.gameObject.GetComponent<Pushable>().GetAxe() == target + new Vector2(0,-0.5f))
+                        {
+                            axeBlock = raycastHits[i].collider.gameObject;
+                            hit = true;
+                            rayhit = Physics2D.BoxCast(target + new Vector2(0, 0.5f), new Vector2(0.5f, 0.5f), 0f, Vector2.zero, Mathf.Infinity, lmask);
+                            if (rayhit.collider != null && rayhit.collider.gameObject == axeBlock)
+                            {
+                                hit = false;
+                            }
+                        }
+
+                    }
+                    if (hit)
+                    {
+                        OnBreak();
+                    }
+                    else
+                    {
+                        tupleList = raycastHits[i].collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection, tupleList);
+                    }
+                    hit = false;
+                    
                 }
             }
         }
@@ -85,10 +123,36 @@ public class TallPushableController : MonoBehaviour, Pushable
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
                 {
-                    if (!raycastHits[i].collider.gameObject.GetComponent<Pushable>().TryPush(moveDirection))
+                    if (breakable)
                     {
+                        axeBlock = null;
+                        if (raycastHits[i].collider.gameObject.GetComponent<Pushable>().GetAxe() == target + new Vector2(0, 0.5f))
+                        {
+                            axeBlock = raycastHits[i].collider.gameObject;
+                            hit = true;
+                            rayhit = Physics2D.BoxCast(target + new Vector2(0, -0.5f), new Vector2(0.5f, 0.5f), 0f, Vector2.zero, Mathf.Infinity, lmask);
+                            if (rayhit.collider != null && rayhit.collider.gameObject == axeBlock)
+                            {
+                                hit = false;
+                            }
+                        }
+                        else if (raycastHits[i].collider.gameObject.GetComponent<Pushable>().GetAxe() == target + new Vector2(0, -0.5f))
+                        {
+                            axeBlock = raycastHits[i].collider.gameObject;
+                            hit = true;
+                            rayhit = Physics2D.BoxCast(target + new Vector2(0, 0.5f), new Vector2(0.5f, 0.5f), 0f, Vector2.zero, Mathf.Infinity, lmask);
+                            if (rayhit.collider != null && rayhit.collider.gameObject == axeBlock)
+                            {
+                                hit = false;
+                            }
+                        }
+                    }
+                    if (!hit && !raycastHits[i].collider.gameObject.GetComponent<Pushable>().TryPush(moveDirection))
+                    {
+                        
                         return false;
                     }
+                    hit = false;
                 }
                 else if (raycastHits[i].collider != null && (raycastHits[i].collider.tag == "Wall" || raycastHits[i].collider.tag == "LightDetector"))
                 {
@@ -107,11 +171,8 @@ public class TallPushableController : MonoBehaviour, Pushable
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
                 {
-                    Debug.Log("Target:" + target);
-                    Debug.Log("Value: " + (target + new Vector2(0, 1.5f * moveDirection.y)));
                     if (breakable && raycastHits[i].collider.gameObject.GetComponent<Pushable>().GetAxe() == target)
                     {
-                        Debug.Log("Aye");
                         return true;
                         //break on push
                     }
