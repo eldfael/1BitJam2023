@@ -40,7 +40,11 @@ public class FloorSpikes : MonoBehaviour
                     raycastHit.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                     //StartCoroutine(WaitToBreak(raycastHit.collider.gameObject));
                     //raycastHit.collider.gameObject.SetActive(false);
-                } 
+                }
+                else if(pushablecon.IsBreakable())
+                {
+                    WarningSign.SetBool("warning", false);
+                }
                 else 
                 {
                     WarningSign.SetBool("warning",true);
