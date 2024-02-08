@@ -20,6 +20,7 @@ public class FloorSpikes : MonoBehaviour
         raycastHit = Physics2D.BoxCast(transform.position, Vector2.one * 0.8f, 0f, Vector2.zero, Mathf.Infinity, lmask);
         if (raycastHit.collider != null)
         {
+            Debug.Log(raycastHit.collider);
             if (raycastHit.collider.tag == "Player")
             {
                 WarningSign.SetBool("warning",false);
@@ -36,8 +37,10 @@ public class FloorSpikes : MonoBehaviour
                 {
                     WarningSign.SetBool("warning",false);
                     // BREAK ANIMATION
-                    raycastHit.collider.gameObject.GetComponent<Animator>().SetBool("smash",true);
-                    raycastHit.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    raycastHit.collider.GetComponent<Pushable>().OnBreak();
+
+                    //raycastHit.collider.gameObject.GetComponent<Animator>().SetBool("smash",true);
+                    //raycastHit.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                     //StartCoroutine(WaitToBreak(raycastHit.collider.gameObject));
                     //raycastHit.collider.gameObject.SetActive(false);
                 }
@@ -55,7 +58,7 @@ public class FloorSpikes : MonoBehaviour
         {
             WarningSign.SetBool("warning",false);
         }
-        Debug.Log(raycastHit.collider);
+        //Debug.Log(raycastHit.collider);
     }
 
     /*IEnumerator WaitToBreak(GameObject glass)

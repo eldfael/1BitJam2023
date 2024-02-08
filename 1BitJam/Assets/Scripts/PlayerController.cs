@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     bool readyToWin = false;
 
     bool readyToRestart = false;
-
+    bool axemove = false;
 
     // UI buttons
     UndoButton undoButton;
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
         gController = FindObjectOfType<GameController>();
         undoButton = FindObjectOfType<UndoButton>();
-        lmask = LayerMask.GetMask("Wall");
+        lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX") + LayerMask.GetMask("AxeBlock");
         filter.layerMask = lmask;
     }
 
@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
         {
             target = pos + moveDirection;
 
-            RaycastHit2D raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero);
+            RaycastHit2D raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero, Mathf.Infinity, lmask);
 
             if (raycastHit.collider == null)
             {
@@ -245,12 +245,17 @@ public class PlayerController : MonoBehaviour
                     readyToMove = false;
                     animator.SetBool("Push", true);
                 }
+                else if (axemove)
+                {
+                    axemove = false;
+                }
                 else
                 {
                     //Pushable ahead returned false - don't move
                     moveDirection = Vector2.zero;
                     animator.SetBool("Move", false);
                     animator.SetBool("Push", false);
+                    
                 }
             }
         }
@@ -371,6 +376,18 @@ public class PlayerController : MonoBehaviour
     public void SetPause(bool paused)
     {
         this.paused = paused;
+    }
+
+    public void MoveOntoAxe()
+    {
+        tupleList = new List<(Vector2, GameObject)>();
+        tupleList.Add((pos, gameObject));
+        undoStack.Push(tupleList);
+
+        moveSound.Play();
+        moving = true;
+        readyToMove = false;
+        axemove = true;
     }
 
     IEnumerator WaitToWin()

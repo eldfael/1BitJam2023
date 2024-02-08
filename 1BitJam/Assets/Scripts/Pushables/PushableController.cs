@@ -15,6 +15,12 @@ public class PushableController : MonoBehaviour, Pushable
     Vector2 moveDirection;
     RaycastHit2D raycastHit;
 
+    LayerMask lmask;
+
+    private void Start()
+    {
+        lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX") + LayerMask.GetMask("AxeBlock");
+    }
     public List<(Vector2, GameObject)> OnPush(Vector2 moveDirection, List<(Vector2, GameObject)> tupleList)
     {
         pos = transform.position;
@@ -28,10 +34,18 @@ public class PushableController : MonoBehaviour, Pushable
         target = pos + moveDirection;
         moving = true;
         
-        raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero);
+        raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero, Mathf.Infinity, lmask);
         if (raycastHit.collider != null && raycastHit.collider.tag == "Pushable")
         {
-            tupleList = raycastHit.collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection, tupleList);
+            if (breakable && raycastHit.collider.gameObject.GetComponent<Pushable>().GetAxe() == target)
+            {
+                OnBreak();
+            }
+            else
+            {
+                tupleList = raycastHit.collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection, tupleList);
+            }
+            
         }
         return tupleList;
     }
@@ -43,7 +57,7 @@ public class PushableController : MonoBehaviour, Pushable
         {
 
             target = pos + moveDirection;
-            raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero);
+            raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero, Mathf.Infinity, lmask);
 
             if (raycastHit.collider == null)
             {
@@ -58,8 +72,13 @@ public class PushableController : MonoBehaviour, Pushable
             }
             if (raycastHit.collider.tag == "Pushable")
             {
+                if (breakable && raycastHit.collider.gameObject.GetComponent<Pushable>().GetAxe() == target)
+                {
+                    return true;
+                    // Break self on push!
+                }
                 // Pushable ahead - Check if Pushable ahead returns true - and if so move ahead and return true
-                if (raycastHit.collider.gameObject.GetComponent<Pushable>().TryPush(moveDirection))
+                else if (raycastHit.collider.gameObject.GetComponent<Pushable>().TryPush(moveDirection))
                 {
                     //Pushable ahead returned true - Return true
                     return true;
@@ -98,6 +117,17 @@ public class PushableController : MonoBehaviour, Pushable
     public bool IsBreakable()
     {
         return breakable;
+    }
+
+    public void OnBreak()
+    {
+        GetComponent<Animator>().SetBool("smash", true);
+        GetComponent<BoxCollider2D>().enabled = false;
+    }
+
+    public Vector2 GetAxe()
+    {
+        return new Vector2 (1000,1000);
     }
 
     public void OnUndo(Vector2 originalPosition)

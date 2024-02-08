@@ -34,7 +34,7 @@ public class LightCast : MonoBehaviour
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
 
-        lmask = LayerMask.GetMask("Default");
+        lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("AxeBox");
 
         
         if (this.gameObject.transform.parent != null && this.gameObject.transform.parent.gameObject.GetComponent<Flammable>() != null)

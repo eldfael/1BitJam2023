@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class TallPushableController : MonoBehaviour, Pushable
+public class EastAxeController : MonoBehaviour, Pushable
 {
     // GLASS SHOULD BE SET TO TRUE
     public bool breakable = false;
@@ -15,19 +15,22 @@ public class TallPushableController : MonoBehaviour, Pushable
     Vector2 pos;
     Vector2 target;
 
+    PlayerController pc;
+    FloorSpikes spikes;
+
     LayerMask lmask;
 
     private void Start()
     {
-        lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX") + LayerMask.GetMask("AxeBlock");
         filter = new ContactFilter2D();
-        filter.SetLayerMask(lmask);
         raycastHits = new RaycastHit2D[2];
+        pc = GameObject.Find("Player").GetComponent<PlayerController>();
+        spikes = GetComponent<FloorSpikes>();
+
     }
     public List<(Vector2, GameObject)> OnPush(Vector2 moveDirection, List<(Vector2, GameObject)> tupleList)
     {
         pos = transform.position;
-
         if (!tupleList.Contains((pos, gameObject)))
         {
             tupleList.Add((pos, gameObject));
@@ -36,31 +39,41 @@ public class TallPushableController : MonoBehaviour, Pushable
         moveDir = moveDirection;
         target = pos + moveDirection;
         moving = true;
-        //if moving horizontally
-        if (moveDirection.x != 0)
+        //if moving vertically
+        if (moveDirection.y != 0)
         {
             Array.Clear(raycastHits, 0, 2);
-            Physics2D.BoxCast(target, new Vector2(0.5f, 0.5f), 0f, Vector2.zero, filter, raycastHits);
+            Physics2D.BoxCast(target, new Vector2(1.5f, 0.5f), 0f, Vector2.zero, filter.NoFilter(), raycastHits);
             for (int i = 0; i < raycastHits.Length; i++)
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
                 {
-                    tupleList = raycastHits[i].collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection, tupleList);
+                    if (raycastHits[i].collider.transform.position.x == transform.position.x + 0.5 && raycastHits[i].collider.GetComponent<Pushable>().IsBreakable())
+                    {
+                        raycastHits[i].collider.GetComponent<Pushable>().OnBreak();
+                        tupleList.Add(((Vector2)raycastHits[i].collider.transform.position, raycastHits[i].collider.gameObject));
+                    }
+                    else
+                    {
+                        tupleList = raycastHits[i].collider.gameObject.GetComponent<Pushable>().OnPush(moveDirection, tupleList);
+                    }
                 }
             }
+
         }
-        //if moving vertically
+        //if moving horizontally
         else
         {
             Array.Clear(raycastHits, 0, 2);
-            Physics2D.BoxCast(pos + moveDirection * 1.5f, Vector2.one * 0.5f, 0f, Vector2.zero, filter, raycastHits);
+            Physics2D.BoxCast(pos + moveDirection * 1.5f, Vector2.one * 0.5f, 0f, Vector2.zero, filter.NoFilter(), raycastHits);
             for (int i = 0; i < raycastHits.Length; i++)
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
                 {
-                    if (breakable && raycastHits[i].collider.gameObject.GetComponent<Pushable>().GetAxe() == target + new Vector2(0, 0.5f * moveDirection.y))
+                    if (moveDirection.x >= 1 && raycastHits[i].collider.GetComponent<Pushable>().IsBreakable())
                     {
-                        OnBreak();
+                        raycastHits[i].collider.GetComponent<Pushable>().OnBreak();
+                        tupleList.Add(((Vector2)raycastHits[i].collider.transform.position, raycastHits[i].collider.gameObject));
                     }
                     else
                     {
@@ -75,17 +88,30 @@ public class TallPushableController : MonoBehaviour, Pushable
     public bool TryPush(Vector2 moveDirection)
     {
         pos = transform.position;
-        //if moving horizontally
-        if (moveDirection.x != 0)
+        //Check to see if player is trying to push Axe
+        if ((pc.transform.position.x >= pos.x + 0.5 && pc.transform.position.x <= pos.x + 1.5) && (pc.transform.position.y <= pos.y+1 && pc.transform.position.y >= pos.y-1 ))
+        {
+            //Player is trying to push Axe - Dont push and move player onto axe
+            pc.MoveOntoAxe();
+            return false;
+        }
+        
+        //if moving vertically
+        if (moveDirection.y != 0)
         {
             target = pos + moveDirection;
             Array.Clear(raycastHits, 0, 2);
-            Physics2D.BoxCast(target, new Vector2(0.5f, 1.5f), 0f, Vector2.zero, filter, raycastHits);
+            Physics2D.BoxCast(target, new Vector2(1.5f, 0.5f), 0f, Vector2.zero, filter.NoFilter(), raycastHits);
             for (int i = 0; i < raycastHits.Length; i++)
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
                 {
-                    if (!raycastHits[i].collider.gameObject.GetComponent<Pushable>().TryPush(moveDirection))
+                    if (raycastHits[i].collider.transform.position.x == transform.position.x + 0.5 && raycastHits[i].collider.GetComponent<Pushable>().IsBreakable())
+                    {
+                        // Glass ahead on Axe side - Break on push
+                        // Continue checks
+                    }
+                    else if (!raycastHits[i].collider.gameObject.GetComponent<Pushable>().TryPush(moveDirection))
                     {
                         return false;
                     }
@@ -97,25 +123,22 @@ public class TallPushableController : MonoBehaviour, Pushable
             }
             return true;
         }
-        //if moving vertically
+        //if moving horizontally
         else
         {
             target = pos + moveDirection * 1.5f;
             Array.Clear(raycastHits, 0, 2);
-            Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero, filter, raycastHits);
+            Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero, filter.NoFilter(), raycastHits);
             for (int i = 0; i < raycastHits.Length; i++)
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
                 {
-                    Debug.Log("Target:" + target);
-                    Debug.Log("Value: " + (target + new Vector2(0, 1.5f * moveDirection.y)));
-                    if (breakable && raycastHits[i].collider.gameObject.GetComponent<Pushable>().GetAxe() == target)
+                    if (moveDirection.x >= 1 && raycastHits[i].collider.GetComponent<Pushable>().IsBreakable())
                     {
-                        Debug.Log("Aye");
-                        return true;
-                        //break on push
+                        // Glass ahead - Break on push
+                        // Will return True
                     }
-                    if (!raycastHits[i].collider.gameObject.GetComponent<Pushable>().TryPush(moveDirection))
+                    else if (!raycastHits[i].collider.gameObject.GetComponent<Pushable>().TryPush(moveDirection))
                     {
                         return false;
                     }
@@ -134,6 +157,7 @@ public class TallPushableController : MonoBehaviour, Pushable
     {
         if (moving)
         {
+            spikes.enabled = false;
             transform.position = new Vector3(transform.position.x + moveDir.x / 8, transform.position.y + moveDir.y / 8, transform.position.z);
             if ((Vector2)transform.position == target)
             {
@@ -141,15 +165,21 @@ public class TallPushableController : MonoBehaviour, Pushable
                 moveDir = Vector2.zero;
             }
         }
+        else
+        {
+            spikes.enabled = true;
+        }
+        
     }
 
     public void OnUndo(Vector2 originalPosition)
     {
         gameObject.SetActive(true);
-        if (breakable) {
-            this.gameObject.GetComponent<Animator>().SetBool("smash",false);
+        if (breakable)
+        {
+            this.gameObject.GetComponent<Animator>().SetBool("smash", false);
             this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            }
+        }
         moving = true;
         target = originalPosition;
         pos = transform.position;
@@ -168,12 +198,11 @@ public class TallPushableController : MonoBehaviour, Pushable
 
     public void OnBreak()
     {
-        GetComponent<Animator>().SetBool("smash", true);
-        GetComponent<BoxCollider2D>().enabled = false;
+
     }
 
     public Vector2 GetAxe()
     {
-        return new Vector2(1000, 1000);
+        return new Vector2 (transform.position.x+0.5f,transform.position.y);
     }
 }

@@ -15,9 +15,13 @@ public class WidePushableController : MonoBehaviour, Pushable
     Vector2 pos;
     Vector2 target;
 
+    LayerMask lmask;
+
     private void Start()
     {
+        lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX") + LayerMask.GetMask("AxeBlock");
         filter = new ContactFilter2D();
+        filter.SetLayerMask(lmask);
         raycastHits = new RaycastHit2D[2];
     }
     public List<(Vector2, GameObject)> OnPush(Vector2 moveDirection, List<(Vector2, GameObject)> tupleList)
@@ -35,7 +39,7 @@ public class WidePushableController : MonoBehaviour, Pushable
         if (moveDirection.y != 0)
         {
             Array.Clear(raycastHits, 0, 2);
-            Physics2D.BoxCast(target, new Vector2(1.5f, 0.5f), 0f, Vector2.zero, filter.NoFilter(), raycastHits);
+            Physics2D.BoxCast(target, new Vector2(1.5f, 0.5f), 0f, Vector2.zero, filter, raycastHits );
             for (int i = 0; i < raycastHits.Length; i++)
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
@@ -49,7 +53,7 @@ public class WidePushableController : MonoBehaviour, Pushable
         else
         {
             Array.Clear(raycastHits, 0, 2);
-            Physics2D.BoxCast(pos + moveDirection * 1.5f, Vector2.one * 0.5f, 0f, Vector2.zero, filter.NoFilter(), raycastHits);
+            Physics2D.BoxCast(pos + moveDirection * 1.5f, Vector2.one * 0.5f, 0f, Vector2.zero, filter, raycastHits);
             for (int i = 0; i < raycastHits.Length; i++)
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
@@ -68,7 +72,7 @@ public class WidePushableController : MonoBehaviour, Pushable
         {
             target = pos + moveDirection;
             Array.Clear(raycastHits, 0, 2);
-            Physics2D.BoxCast(target, new Vector2(1.5f, 0.5f), 0f, Vector2.zero, filter.NoFilter(), raycastHits);
+            Physics2D.BoxCast(target, new Vector2(1.5f, 0.5f), 0f, Vector2.zero, filter, raycastHits);
             for (int i = 0; i < raycastHits.Length; i++)
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
@@ -90,7 +94,7 @@ public class WidePushableController : MonoBehaviour, Pushable
         {
             target = pos + moveDirection * 1.5f;
             Array.Clear(raycastHits, 0, 2);
-            Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero, filter.NoFilter(), raycastHits);
+            Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero, filter, raycastHits);
             for (int i = 0; i < raycastHits.Length; i++)
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
@@ -144,5 +148,15 @@ public class WidePushableController : MonoBehaviour, Pushable
     public bool IsBreakable()
     {
         return breakable;
+    }
+    public void OnBreak()
+    {
+        GetComponent<Animator>().SetBool("smash", true);
+        GetComponent<BoxCollider2D>().enabled = false;
+    }
+
+    public Vector2 GetAxe()
+    {
+        return new Vector2(1000, 1000);
     }
 }
