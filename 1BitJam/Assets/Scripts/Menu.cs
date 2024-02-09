@@ -24,7 +24,7 @@ public class Menu : MonoBehaviour
     }
     public void StartGame()
     {
-        if(gc.GetSaveData().data.Count<=1)
+        if(gc.GetSaveData().data.Count<=1 || gc.lastScene == "World 1")
         {
             SceneManager.LoadScene("Cutscene");
         }
