@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     bool playerInScene;
     bool paused;
     public List<string> levelsCompleted;
+    List<string> sceneList;
 
     SaveData saveData;
     public bool menuButton;
@@ -30,6 +31,14 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        sceneList = new();
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            string scenePath = SceneUtility.GetScenePathByBuildIndex(i);
+            int lastSlash = scenePath.LastIndexOf("/");
+            sceneList.Add(scenePath.Substring(lastSlash + 1, scenePath.LastIndexOf(".") - lastSlash - 1));
+            Debug.Log(sceneList[i]);
+        }
 
         DontDestroyOnLoad(this.gameObject);
         saveDataPath = Application.persistentDataPath;
@@ -43,8 +52,9 @@ public class GameController : MonoBehaviour
         }
 
         lastScene = saveData.data[0].Substring(3,saveData.data[0].Length-3);
-        if (lastScene.Length<3)
+        if (!sceneList.Contains(lastScene))
         {
+            Debug.Log("Failed to load last level");
             lastScene = "World 1";
         }
         Debug.Log(lastScene);
