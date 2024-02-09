@@ -169,6 +169,9 @@ EditorBuildSettings:
     guid: cec1378c39881e84badf44250b456bd0
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/313.unity
+    guid: 7596159f3b3601d468e3119ec533e598
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/314.unity
     guid: 2e9b2fba3e02183489202cbf94c5d515
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/302-1.unity
@@ -212,6 +215,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/312-1.unity
     guid: 5c08e40e0368ccf4e9de086827da02e2
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/3 Glass/313-1.unity
+    guid: cd26af5b274474f4c834877e13ad438f
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/401.unity
     guid: 4a83fed6e439eb449a50f05baa6f1f1c
@@ -315,6 +321,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/506.unity
     guid: 7f1bd156bac0eaf438d19d47f502208c
   - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/507.unity
+    guid: 58346959ebe15314894820616dadbe38
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/508.unity
+    guid: 147e78539d7f3124e9a1874e95d8df91
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/509.unity
+    guid: a6ea25592190d184c9226777589ae8b1
+  - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/501-1.unity
     guid: 353e2c164b8ba384da29f5dec6751a6a
   - enabled: 1
@@ -338,6 +353,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/506-1.unity
     guid: cdf7ecc255e8ecd45b1e9e37115cdd56
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/508-1.unity
+    guid: c9345b7a435a08a4d813068431ba2c7d
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/508-2.unity
+    guid: 97498748f892395458f8f353ad95f2ea
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/6 Light Detector/601.unity
     guid: 5ab78630574fda143bfa52c5bc160abf
@@ -429,20 +450,32 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels RESTRUCTURED/6 Light Detector/612-1.unity
     guid: f35bb718977921143b8f3234199e3941
   - enabled: 1
-    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/X-01.unity
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/1-X1.unity
+    guid: 411dbffa7c28079488767ca80e269dde
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/1-X2.unity
+    guid: 204f049c436afa249b68e908120324ad
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/1-X3.unity
+    guid: a9585954145b4b84fa6a2d75d0a040d9
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/2-X1.unity
     guid: 40fe8705fd9c4754a9acc4f147681a3a
   - enabled: 1
-    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/X-02.unity
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/2-X2.unity
     guid: c7344373e39fb8640b7e5bcd233414db
   - enabled: 1
-    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/X-03.unity
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/2-X3.unity
     guid: d43565fa8f4791647a3a3a298be750f2
   - enabled: 1
-    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/X-04.unity
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/3-X1.unity
+    guid: d854b4b8bdc042c4f9735aec3a2325f7
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/3-X2.unity
     guid: b23b2ce0d9cd69941bedfb1e52a5af50
   - enabled: 1
-    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/X-05.unity
-    guid: 47e3a3edacd1bc84696a85ce65087ecb
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/3-X3.unity
+    guid: 5859e120033e3b440b16f8a372b54679
   - enabled: 1
     path: Assets/Scenes/Menus/End Screen.unity
     guid: e05b8836eebf2744e8c869441a24bc7f
