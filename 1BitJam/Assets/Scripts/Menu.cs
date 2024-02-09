@@ -24,7 +24,15 @@ public class Menu : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("Cutscene");
+        if(gc.GetSaveData().data.Count<=1)
+        {
+            SceneManager.LoadScene("Cutscene");
+        }
+        else
+        {
+            SceneManager.LoadScene(gc.GetSaveData().data[0].Substring(3, gc.GetSaveData().data[0].Length - 3));
+        }
+
     }
     public void QuitGame()
     {
@@ -50,8 +58,7 @@ public class Menu : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "Top Menu" || SceneManager.GetActiveScene().name == "Starting Menu")
             {
-                Debug.Log(gc.lastLevel);
-                sceneString = "World " + gc.lastLevel.Substring(0, 1);
+                sceneString = "World " + gc.lastScene.Substring(0, 1);
                 if (sceneNames.Contains(sceneString))
                 {
                     SceneManager.LoadScene(sceneString);

@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
     private string saveDataPath;
     private string saveDataName;
 
+    public string lastScene;
     public string lastLevel;
     public GameObject levelNav;
 
@@ -38,9 +39,15 @@ public class GameController : MonoBehaviour
         if (saveData == null)
         {
             saveData = new SaveData(new List<string>());
+            saveData.data.Add("World 1");
         }
 
-        lastLevel = "World 1";
+        lastScene = saveData.data[0].Substring(3,saveData.data[0].Length-3);
+        if (lastScene.Length<3)
+        {
+            lastScene = "World 1";
+        }
+        Debug.Log(lastScene);
     }
 
     private void OnEnable()
@@ -54,6 +61,7 @@ public class GameController : MonoBehaviour
         //Debug.Log("OnSceneLoaded: " + scene.name);
 
         OnGameUnpause();
+        
 
         try
         {
@@ -68,26 +76,20 @@ public class GameController : MonoBehaviour
         }
 
 
-        //Need to add fade out audio ? or we can just use 1 track for the whole game and ignore this script - unsure 
-
-        if ((scene.name == "Top Menu" || scene.name == "Level Select" || scene.name == "Starting Menu") && !topMenuMusic.isPlaying)
+        if (scene.name == "Top Menu" || scene.name == "Level Select" || scene.name == "Starting Menu" || scene.name == "Cutscene")
         {
-            topMenuMusic.Play();
-            mainMusic.Stop();
-            cutsceneMusic.Stop();
-
+            // List of blacklisted scenes for lastScene and lastLevel
         }
         // Checking which level you came from 
         else if (scene.name.Length >= 5 && scene.name.Substring(0,5) == "World")
         {
             Vector3 pos;
-            Debug.Log("Level " + lastLevel);
-            if (lastLevel != null && lastLevel.Contains("World"))
+            if (lastScene != null && lastScene.Contains("World"))
             {
                 try
                 {
                     //Last Level in scene
-                    pos = GameObject.Find("WorldSelect (" + lastLevel + ")").transform.position;
+                    pos = GameObject.Find("WorldSelect (" + lastScene + ")").transform.position;
                 }
                 catch (Exception e)
                 {
@@ -101,7 +103,7 @@ public class GameController : MonoBehaviour
                 try
                 {
                     //Last Level in scene
-                    pos = GameObject.Find("Level " + lastLevel).transform.position;
+                    pos = GameObject.Find("Level " + lastScene).transform.position;
                 }
                 catch (Exception e)
                 {
@@ -113,29 +115,23 @@ public class GameController : MonoBehaviour
             
             pos.z = -1;
             Instantiate(levelNav, pos, Quaternion.identity);
-            lastLevel = scene.name;
+            lastScene = scene.name;
         }
-        else if (scene.name == "Cutscene" && !cutsceneMusic.isPlaying)
+        else if (scene.buildIndex > 1)
         {
-            cutsceneMusic.Play();
-            topMenuMusic.Stop();
-            mainMusic.Stop();
-
-        }
-        else if (scene.buildIndex > 1 && !mainMusic.isPlaying)
-        {
-            //Debug.Log("Main Music");
-            mainMusic.Play();
-            topMenuMusic.Stop();
-            cutsceneMusic.Stop();
-            lastLevel = scene.name;
+            lastScene = scene.name;
+            lastLevel = "lvl"+scene.name;
+            saveData.data[0] = lastLevel;
+            Debug.Log(lastLevel);
         }
         else
         {
-            lastLevel = scene.name;
+            // shouldn't get here? but anyway
+            lastScene = scene.name;
         }
 
-        
+        //TEMPORARY GAME SAVE
+        SaveGame();
 
     }
 
@@ -274,6 +270,11 @@ public class GameController : MonoBehaviour
         //Debug.Log(saveLoadData);
         return saveLoadData;
         
+    }
+
+    public SaveData GetSaveData()
+    {
+        return saveData;
     }
 
 }
