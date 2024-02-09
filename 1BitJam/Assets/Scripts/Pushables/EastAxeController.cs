@@ -106,7 +106,7 @@ public class EastAxeController : MonoBehaviour, Pushable
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
                 {
-                    if (raycastHits[i].collider.transform.position.x == transform.position.x + 0.5 && raycastHits[i].collider.GetComponent<Pushable>().IsBreakable())
+                    if (raycastHits[i].collider.transform.position.x >= transform.position.x + 0.5 && raycastHits[i].collider.GetComponent<Pushable>().IsBreakable())
                     {
                         // Glass ahead on Axe side - Break on push
                         // Continue checks
