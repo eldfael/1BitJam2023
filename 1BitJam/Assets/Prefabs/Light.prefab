@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 360
-  rays: 725
+  rays: 726
   distance: 100
   angle: 0
 --- !u!114 &3307627109939433143
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3ef5fe3958ff149a2962b0b90c62e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  breakable: 0
 --- !u!61 &-4555556080022211312
 BoxCollider2D:
   m_ObjectHideFlags: 0
