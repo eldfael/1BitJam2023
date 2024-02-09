@@ -11,21 +11,16 @@ public class SouthAxeController : MonoBehaviour, Pushable
     bool moving;
     Vector2 moveDir;
     RaycastHit2D[] raycastHits;
-    RaycastHit2D rayhit;
     ContactFilter2D filter;
     Vector2 pos;
     Vector2 target;
 
     LayerMask lmask;
-    GameObject axeBlock;
-    bool hit;
-
     PlayerController pc;
     FloorSpikes spikes;
 
     private void Start()
     {
-        hit = false;
         lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX") + LayerMask.GetMask("AxeBlock");
         filter = new ContactFilter2D();
         filter.SetLayerMask(lmask);

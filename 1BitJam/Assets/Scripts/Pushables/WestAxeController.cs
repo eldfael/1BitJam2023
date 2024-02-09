@@ -22,7 +22,9 @@ public class WestAxeController : MonoBehaviour, Pushable
 
     private void Start()
     {
+        lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX") + LayerMask.GetMask("AxeBlock");
         filter = new ContactFilter2D();
+        filter.SetLayerMask(lmask);
         raycastHits = new RaycastHit2D[2];
         pc = GameObject.Find("Player").GetComponent<PlayerController>();
         spikes = GetComponent<FloorSpikes>();
@@ -43,7 +45,7 @@ public class WestAxeController : MonoBehaviour, Pushable
         if (moveDirection.y != 0)
         {
             Array.Clear(raycastHits, 0, 2);
-            Physics2D.BoxCast(target, new Vector2(1.5f, 0.5f), 0f, Vector2.zero, filter.NoFilter(), raycastHits);
+            Physics2D.BoxCast(target, new Vector2(1.5f, 0.5f), 0f, Vector2.zero, filter, raycastHits);
             for (int i = 0; i < raycastHits.Length; i++)
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
@@ -65,7 +67,7 @@ public class WestAxeController : MonoBehaviour, Pushable
         else
         {
             Array.Clear(raycastHits, 0, 2);
-            Physics2D.BoxCast(pos + moveDirection * 1.5f, Vector2.one * 0.5f, 0f, Vector2.zero, filter.NoFilter(), raycastHits);
+            Physics2D.BoxCast(pos + moveDirection * 1.5f, Vector2.one * 0.5f, 0f, Vector2.zero, filter, raycastHits);
             for (int i = 0; i < raycastHits.Length; i++)
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
@@ -101,7 +103,7 @@ public class WestAxeController : MonoBehaviour, Pushable
         {
             target = pos + moveDirection;
             Array.Clear(raycastHits, 0, 2);
-            Physics2D.BoxCast(target, new Vector2(1.5f, 0.5f), 0f, Vector2.zero, filter.NoFilter(), raycastHits);
+            Physics2D.BoxCast(target, new Vector2(1.5f, 0.5f), 0f, Vector2.zero, filter, raycastHits);
             for (int i = 0; i < raycastHits.Length; i++)
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
@@ -128,7 +130,7 @@ public class WestAxeController : MonoBehaviour, Pushable
         {
             target = pos + moveDirection * 1.5f;
             Array.Clear(raycastHits, 0, 2);
-            Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero, filter.NoFilter(), raycastHits);
+            Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero, filter, raycastHits);
             for (int i = 0; i < raycastHits.Length; i++)
             {
                 if (raycastHits[i].collider != null && raycastHits[i].collider.tag == "Pushable")
