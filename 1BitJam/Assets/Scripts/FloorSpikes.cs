@@ -12,8 +12,7 @@ public class FloorSpikes : MonoBehaviour
 
     private void Start()
     {
-        lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX");
-        
+        lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX") + LayerMask.GetMask("AxeBlock") + LayerMask.GetMask("AxeBox");    
     }
     private void FixedUpdate()
     {
@@ -46,6 +45,7 @@ public class FloorSpikes : MonoBehaviour
                 }
                 else if(pushablecon.IsBreakable())
                 {
+
                     WarningSign.SetBool("warning", false);
                 }
                 else 
