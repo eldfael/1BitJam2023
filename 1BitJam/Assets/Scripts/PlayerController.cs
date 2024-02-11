@@ -219,6 +219,7 @@ public class PlayerController : MonoBehaviour
                 moveSound.Play();
                 moving = true;
                 readyToMove = false;
+                animator.SetBool("Push", false);
             }
             else if (raycastHit.collider.tag == "Wall" || raycastHit.collider.tag == "LightDetector")
             {
@@ -388,6 +389,7 @@ public class PlayerController : MonoBehaviour
         moving = true;
         readyToMove = false;
         axemove = true;
+        animator.SetBool("Push", false);
     }
 
     IEnumerator WaitToWin()
