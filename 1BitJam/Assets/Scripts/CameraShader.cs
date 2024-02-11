@@ -25,7 +25,7 @@ public class TwoColourEffect : MonoBehaviour {
         {4, new float[] {1,230,140,170,120,120,160,70,50,120} }, // W6 - Detector
         {5, new float[] {1,190,180,170,70,80,90,50,30,30} }, // W2 - Long Blocks
         {6, new float[] {1,255,195,110,150,65,65,95,15,50} }, // W5 - Spikes
-        {7, new float[] {1,225,180,100,75,110,80,35,90,25} }, // W7 - unmade
+        {7, new float[] {1,225,60,60,115,30,80,40,30,110} }, // W7 - Axes
         {8, new float[] {1,65,160,240,120,120,120,60,60,60} }, // W3 Secret Levels
         {9, new float[] {1,255,195,45,90,90,90,40,40,40} }, // W4/5 Secret Levels
         {10, new float[] {1,210,33,255,90,90,90,40,0,40} } // W6/7 Secret Levels
