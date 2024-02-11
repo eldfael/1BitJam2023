@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5570646971427496601}
   - component: {fileID: 6064342614302698510}
   - component: {fileID: 287521194295103372}
-  - component: {fileID: 2997924636084185971}
   - component: {fileID: 5619896048252723442}
+  - component: {fileID: 9005532764395028047}
   m_Layer: 8
   m_Name: AxeBlockSouth
   m_TagString: Pushable
@@ -134,20 +134,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2997924636084185971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578206475861860875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b4a09c6552a7a48b63ef99fb829cf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasWarning: 1
-  WarningSign: {fileID: 2509358256477548177}
 --- !u!114 &5619896048252723442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +147,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakable: 0
+--- !u!114 &9005532764395028047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578206475861860875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49fcb93eb404d74084d89948c536b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1347455967769985347
 GameObject:
   m_ObjectHideFlags: 0

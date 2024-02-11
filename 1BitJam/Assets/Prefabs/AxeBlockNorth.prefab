@@ -117,8 +117,8 @@ GameObject:
   - component: {fileID: 8582547248139078017}
   - component: {fileID: 1268833588707507368}
   - component: {fileID: 639976814985522457}
-  - component: {fileID: 1012712775560337010}
   - component: {fileID: 6601801654785338287}
+  - component: {fileID: 886145280677713660}
   m_Layer: 8
   m_Name: AxeBlockNorth
   m_TagString: Pushable
@@ -240,20 +240,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1012712775560337010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7877005448577258052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b4a09c6552a7a48b63ef99fb829cf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasWarning: 1
-  WarningSign: {fileID: 2951897231420265951}
 --- !u!114 &6601801654785338287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +253,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakable: 0
+--- !u!114 &886145280677713660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7877005448577258052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49fcb93eb404d74084d89948c536b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7997030033432565337
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class WestAxeController : MonoBehaviour, Pushable
     Vector2 target;
 
     PlayerController pc;
-    FloorSpikes spikes;
+    AxeSpikes spikes;
 
     LayerMask lmask;
 
@@ -27,7 +27,7 @@ public class WestAxeController : MonoBehaviour, Pushable
         filter.SetLayerMask(lmask);
         raycastHits = new RaycastHit2D[2];
         pc = GameObject.Find("Player").GetComponent<PlayerController>();
-        spikes = GetComponent<FloorSpikes>();
+        spikes = GetComponent<AxeSpikes>();
 
     }
     public List<(Vector2, GameObject)> OnPush(Vector2 moveDirection, List<(Vector2, GameObject)> tupleList)
