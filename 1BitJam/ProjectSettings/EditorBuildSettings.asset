@@ -319,7 +319,22 @@ EditorBuildSettings:
     guid: 00806d7b9f460f744a8b0e942498a06c
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/505.unity
+    guid: 0b4b690565b74824b96b53f9b6fa7bf6
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/507-1.unity
+    guid: e4aeeb99f29c22e41b3c9986c1082612
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/507.unity
+    guid: 9fbc39312f4699642ae66b752d703917
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/508.unity
     guid: 5f70ec5e1cd6f4742b33ae39b9de0c33
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/511.unity
+    guid: cf8268924f0ad594faf17581158b8b7a
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/509.unity
+    guid: 5742d34e04da68045af23398aa922b5e
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/501-1.unity
     guid: 353e2c164b8ba384da29f5dec6751a6a
@@ -337,9 +352,15 @@ EditorBuildSettings:
     guid: c20ffa5d59a1b524e8b6751f425269b7
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/505-1.unity
-    guid: a5320417a6a578b4c9a71c42adbc2ab3
+    guid: 2e262d14c31663c41805d227b89d9859
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/505-2.unity
+    guid: c42af89636e4de14da5e874d78a766e2
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/508-1.unity
+    guid: a5320417a6a578b4c9a71c42adbc2ab3
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/508-2.unity
     guid: 76a1e0b24e8bf9f4e9eea233312a1381
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/6 Light Detector/601.unity
