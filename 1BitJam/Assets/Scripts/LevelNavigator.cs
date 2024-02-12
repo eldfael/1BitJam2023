@@ -88,6 +88,7 @@ public class LevelNavigator : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Move this to Update with Time.Deltatime added at a later date to smooth movement out
         if (moving)
         {
             transform.position = new Vector3(transform.position.x + movedir.x / speed, transform.position.y + movedir.y / speed, -1);
