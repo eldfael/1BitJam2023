@@ -255,6 +255,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/411.unity
     guid: 5c7583db51ac9b04fbb982a08c8b0700
   - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/412.unity
+    guid: b3e223f04ae970746afd5f7762f7bfcb
+  - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/4 Moving Lights/403-1.unity
     guid: d6cff358e63f31647b1c9df7c7f579f5
   - enabled: 1
@@ -539,6 +542,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/4-X2.unity
     guid: 1b0de31a7aeeeb6499ebdd50f8b13e83
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/4-X3.unity
+    guid: f275f6ebf3dddf04ea4149bd4577e6e3
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/5-X1.unity
+    guid: f56b94f58fb23fe40b91f1f5f7dd6a1b
   - enabled: 1
     path: Assets/Scenes/Menus/End Screen.unity
     guid: e05b8836eebf2744e8c869441a24bc7f
