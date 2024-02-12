@@ -19,7 +19,7 @@ public class FloorSpikes : MonoBehaviour
         raycastHit = Physics2D.BoxCast(transform.position, Vector2.one * 0.8f, 0f, Vector2.zero, Mathf.Infinity, lmask);
         if (raycastHit.collider != null)
         {
-            //Debug.Log(raycastHit.collider);
+            Debug.Log(raycastHit.collider);
             if (raycastHit.collider.tag == "Player")
             {
                 WarningSign.SetBool("warning",false);
@@ -34,6 +34,7 @@ public class FloorSpikes : MonoBehaviour
                 pushablecon = raycastHit.collider.gameObject.GetComponent<Pushable>();
                 if (!pushablecon.IsMoving() && pushablecon.IsBreakable())
                 {
+                    Debug.Log(2);
                     WarningSign.SetBool("warning",false);
                     // BREAK ANIMATION
                     raycastHit.collider.GetComponent<Pushable>().OnBreak();
@@ -45,13 +46,16 @@ public class FloorSpikes : MonoBehaviour
                 }
                 else if(pushablecon.IsBreakable())
                 {
-
                     WarningSign.SetBool("warning", false);
                 }
                 else 
                 {
                     WarningSign.SetBool("warning",true);
                 }
+            }
+            else if (raycastHit.collider.tag == "AxeBox")
+            {
+                WarningSign.SetBool("warning", true);
             }
         } 
         else 

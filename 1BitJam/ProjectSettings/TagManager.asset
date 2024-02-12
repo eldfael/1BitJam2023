@@ -8,6 +8,7 @@ TagManager:
   - Pushable
   - LightDetector
   - Warp
+  - AxeBox
   layers:
   - Default
   - TransparentFX
