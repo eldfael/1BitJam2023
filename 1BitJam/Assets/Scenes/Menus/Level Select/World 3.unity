@@ -2571,7 +2571,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: pickLevel
-      value: 100
+      value: 301
       objectReference: {fileID: 0}
     - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: alwaysActive
