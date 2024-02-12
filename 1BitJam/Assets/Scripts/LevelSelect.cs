@@ -12,6 +12,7 @@ public class LevelSelect : MonoBehaviour
     public Sprite spr;
     public string Prerequisite1;
     public string Prerequisite2;
+    public bool alwaysActive = false;
     //Image img;
 
     private void Start()
@@ -19,7 +20,7 @@ public class LevelSelect : MonoBehaviour
         //img = GetComponent<Image>();
         int previousLevel = (pickLevel.Contains("-") || pickLevel.Contains(" ")) ? 0 : int.Parse(pickLevel)-1;
         gController = FindObjectOfType<GameController>();
-        if (gController.GetLevelCompleted(previousLevel.ToString()) || gController.GetLevelCompleted(Prerequisite1) || gController.GetLevelCompleted(Prerequisite2))
+        if (gController.GetLevelCompleted(previousLevel.ToString()) || gController.GetLevelCompleted(Prerequisite1) || gController.GetLevelCompleted(Prerequisite2) || alwaysActive)
         {
             if (gController.GetLevelCompleted(pickLevel))
             {

@@ -2151,8 +2151,12 @@ PrefabInstance:
       value: 701
       objectReference: {fileID: 0}
     - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
+      propertyPath: alwaysActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: Prerequisite1
-      value: 100
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: Prerequisite2
@@ -2229,8 +2233,12 @@ PrefabInstance:
       value: World 6
       objectReference: {fileID: 0}
     - target: {fileID: 3613730274407535290, guid: 4e4dd1a15e9f4c041a2c7328004f08df, type: 3}
+      propertyPath: alwaysActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613730274407535290, guid: 4e4dd1a15e9f4c041a2c7328004f08df, type: 3}
       propertyPath: Prerequisite1
-      value: 100
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3613730274407535290, guid: 4e4dd1a15e9f4c041a2c7328004f08df, type: 3}
       propertyPath: Prerequisite2

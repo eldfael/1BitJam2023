@@ -18,7 +18,7 @@ public class LevelNavigator : MonoBehaviour
 
     private void Start()
     {
-        speed = 45;
+        speed = 5;
         moving = false;
         readyToMove = true;
         dir = Vector2.zero;
@@ -84,23 +84,22 @@ public class LevelNavigator : MonoBehaviour
 
             dir = Vector2.zero;
         }
+    }
+
+    private void FixedUpdate()
+    {
         if (moving)
         {
             transform.position = new Vector3(transform.position.x + movedir.x / speed, transform.position.y + movedir.y / speed, -1);
             counter++;
             if ((Vector2)transform.position == target || counter == speed)
             {
-                transform.position = new Vector3(target.x,target.y,-1);
+                transform.position = new Vector3(target.x, target.y, -1);
                 counter = 0;
                 moving = false;
                 StartCoroutine(WaitToMove());
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
-
     }
 
     IEnumerator WaitToMove()
