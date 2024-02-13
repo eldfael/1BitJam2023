@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     Vector2 firstTouch;
     Vector2 lastTouch;
     float swipeDistance;
+    bool touchHeld;
+    bool doAnim;
 
     bool readyToUndo;
     Stack undoStack;
@@ -60,7 +62,7 @@ public class PlayerController : MonoBehaviour
         scene = SceneManager.GetActiveScene();
         animator.SetBool("Die", false);
         animator.SetBool("Win", false);
-        swipeDistance = Screen.height * 15 / 100;
+        swipeDistance = Screen.height * 10 / 100;
         undoStack = new Stack();
         
         StartCoroutine(WaitToRestart());
@@ -69,12 +71,25 @@ public class PlayerController : MonoBehaviour
         undoButton = FindObjectOfType<UndoButton>();
         lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX") + LayerMask.GetMask("AxeBlock");
         filter.layerMask = lmask;
+
+        touchHeld = false;
+        doAnim = false;
     }
 
     private void Update()
     {
         if (!paused)
         {
+            //Check for Undo
+            if (Input.GetKey("z") || undoButton.buttonPressed)
+            {
+                Debug.Log("Undo Pressed");
+                if (readyToMove)
+                {
+                    OnUndo();
+                }
+            }
+            
             //Mobile inputs
             if (moveDirection == Vector2.zero && control && readyToMove)
             {
@@ -83,50 +98,77 @@ public class PlayerController : MonoBehaviour
                     touch = Input.GetTouch(0);
                     if (touch.phase == TouchPhase.Began)
                     {
+                        Debug.Log("TouchPhase: Began");
                         firstTouch = touch.position;
                         lastTouch = touch.position;
                     }
                     else if (touch.phase == TouchPhase.Moved)
                     {
+                        Debug.Log("TouchPhase: Moved");
                         lastTouch = touch.position;
                     }
                     else if (touch.phase == TouchPhase.Ended)
                     {
+                        Debug.Log("TouchPhase: Ended");
                         lastTouch = touch.position;
-
+                        touchHeld = false;
+                        doAnim = true;
                     }
-                    if (Mathf.Abs(lastTouch.x - firstTouch.x) > swipeDistance || Mathf.Abs(lastTouch.y - firstTouch.y) > swipeDistance)
+                }
+                else if (Input.touchCount == 0)
+                {
+                    touchHeld = false;
+                }
+
+                if (Mathf.Abs(lastTouch.x - firstTouch.x) > swipeDistance || Mathf.Abs(lastTouch.y - firstTouch.y) > swipeDistance)
+                {
+                    if (Mathf.Abs(lastTouch.x - firstTouch.x) >= Mathf.Abs(lastTouch.y - firstTouch.y))
                     {
-                        if (Mathf.Abs(lastTouch.x - firstTouch.x) >= Mathf.Abs(lastTouch.y - firstTouch.y))
+                        if (lastTouch.x > firstTouch.x)
                         {
-                            if (lastTouch.x > firstTouch.x)
-                            {
-                                //Right movement
-                                moveDirection.x = 1;
-                                transform.localScale = new Vector3(1, 1, 1);
-                            }
-                            else
-                            {
-                                //Left movement
-                                moveDirection.x = -1;
-                                transform.localScale = new Vector3(-1, 1, 1);
-                            }
+                            //Right movement
+                            moveDirection.x = 1;
+                            transform.localScale = new Vector3(1, 1, 1);
                         }
                         else
                         {
-                            if (lastTouch.y > firstTouch.y)
-                            {
-                                //Up movement
-                                moveDirection.y = 1;
-                            }
-                            else
-                            {
-                                //Down movement
-                                moveDirection.y = -1;
-                            }
+                            //Left movement
+                            moveDirection.x = -1;
+                            transform.localScale = new Vector3(-1, 1, 1);
                         }
                     }
-                    Debug.Log("we in");
+                    else
+                    {
+                        if (lastTouch.y > firstTouch.y)
+                        {
+                            //Up movement
+                            moveDirection.y = 1;
+                        }
+                        else
+                        {
+                            //Down movement
+                            moveDirection.y = -1;
+                        }
+                    }
+                    firstTouch = lastTouch;
+                    touchHeld = true;
+                }
+                else if (touchHeld)
+                {
+                    Debug.Log("Touch Held");
+                    moveDirection = lastDirection;
+                    if (moveDirection.x == 1)
+                    {
+                        transform.localScale = new Vector3(1, 1, 1);
+                    }
+                    else if (moveDirection.x == -1)
+                    {
+                        transform.localScale = new Vector3(-1, 1, 1);
+                    }
+                }
+
+                if (touchHeld || doAnim)
+                {
                     animator.SetFloat("Vert", moveDirection.y + 2);
 
                     if (animator.GetBool("Push") && moveDirection != lastDirection)
@@ -137,20 +179,13 @@ public class PlayerController : MonoBehaviour
                     {
                         animator.SetBool("Move", false);
                     }
-
                 }
+                doAnim = false;
+
             }
 
 
-            //Check for Undo
-            if (Input.GetKey("z") || undoButton.buttonPressed)
-            {
-                if (readyToMove)
-                {
-                    OnUndo();
-                }
-
-            }
+            
 
             //PC inputs 
             if (moveDirection == Vector2.zero && control && readyToMove)
