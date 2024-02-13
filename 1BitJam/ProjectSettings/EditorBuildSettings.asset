@@ -316,7 +316,7 @@ EditorBuildSettings:
     guid: bf3b6145d76571340aa2c163b6ebf975
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/503.unity
-    guid: 16d871ad3d8315b4287b7f1200b81c81
+    guid: 901829fb4ec29834185c3d3796d2f91f
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/504.unity
     guid: 00806d7b9f460f744a8b0e942498a06c
@@ -347,12 +347,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/502-1.unity
     guid: 46e2241f9323d58479303bc4a11e97d5
-  - enabled: 1
-    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/503-1.unity
-    guid: be8e34c7d80cbd94eb8345dc67f2076e
-  - enabled: 1
-    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/503-2.unity
-    guid: 901829fb4ec29834185c3d3796d2f91f
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/504-1.unity
     guid: c20ffa5d59a1b524e8b6751f425269b7
@@ -551,6 +545,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/5-X1.unity
     guid: f56b94f58fb23fe40b91f1f5f7dd6a1b
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/5-X2.unity
+    guid: 646c1502002c8bd4ba247c2a88daae9a
   - enabled: 1
     path: Assets/Scenes/Menus/End Screen.unity
     guid: e05b8836eebf2744e8c869441a24bc7f
