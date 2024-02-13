@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour
 
     // UI buttons
     UndoButton undoButton;
+    ArrowButton upArrow;
+    ArrowButton downArrow;
+    ArrowButton leftArrow;
+    ArrowButton rightArrow;
+
 
     Touch touch;
     Vector2 firstTouch;
@@ -69,6 +74,12 @@ public class PlayerController : MonoBehaviour
 
         gController = FindObjectOfType<GameController>();
         undoButton = FindObjectOfType<UndoButton>();
+
+        upArrow = GameObject.Find("UpButton").GetComponent<ArrowButton>();
+        downArrow = GameObject.Find("DownButton").GetComponent<ArrowButton>();
+        leftArrow = GameObject.Find("LeftButton").GetComponent<ArrowButton>();
+        rightArrow = GameObject.Find("RightButton").GetComponent<ArrowButton>();
+
         lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX") + LayerMask.GetMask("AxeBlock");
         filter.layerMask = lmask;
 
@@ -91,6 +102,43 @@ public class PlayerController : MonoBehaviour
             }
             
             //Mobile inputs
+            //Arrow Key Inputs
+            if (moveDirection == Vector2.zero && control && readyToMove)
+            {
+                if (upArrow.buttonPressed)
+                {
+                    moveDirection.y = 1;
+                }
+                else if (downArrow.buttonPressed)
+                {
+                    moveDirection.y = -1;
+                }
+                else if (leftArrow.buttonPressed)
+                {
+                    moveDirection.x = -1;
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+                else if (rightArrow.buttonPressed)
+                {
+                    moveDirection.x = 1;
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+
+                if (moveDirection != Vector2.zero)
+                {
+                    animator.SetFloat("Vert", moveDirection.y + 2);
+
+                    if (animator.GetBool("Push") && moveDirection != lastDirection)
+                    {
+                        animator.SetBool("Push", false);
+                    }
+                    if (moveDirection == Vector2.zero)
+                    {
+                        animator.SetBool("Move", false);
+                    }
+                }
+            }
+            /* Touch Inputs
             if (moveDirection == Vector2.zero && control && readyToMove)
             {
                 if (Input.touchCount == 1)
@@ -183,7 +231,7 @@ public class PlayerController : MonoBehaviour
                 doAnim = false;
 
             }
-
+            */
 
             
 
