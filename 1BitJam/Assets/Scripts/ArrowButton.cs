@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class ArrowButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
+public class ArrowButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler, IPointerEnterHandler
 {
 
     public bool buttonPressed;
@@ -24,6 +24,13 @@ public class ArrowButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         buttonPressed = false;
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (Input.touchCount >= 1)
+        {
+            buttonPressed = true;
+        }
+    }
     public int GetX()
     {
         return xdir;
