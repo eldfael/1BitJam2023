@@ -6,6 +6,20 @@ public class UndoButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
 {
 
     public bool buttonPressed;
+    PlayerController pcon;
+
+    private void Start()
+    {
+        pcon = GameObject.FindFirstObjectByType<PlayerController>();
+    }
+
+    private void Update()
+    {
+        if (buttonPressed && pcon.control && pcon.readyToMove)
+        {
+            pcon.OnUndo();
+        }
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
