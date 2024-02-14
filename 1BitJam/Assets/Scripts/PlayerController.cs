@@ -70,15 +70,14 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Win", false);
         swipeDistance = Screen.height * 10 / 100;
         undoStack = new Stack();
-        
+
         StartCoroutine(WaitToRestart());
 
         gController = FindObjectOfType<GameController>();
-        undoButton = FindObjectOfType<UndoButton>();
-
-        upArrow = GameObject.Find("UpButton").GetComponent<ArrowButton>();
-        downArrow = GameObject.Find("DownButton").GetComponent<ArrowButton>();
-        leftArrow = GameObject.Find("LeftButton").GetComponent<ArrowButton>();
+        undoButton = FindObjectOfType<UndoButton>();       
+        upArrow = GameObject.Find("UpButton").GetComponent<ArrowButton>();       
+        downArrow = GameObject.Find("DownButton").GetComponent<ArrowButton>();       
+        leftArrow = GameObject.Find("LeftButton").GetComponent<ArrowButton>();        
         rightArrow = GameObject.Find("RightButton").GetComponent<ArrowButton>();
 
         lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX") + LayerMask.GetMask("AxeBlock");
