@@ -80,6 +80,10 @@ public class Menu : MonoBehaviour
         gc.OnGameUnpause();
         
     }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 
 }
