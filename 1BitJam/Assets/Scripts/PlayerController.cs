@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Animator crossfade;
     public Animator swipe;
     public Animator death;
+    public Animator UiDeath;
     public GameObject deathMask;
     public float transitionTime = 1f;
     public float waitTime = 0.5f;
@@ -396,6 +397,7 @@ public class PlayerController : MonoBehaviour
         dieSound.Play();
         animator.SetBool("Die", true);
         death.SetTrigger("Death");
+        UiDeath.SetTrigger("Death");
    
         //StartCoroutine(WaitToRestart());
         // Add animation ~ and anything else we are gonna do on player death here !!
@@ -517,6 +519,7 @@ public class PlayerController : MonoBehaviour
             {
                 control = true;    
                 death.SetTrigger("Revive");
+                UiDeath.SetTrigger("Revive");
                 animator.SetBool("Die", false);
             }
             
