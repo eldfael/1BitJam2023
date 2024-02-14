@@ -87,13 +87,10 @@ public class LevelNavigator : MonoBehaviour
         }
         if (moving)
         {
-            Debug.Log("Moving");
             transform.position = new Vector3(transform.position.x + (movedir.x * Time.deltaTime) / speed, transform.position.y + (movedir.y * Time.deltaTime) / speed, -1);
             counter += Time.deltaTime;
-            Debug.Log(counter);
             if ((Vector2)transform.position == target || counter >= speed)
             {
-                Debug.Log("Stopped Moving");
                 transform.position = new Vector3(target.x, target.y, -1);
                 counter = 0;
                 moving = false;
