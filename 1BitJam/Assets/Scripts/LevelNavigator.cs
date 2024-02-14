@@ -13,12 +13,12 @@ public class LevelNavigator : MonoBehaviour
     bool moving;
     bool readyToMove;
     RaycastHit2D hit;
-    int counter;
-    int speed;
+    float counter;
+    float speed;
 
     private void Start()
     {
-        speed = 5;
+        speed = 0.1f; // Lower speed = Faster movement - yeah deal with it
         moving = false;
         readyToMove = true;
         dir = Vector2.zero;
@@ -81,14 +81,28 @@ public class LevelNavigator : MonoBehaviour
                     }
                 }
             }
+            
 
             dir = Vector2.zero;
+        }
+        if (moving)
+        {
+            transform.position = new Vector3(transform.position.x + (movedir.x * Time.deltaTime) / speed, transform.position.y + (movedir.y * Time.deltaTime) / speed, -1);
+            counter += Time.deltaTime;
+            if ((Vector2)transform.position == target || counter >= speed)
+            {
+                transform.position = new Vector3(target.x, target.y, -1);
+                counter = 0;
+                moving = false;
+                StartCoroutine(WaitToMove());
+            }
         }
     }
 
     private void FixedUpdate()
     {
         // Move this to Update with Time.Deltatime added at a later date to smooth movement out
+        /*
         if (moving)
         {
             transform.position = new Vector3(transform.position.x + movedir.x / speed, transform.position.y + movedir.y / speed, -1);
@@ -101,6 +115,7 @@ public class LevelNavigator : MonoBehaviour
                 StartCoroutine(WaitToMove());
             }
         }
+        */
     }
 
     IEnumerator WaitToMove()
