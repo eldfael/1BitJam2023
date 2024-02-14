@@ -2119,6 +2119,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Basics
       objectReference: {fileID: 0}
+    - target: {fileID: 1687347530009702214, guid: 6b427b60a74df6e4cb2d3874a46b61f7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1859015974231652224, guid: 6b427b60a74df6e4cb2d3874a46b61f7, type: 3}
       propertyPath: world
       value: 7
@@ -2178,6 +2182,10 @@ PrefabInstance:
     - target: {fileID: 8248594046077028199, guid: 6b427b60a74df6e4cb2d3874a46b61f7, type: 3}
       propertyPath: m_LocalPosition.y
       value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8648474741679834505, guid: 6b427b60a74df6e4cb2d3874a46b61f7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
