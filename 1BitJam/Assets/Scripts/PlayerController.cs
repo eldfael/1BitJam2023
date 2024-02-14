@@ -293,7 +293,7 @@ public class PlayerController : MonoBehaviour
             target = pos + moveDirection;
 
             RaycastHit2D raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero, Mathf.Infinity, lmask);
-
+            Debug.Log(raycastHit.collider);
             if (raycastHit.collider == null)
             {
                 //Empty space ahead - Move as usual

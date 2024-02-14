@@ -19,7 +19,7 @@ public class FloorSpikes : MonoBehaviour
         raycastHit = Physics2D.BoxCast(transform.position, Vector2.one * 0.8f, 0f, Vector2.zero, Mathf.Infinity, lmask);
         if (raycastHit.collider != null)
         {
-            Debug.Log(raycastHit.collider);
+            //Debug.Log(raycastHit.collider);
             if (raycastHit.collider.tag == "Player")
             {
                 WarningSign.SetBool("warning",false);
