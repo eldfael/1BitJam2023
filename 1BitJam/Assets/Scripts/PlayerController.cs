@@ -16,13 +16,13 @@ public class PlayerController : MonoBehaviour
     public float transitionTime = 1f;
     public float waitTime = 0.5f;
     public bool control;
-    Vector2 moveDirection;
+    public Vector2 moveDirection;
     Vector2 lastDirection;
     Vector2 target;
     Vector2 pos;
     bool moving = false;
-    bool readyToMove = true;
-    bool facingForward = true;
+    public bool readyToMove = true;
+    public bool facingForward = true;
     bool paused = false;
     Scene scene;
     bool readyToWin = false;
@@ -31,11 +31,12 @@ public class PlayerController : MonoBehaviour
     bool axemove = false;
 
     // UI buttons
-    UndoButton undoButton;
-    ArrowButton upArrow;
-    ArrowButton downArrow;
-    ArrowButton leftArrow;
-    ArrowButton rightArrow;
+    // Phasing these out of being used in playerController
+    // UndoButton undoButton;
+    // ArrowButton upArrow;
+    // ArrowButton downArrow;
+    // ArrowButton leftArrow;
+    // ArrowButton rightArrow;
 
 
     Touch touch;
@@ -73,12 +74,7 @@ public class PlayerController : MonoBehaviour
 
         StartCoroutine(WaitToRestart());
 
-        gController = FindObjectOfType<GameController>();
-        undoButton = FindObjectOfType<UndoButton>();       
-        upArrow = GameObject.Find("UpButton").GetComponent<ArrowButton>();       
-        downArrow = GameObject.Find("DownButton").GetComponent<ArrowButton>();       
-        leftArrow = GameObject.Find("LeftButton").GetComponent<ArrowButton>();        
-        rightArrow = GameObject.Find("RightButton").GetComponent<ArrowButton>();
+        gController = FindObjectOfType<GameController>();   
 
         lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX") + LayerMask.GetMask("AxeBlock");
         filter.layerMask = lmask;
@@ -92,9 +88,8 @@ public class PlayerController : MonoBehaviour
         if (!paused)
         {
             //Check for Undo
-            if (Input.GetKey("z") || undoButton.buttonPressed)
+            if (Input.GetKey("z"))
             {
-                Debug.Log("Undo Pressed");
                 if (readyToMove)
                 {
                     OnUndo();
@@ -103,41 +98,6 @@ public class PlayerController : MonoBehaviour
             
             //Mobile inputs
             //Arrow Key Inputs
-            if (moveDirection == Vector2.zero && control && readyToMove)
-            {
-                if (upArrow.buttonPressed)
-                {
-                    moveDirection.y = 1;
-                }
-                else if (downArrow.buttonPressed)
-                {
-                    moveDirection.y = -1;
-                }
-                else if (leftArrow.buttonPressed)
-                {
-                    moveDirection.x = -1;
-                    transform.localScale = new Vector3(-1, 1, 1);
-                }
-                else if (rightArrow.buttonPressed)
-                {
-                    moveDirection.x = 1;
-                    transform.localScale = new Vector3(1, 1, 1);
-                }
-
-                if (moveDirection != Vector2.zero)
-                {
-                    animator.SetFloat("Vert", moveDirection.y + 2);
-
-                    if (animator.GetBool("Push") && moveDirection != lastDirection)
-                    {
-                        animator.SetBool("Push", false);
-                    }
-                    if (moveDirection == Vector2.zero)
-                    {
-                        animator.SetBool("Move", false);
-                    }
-                }
-            }
             /* Touch Inputs
             if (moveDirection == Vector2.zero && control && readyToMove)
             {
@@ -238,6 +198,7 @@ public class PlayerController : MonoBehaviour
             //PC inputs 
             if (moveDirection == Vector2.zero && control && readyToMove)
             {
+                doAnim = true;
                 moveDirection.x = Input.GetAxisRaw("Horizontal");
                 if (moveDirection.x == 1 && !facingForward)
                 {
@@ -258,18 +219,25 @@ public class PlayerController : MonoBehaviour
                     //Debug.Log(animator.GetFloat("Vert"));
                 }
 
+                
+
+            }
+            // Handle animations
+            if (doAnim)
+            {
                 animator.SetFloat("Vert", moveDirection.y + 2);
 
                 if (animator.GetBool("Push") && moveDirection != lastDirection)
                 {
                     animator.SetBool("Push", false);
                 }
-                if(moveDirection == Vector2.zero)
+                if (moveDirection == Vector2.zero)
                 {
                     animator.SetBool("Move", false);
                 }
-
+                doAnim = false;
             }
+
 
             // Check for Restart
             if (Input.GetKeyDown("r") && readyToRestart)
@@ -279,6 +247,40 @@ public class PlayerController : MonoBehaviour
 
         }
 
+    }
+
+    public void MoveLeft()
+    {
+        doAnim = true;
+        moveDirection.x = -1;
+        if (facingForward)
+        {
+            facingForward = false;
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
+    public void MoveRight()
+    {
+        doAnim = true;
+        moveDirection.x = 1;
+        if (!facingForward)
+        {
+            facingForward = true;
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+    public void MoveUp()
+    {
+        doAnim = true;
+        moveDirection.y = 1;
+    }
+
+    public void MoveDown()
+    {
+        doAnim = true;
+        moveDirection.y = -1;
     }
 
     private void FixedUpdate()
@@ -502,7 +504,7 @@ public class PlayerController : MonoBehaviour
         pushSound.Play();
     }
 
-    void OnUndo()
+    public void OnUndo()
     {
         if (undoStack.Count > 0)
         {

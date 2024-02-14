@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class RestartButton : MonoBehaviour, IPointerDownHandler
+public class DeadUndotButton : MonoBehaviour, IPointerDownHandler
 {
 
     public bool buttonPressed;
@@ -28,9 +28,9 @@ public class RestartButton : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (clickable)
+        if (clickable && pcon.readyToMove)
         {
-            pcon.RestartLevel();
+            pcon.OnUndo();
         }
     }
 
