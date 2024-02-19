@@ -102,6 +102,7 @@ public class LevelNavigator : MonoBehaviour
     private void FixedUpdate()
     {
         // Move this to Update with Time.Deltatime added at a later date to smooth movement out
+        // Legacy code - this has been moved to Update
         /*
         if (moving)
         {
