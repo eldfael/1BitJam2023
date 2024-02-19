@@ -6,7 +6,7 @@ public class DeadUndotButton : MonoBehaviour, IPointerDownHandler
 {
 
     public bool buttonPressed;
-    bool clickable;
+    public bool clickable;
     PlayerController pcon;
     private void Start()
     {

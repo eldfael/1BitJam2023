@@ -42,8 +42,10 @@ public class PlayerController : MonoBehaviour
     Touch touch;
     Vector2 firstTouch;
     Vector2 lastTouch;
+    Vector2 swipeDirection;
     float swipeDistance;
     bool touchHeld;
+    bool setTouch;
     bool doAnim;
 
     bool readyToUndo;
@@ -69,7 +71,7 @@ public class PlayerController : MonoBehaviour
         scene = SceneManager.GetActiveScene();
         animator.SetBool("Die", false);
         animator.SetBool("Win", false);
-        swipeDistance = Screen.height * 10 / 100;
+        swipeDistance = Screen.height * 18 / 100;
         undoStack = new Stack();
 
         StartCoroutine(WaitToRestart());
@@ -80,6 +82,7 @@ public class PlayerController : MonoBehaviour
         filter.layerMask = lmask;
 
         touchHeld = false;
+        setTouch = false;
         doAnim = false;
     }
 
@@ -95,8 +98,113 @@ public class PlayerController : MonoBehaviour
                     OnUndo();
                 }
             }
+
             
             //Mobile inputs
+            // NEW touch Inputs
+            if (Input.touchCount == 1)
+            {
+                if (!setTouch)
+                {
+                    firstTouch = touch.position;
+                    lastTouch = firstTouch;
+                    setTouch = true;
+                }
+                //Player is touching screen
+                touch = Input.GetTouch(0);
+                switch(touch.phase)
+                {
+                    case TouchPhase.Began:
+                        firstTouch = touch.position;
+                        lastTouch = firstTouch;
+                        break;
+                    case TouchPhase.Moved:
+                        lastTouch = touch.position;
+                        break;
+                    case TouchPhase.Stationary:
+                        // catching this in case needs to be used 
+                        break;
+                    case TouchPhase.Ended:
+                        lastTouch = touch.position;
+                        touchHeld = false;
+                        break;
+                    
+                }
+            }
+            else
+            {
+                //Player is not touching screen
+                touchHeld = false;
+                setTouch = false;
+                firstTouch = Vector2.zero;
+                lastTouch = Vector2.zero;
+            }
+
+            // Check if enough distance has been covered by swipe
+            if((Mathf.Abs(lastTouch.x - firstTouch.x) > swipeDistance || Mathf.Abs(lastTouch.y - firstTouch.y) > swipeDistance) && readyToMove && control)                
+            {
+                // Check if swipe is bigger in X distance or Y distance                 
+                if (Mathf.Abs(lastTouch.x - firstTouch.x) >= Mathf.Abs(lastTouch.y - firstTouch.y))
+                {
+                    //X is greater
+                    //Check direction
+                    if (lastTouch.x > firstTouch.x)
+                    {
+                        MoveRight();
+                    }
+                    else
+                    {
+                        MoveLeft();
+                    }
+                }
+                else
+                {
+                    //Y is greater
+                    //Check direction
+                    if (lastTouch.y > firstTouch.y)
+                    {
+                        MoveUp();
+                    }
+                    else
+                    {
+                        MoveDown();
+                    }
+                }
+                //Set new "Original" touch position to the last touch position
+                firstTouch = lastTouch;
+
+                if (moveDirection == swipeDirection || Mathf.Abs(lastTouch.x - firstTouch.x) > swipeDistance*2 || Mathf.Abs(lastTouch.y - firstTouch.y) > swipeDistance*2)
+                {
+                    //Check to see if "Double Swipe"
+                    touchHeld = true;
+                }
+                else
+                {
+                    //If not - only move once
+                    touchHeld = false;
+                }
+                swipeDirection = moveDirection;
+
+            }
+            else if (touchHeld && readyToMove && control && Input.touchCount == 1)
+            {
+                switch(lastDirection)
+                {
+                    case Vector2 v when v.Equals(Vector2.right):
+                        MoveRight();
+                        break;
+                    case Vector2 v when v.Equals(Vector2.left):
+                        MoveLeft();
+                        break;
+                    case Vector2 v when v.Equals(Vector2.up):
+                        MoveUp();
+                        break;
+                    case Vector2 v when v.Equals(Vector2.down):
+                        MoveDown();
+                        break;
+                }
+            }
+
             //Arrow Key Inputs
             /* Touch Inputs
             if (moveDirection == Vector2.zero && control && readyToMove)
