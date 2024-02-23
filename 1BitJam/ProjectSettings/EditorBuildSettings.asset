@@ -558,6 +558,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/5-X2.unity
     guid: 646c1502002c8bd4ba247c2a88daae9a
   - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/Secret Levels/5-X3.unity
+    guid: a4d419d853a78ce4389a755e5127aa76
+  - enabled: 1
     path: Assets/Scenes/Menus/End Screen.unity
     guid: e05b8836eebf2744e8c869441a24bc7f
   - enabled: 0
