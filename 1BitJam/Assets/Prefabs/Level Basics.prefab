@@ -958,6 +958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonPressed: 0
+  clickable: 0
 --- !u!1 &2750333724173294312
 GameObject:
   m_ObjectHideFlags: 0
@@ -3311,10 +3312,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4163009489582353611, guid: 6ac90042f2a70c94ca27e802ba2082bc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1707147044464912243}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ac90042f2a70c94ca27e802ba2082bc, type: 3}
 --- !u!95 &7442138025070819677 stripped
 Animator:
@@ -3326,27 +3324,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4163009489582353463, guid: 6ac90042f2a70c94ca27e802ba2082bc, type: 3}
   m_PrefabInstance: {fileID: 4737917539380701506}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8648474741679834505 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4163009489582353611, guid: 6ac90042f2a70c94ca27e802ba2082bc, type: 3}
-  m_PrefabInstance: {fileID: 4737917539380701506}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1707147044464912243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8648474741679834505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EventMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_MaxRayIntersections: 0
 --- !u!20 &8648474741679834506 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4163009489582353608, guid: 6ac90042f2a70c94ca27e802ba2082bc, type: 3}
