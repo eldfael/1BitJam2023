@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PauseResumeButton : MonoBehaviour, MenuObject, IPointerDownHandler, IPointerExitHandler, IPointerEnterHandler, IPointerMoveHandler
+public class PauseRestartButton : MonoBehaviour, MenuObject, IPointerDownHandler, IPointerExitHandler, IPointerEnterHandler, IPointerMoveHandler
 {
     public GameController gc;
+    public Menu m;
+    PlayerController pc;
     public bool highlighted;
     MenuSelector ms;
-    public Menu m;
 
     public Sprite normalSprite;
     public Sprite highlightedSprite;
@@ -20,18 +21,19 @@ public class PauseResumeButton : MonoBehaviour, MenuObject, IPointerDownHandler,
     {
         im = GetComponent<Image>();
         ms = transform.parent.GetComponent<MenuSelector>();
+        pc = FindFirstObjectByType<PlayerController>();
         //gc = ms.gc;
         highlighted = false;
     }
 
     private void Update()
     {
-        if(highlighted)
+        if (highlighted)
         {
             // Stuff to do here later!!
             //Debug.Log("Resume button is highlighted");
             im.sprite = highlightedSprite;
-            
+
         }
         else
         {
@@ -41,7 +43,7 @@ public class PauseResumeButton : MonoBehaviour, MenuObject, IPointerDownHandler,
 
     public void OnSelect()
     {
-        m.Resume();
+        m.Restart();
         ms.Reset();
     }
 

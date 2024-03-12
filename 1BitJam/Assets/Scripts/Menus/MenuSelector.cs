@@ -107,7 +107,17 @@ public class MenuSelector : MonoBehaviour
 
     IEnumerator WaitToSelect()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.1f);
         readyToMove = true;
+    }
+
+    public void Reset()
+    {
+        current = -1;
+        readyToMove = true;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            menuObjects[i].Highlight(false);
+        }
     }
 }
