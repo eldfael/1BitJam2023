@@ -29,7 +29,7 @@ public class LightDetectorController : MonoBehaviour
                 {
                     open = true;
                     hit = true;
-                    Debug.Log("hit");
+                    //Debug.Log("hit");
                 }
             }
             if (!hit)

@@ -20,6 +20,7 @@ public class Menu : MonoBehaviour
             int lastSlash = scenePath.LastIndexOf("/");
             sceneNames.Add(scenePath.Substring(lastSlash + 1, scenePath.LastIndexOf(".") - lastSlash - 1));
             //Debug.Log(sceneNames[i-2]);
+            //hi
         }
     }
     public void StartGame()
