@@ -13,7 +13,7 @@ public class Menu : MonoBehaviour
 
     public void Start()
     {
-        for (int i = 2; i < 7; i++)
+        for (int i = 2; i < 9; i++)
         {
             gc = GameObject.Find("GameController").GetComponent<GameController>();
             string scenePath = SceneUtility.GetScenePathByBuildIndex(i);
