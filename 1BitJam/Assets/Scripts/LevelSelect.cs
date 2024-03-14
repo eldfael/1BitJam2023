@@ -13,10 +13,13 @@ public class LevelSelect : MonoBehaviour
     public string Prerequisite1;
     public string Prerequisite2;
     public bool alwaysActive = false;
+    Animator crossfade;
+
     //Image img;
 
     private void Start()
     {
+        crossfade = GameObject.Find("Crossfade").GetComponent<Animator>();
         //img = GetComponent<Image>();
         int previousLevel = (pickLevel.Contains("-") || pickLevel.Contains(" ")) ? 0 : int.Parse(pickLevel)-1;
         gController = FindObjectOfType<GameController>();
@@ -34,10 +37,18 @@ public class LevelSelect : MonoBehaviour
     }
 
     
-
+    
     public void GoToLevel()
     {
         //Debug.Log("Level Loaded");
-        SceneManager.LoadScene(pickLevel.ToString());
+        //SceneManager.LoadScene(pickLevel.ToString());
+        StartCoroutine(LevelSel(pickLevel.ToString()));
+    }
+
+    IEnumerator LevelSel(string levelIndex)
+    {
+        crossfade.SetTrigger("NextLevel");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(levelIndex);
     }
 }
