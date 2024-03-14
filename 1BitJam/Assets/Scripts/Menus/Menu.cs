@@ -47,9 +47,9 @@ public class Menu : MonoBehaviour
 
         // This needs overall rewrite
         string sceneString = "World " + SceneManager.GetActiveScene().name.Substring(0, 1);
-        
-        //Debug.Log(sceneNames.Contains(sceneString));
 
+        //Debug.Log(sceneNames.Contains(sceneString));
+        Debug.Log(sceneString);
         if (sceneNames.Contains(sceneString))
         {
             SceneManager.LoadScene(sceneString);
