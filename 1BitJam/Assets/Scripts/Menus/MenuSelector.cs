@@ -107,7 +107,7 @@ public class MenuSelector : MonoBehaviour
 
     IEnumerator WaitToSelect()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
         readyToMove = true;
     }
 
