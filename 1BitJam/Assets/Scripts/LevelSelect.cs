@@ -43,7 +43,7 @@ public class LevelSelect : MonoBehaviour
     IEnumerator LevelSel(string levelIndex)
     {
         //crossfade.SetTrigger("NextLevel");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0f); // set to 0 temporarily - also for future django if you set this to 1 you have to be careful because people could load a level in the 1 second since it doesn't stop the player moving etc
         SceneManager.LoadScene(levelIndex);
     }
 }
