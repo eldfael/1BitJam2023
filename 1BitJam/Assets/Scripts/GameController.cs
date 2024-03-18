@@ -42,13 +42,13 @@ public class GameController : MonoBehaviour
             string scenePath = SceneUtility.GetScenePathByBuildIndex(i);
             int lastSlash = scenePath.LastIndexOf("/");
             sceneList.Add(scenePath.Substring(lastSlash + 1, scenePath.LastIndexOf(".") - lastSlash - 1));
-            Debug.Log(sceneList[i]);
+            //Debug.Log(sceneList[i]);
         }
 
         DontDestroyOnLoad(this.gameObject);
         saveDataPath = Application.persistentDataPath;
         saveDataName = "savedata.json";
-        Debug.Log(saveDataPath);
+        //Debug.Log(saveDataPath);
         saveData = LoadGame();
         if (saveData == null)
         {
@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour
             Debug.Log("Failed to load last level");
             lastScene = "World 1";
         }
-        Debug.Log(lastScene);
+        //Debug.Log(lastScene);
     }
 
     private void OnEnable()
@@ -137,7 +137,7 @@ public class GameController : MonoBehaviour
             lastScene = scene.name;
             lastLevel = "lvl"+scene.name;
             saveData.data[0] = lastLevel;
-            Debug.Log(lastLevel);
+            //Debug.Log(lastLevel);
         }
         else
         {
@@ -239,7 +239,7 @@ public class GameController : MonoBehaviour
         {
             Directory.CreateDirectory(Path.GetDirectoryName(saveFullPath));
             string fileData = JsonUtility.ToJson(saveData, true);
-            Debug.Log(fileData);
+            //Debug.Log(fileData);
             using (FileStream stream = new FileStream(saveFullPath, FileMode.Create))
             {
                 using (StreamWriter writer = new StreamWriter(stream))
@@ -247,7 +247,7 @@ public class GameController : MonoBehaviour
                     writer.Write(fileData);
                 }
             }
-            Debug.Log("Game Saved");
+            //Debug.Log("Game Saved");
         }
         catch (Exception e)
         {

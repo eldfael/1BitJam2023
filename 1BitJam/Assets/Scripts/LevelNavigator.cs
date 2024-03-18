@@ -20,7 +20,8 @@ public class LevelNavigator : MonoBehaviour
     {
         speed = 0.1f; // Lower speed = Faster movement - yeah deal with it
         moving = false;
-        readyToMove = true;
+        readyToMove = false;
+        StartCoroutine(WaitToMove());
         dir = Vector2.zero;
         counter = 0;
     }
@@ -28,8 +29,9 @@ public class LevelNavigator : MonoBehaviour
     {
         if (!moving && readyToMove)
         {
-            if (Input.GetKey("space") || Input.GetKey("z"))
+            if (Input.GetKeyDown("space") || Input.GetKeyDown("z"))
             {
+                Debug.Log("KeyDown");
                 hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.8f, 0f, Vector2.zero);
                 if (hit.collider != null)
                 {
@@ -124,4 +126,5 @@ public class LevelNavigator : MonoBehaviour
         yield return new WaitForSeconds(0.08f);
         readyToMove = true;
     }
+
 }
