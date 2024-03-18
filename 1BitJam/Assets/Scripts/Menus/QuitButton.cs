@@ -4,13 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PauseRestartButton : MonoBehaviour, MenuObject, IPointerDownHandler, IPointerExitHandler, IPointerEnterHandler, IPointerMoveHandler
+public class QuitButton : MonoBehaviour, MenuObject, IPointerDownHandler, IPointerExitHandler, IPointerEnterHandler, IPointerMoveHandler
 {
     //public GameController gc;
-    public Menu m;
-    PlayerController pc;
     public bool highlighted;
     MenuSelector ms;
+    public Menu m;
 
     public Sprite normalSprite;
     public Sprite highlightedSprite;
@@ -21,7 +20,6 @@ public class PauseRestartButton : MonoBehaviour, MenuObject, IPointerDownHandler
     {
         im = GetComponent<Image>();
         ms = transform.parent.GetComponent<MenuSelector>();
-        pc = FindFirstObjectByType<PlayerController>();
         //gc = ms.gc;
         highlighted = false;
     }
@@ -43,7 +41,7 @@ public class PauseRestartButton : MonoBehaviour, MenuObject, IPointerDownHandler
 
     public void OnSelect()
     {
-        m.Restart();
+        m.QuitGame();
         ms.Reset();
     }
 

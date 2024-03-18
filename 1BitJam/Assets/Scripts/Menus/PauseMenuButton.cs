@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PauseMenuButton : MonoBehaviour, MenuObject, IPointerDownHandler, IPointerExitHandler, IPointerEnterHandler, IPointerMoveHandler
 {
-    public GameController gc;
+    //public GameController gc;
     public Menu m;
     public bool highlighted;
     MenuSelector ms;
