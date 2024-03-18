@@ -327,7 +327,10 @@ public class PlayerController : MonoBehaviour
                     //Debug.Log(animator.GetFloat("Vert"));
                 }
 
-                
+                if (moveDirection.x !=0 || moveDirection.y != 0)
+                {
+                    readyToMove = false;
+                }
 
             }
             // Handle animations
