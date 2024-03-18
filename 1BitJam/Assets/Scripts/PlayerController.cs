@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
         scene = SceneManager.GetActiveScene();
         animator.SetBool("Die", false);
         animator.SetBool("Win", false);
-        swipeDistance = Screen.height * 18 / 100;
+        swipeDistance = Screen.height * 16 / 100;
         undoStack = new Stack();
 
         StartCoroutine(WaitToRestart());
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
             }
 
             // Check if enough distance has been covered by swipe
-            if((Mathf.Abs(lastTouch.x - firstTouch.x) > swipeDistance || Mathf.Abs(lastTouch.y - firstTouch.y) > swipeDistance) && readyToMove && control)                
+            if((Mathf.Abs(lastTouch.x - firstTouch.x) > swipeDistance || Mathf.Abs(lastTouch.y - firstTouch.y) > swipeDistance) && readyToMove && control && moveDirection == Vector2.zero)                
             {
                 // Check if swipe is bigger in X distance or Y distance                 
                 if (Mathf.Abs(lastTouch.x - firstTouch.x) >= Mathf.Abs(lastTouch.y - firstTouch.y))
@@ -186,7 +186,7 @@ public class PlayerController : MonoBehaviour
                 swipeDirection = moveDirection;
 
             }
-            else if (touchHeld && readyToMove && control && Input.touchCount == 1)
+            else if (touchHeld && readyToMove && control && Input.touchCount == 1 && moveDirection == Vector2.zero)
             {
                 switch(lastDirection)
                 {
@@ -326,12 +326,6 @@ public class PlayerController : MonoBehaviour
 
                     //Debug.Log(animator.GetFloat("Vert"));
                 }
-
-                if (moveDirection.x !=0 || moveDirection.y != 0)
-                {
-                    readyToMove = false;
-                }
-
             }
             // Handle animations
             if (doAnim)
@@ -362,7 +356,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveLeft()
     {
-        readyToMove = false;
+        moveDirection = Vector2.zero;
         doAnim = true;
         moveDirection.x = -1;
         if (facingForward)
@@ -374,7 +368,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveRight()
     {
-        readyToMove = false;
+        moveDirection = Vector2.zero;
         doAnim = true;
         moveDirection.x = 1;
         if (!facingForward)
@@ -386,14 +380,14 @@ public class PlayerController : MonoBehaviour
 
     public void MoveUp()
     {
-        readyToMove = false;
+        moveDirection = Vector2.zero;
         doAnim = true;
         moveDirection.y = 1;
     }
 
     public void MoveDown()
     {
-        readyToMove = false;
+        moveDirection = Vector2.zero;
         doAnim = true;
         moveDirection.y = -1;
     }
@@ -406,7 +400,11 @@ public class PlayerController : MonoBehaviour
         if (!moving && moveDirection != Vector2.zero)
         {
             target = pos + moveDirection;
-
+            //This shouldn't happen but just in case!!
+            if (moveDirection.x != 0 && moveDirection.y != 0)
+            {
+                moveDirection.y = 0;
+            }
             RaycastHit2D raycastHit = Physics2D.BoxCast(target, Vector2.one * 0.5f, 0f, Vector2.zero, Mathf.Infinity, lmask);
             Debug.Log(raycastHit.collider);
             if (raycastHit.collider == null)
