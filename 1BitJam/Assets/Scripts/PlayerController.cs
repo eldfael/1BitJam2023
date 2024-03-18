@@ -359,6 +359,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveLeft()
     {
+        readyToMove = false;
         doAnim = true;
         moveDirection.x = -1;
         if (facingForward)
@@ -370,6 +371,7 @@ public class PlayerController : MonoBehaviour
 
     public void MoveRight()
     {
+        readyToMove = false;
         doAnim = true;
         moveDirection.x = 1;
         if (!facingForward)
@@ -381,12 +383,14 @@ public class PlayerController : MonoBehaviour
 
     public void MoveUp()
     {
+        readyToMove = false;
         doAnim = true;
         moveDirection.y = 1;
     }
 
     public void MoveDown()
     {
+        readyToMove = false;
         doAnim = true;
         moveDirection.y = -1;
     }
