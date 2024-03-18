@@ -28,10 +28,14 @@ public class GameController : MonoBehaviour
     public string lastLevel;
     public GameObject levelNav;
 
+    public bool cheat;
+
 
 
     private void Awake()
     {
+        cheat = false;
+
         sceneList = new();
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
         {

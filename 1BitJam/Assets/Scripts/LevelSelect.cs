@@ -13,22 +13,19 @@ public class LevelSelect : MonoBehaviour
     public string Prerequisite1;
     public string Prerequisite2;
     public bool alwaysActive = false;
-    Animator crossfade;
+    //Animator crossfade;
 
-    //Image img;
 
     private void Start()
     {
-        crossfade = GameObject.Find("Crossfade").GetComponent<Animator>();
-        //img = GetComponent<Image>();
+        //crossfade = GameObject.Find("Crossfade").GetComponent<Animator>();
         int previousLevel = (pickLevel.Contains("-") || pickLevel.Contains(" ")) ? 0 : int.Parse(pickLevel)-1;
         gController = FindObjectOfType<GameController>();
-        if (gController.GetLevelCompleted(previousLevel.ToString()) || gController.GetLevelCompleted(Prerequisite1) || gController.GetLevelCompleted(Prerequisite2) || alwaysActive)
+        if (gController.GetLevelCompleted(previousLevel.ToString()) || gController.GetLevelCompleted(Prerequisite1) || gController.GetLevelCompleted(Prerequisite2) || alwaysActive || gController.cheat)
         {
             if (gController.GetLevelCompleted(pickLevel))
             {
                  GetComponent<SpriteRenderer>().sprite = spr;
-                //img.color = Color.green;
             }
         } else {
             this.gameObject.SetActive(false);
@@ -40,14 +37,12 @@ public class LevelSelect : MonoBehaviour
     
     public void GoToLevel()
     {
-        //Debug.Log("Level Loaded");
-        //SceneManager.LoadScene(pickLevel.ToString());
         StartCoroutine(LevelSel(pickLevel.ToString()));
     }
 
     IEnumerator LevelSel(string levelIndex)
     {
-        crossfade.SetTrigger("NextLevel");
+        //crossfade.SetTrigger("NextLevel");
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(levelIndex);
     }
