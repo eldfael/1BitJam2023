@@ -284,6 +284,10 @@ PrefabInstance:
       value: World 2
       objectReference: {fileID: 0}
     - target: {fileID: 3613730274407535290, guid: 4e4dd1a15e9f4c041a2c7328004f08df, type: 3}
+      propertyPath: alwaysActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613730274407535290, guid: 4e4dd1a15e9f4c041a2c7328004f08df, type: 3}
       propertyPath: Prerequisite1
       value: 100
       objectReference: {fileID: 0}
@@ -2574,6 +2578,10 @@ PrefabInstance:
     - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: pickLevel
       value: 301
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
+      propertyPath: alwaysActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: Prerequisite1
