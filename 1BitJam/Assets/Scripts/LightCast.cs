@@ -7,9 +7,9 @@ public class LightCast : MonoBehaviour
     Mesh mesh;
     LayerMask lmask;
 
-    static float DEFAULTRADIUS = 90f;
+    static float DEFAULTRADIUS = 360f;
     static int DEFAULTRAYS = 32;
-    static float DEFAULTDISTANCE = 10f;
+    static float DEFAULTDISTANCE = 100f;
     static float DEFAULTANGLE = -45f;
 
     public float radius = DEFAULTRADIUS;
@@ -18,6 +18,7 @@ public class LightCast : MonoBehaviour
     public float angle = DEFAULTANGLE;
 
     bool fire = false;
+    List<Vector2> gizhits;
 
     /*
     float radius;
@@ -43,6 +44,8 @@ public class LightCast : MonoBehaviour
         }
 
         angleIncrease = radius / rays;
+
+        gizhits = new List<Vector2>();
     }
 
     private void Update()
@@ -59,6 +62,9 @@ public class LightCast : MonoBehaviour
         for (int i = 0; i <= rays; i++)
         {
             RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, GetVectorFromAngle(currentAngle), distance, lmask);
+            // Debug.Log(GetVectorFromAngle(currentAngle));
+            // Debug.Log(raycastHit.point);
+            // Debug.DrawRay(transform.position, GetVectorFromAngle(currentAngle)*50,Color.red);
 
             if (raycastHit.collider == null || raycastHit.collider.tag == "Player")
             {
@@ -111,8 +117,11 @@ public class LightCast : MonoBehaviour
     }
     private static Vector3 GetVectorFromAngle(float angle)
     {
-        float angleRad = angle * (Mathf.PI / 180f);
-        return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+        float angleRad = angle * Mathf.Deg2Rad;
+        // * (Mathf.PI / 180f);
+        // Debug.Log(Mathf.Round(Mathf.Cos(angleRad) * 10000));
+        // Debug.Log(Mathf.Round(Mathf.Sin(angleRad) * 10000));
+        return new Vector3(Mathf.Round(Mathf.Cos(angleRad) * 10000), Mathf.Round(Mathf.Sin(angleRad) * 10000));
     }
 
     public bool CheckLight(GameObject obj)
@@ -130,5 +139,6 @@ public class LightCast : MonoBehaviour
         }
         return false;
     }
+
 
 }
