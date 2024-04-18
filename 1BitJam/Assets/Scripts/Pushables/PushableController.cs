@@ -122,7 +122,7 @@ public class PushableController : MonoBehaviour, Pushable
     public void OnBreak()
     {
         GetComponent<Animator>().SetBool("smash", true);
-        GetComponent<BoxCollider2D>().enabled = false;
+        StartCoroutine(WaitToBreak());
     }
 
     public Vector2 GetAxe()
@@ -141,6 +141,12 @@ public class PushableController : MonoBehaviour, Pushable
         target = originalPosition;
         pos = transform.position;
         moveDirection = originalPosition - pos;
+    }
+
+    IEnumerator WaitToBreak()
+    {
+        yield return new WaitForSeconds(0.05f);
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
 
