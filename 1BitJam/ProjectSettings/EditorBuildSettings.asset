@@ -342,6 +342,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/511.unity
     guid: cf8268924f0ad594faf17581158b8b7a
   - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/512.unity
+    guid: 2d387da917d074c449d589cfe64c06ff
+  - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/501-1.unity
     guid: 353e2c164b8ba384da29f5dec6751a6a
   - enabled: 1
@@ -365,6 +368,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/508-2.unity
     guid: 76a1e0b24e8bf9f4e9eea233312a1381
+  - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/512-1.unity
+    guid: 27bba4542b9aa694b8c427beb3434870
   - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/6 Light Detector/601.unity
     guid: 5ab78630574fda143bfa52c5bc160abf
