@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class LevelNavigator : MonoBehaviour
 {
+
 
     Vector2 dir;
 
@@ -27,8 +30,14 @@ public class LevelNavigator : MonoBehaviour
     }
     private void Update()
     {
+
         if (!moving && readyToMove)
         {
+            if (Input.GetKeyDown("escape"))
+            {
+                SceneManager.LoadScene("Top Menu");
+            }
+
             if (Input.GetKeyDown("space") || Input.GetKeyDown("z"))
             {
                 Debug.Log("KeyDown");

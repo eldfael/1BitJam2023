@@ -45,9 +45,17 @@ public class Menu : MonoBehaviour
     }
     public void LevelSelect()
     {
-
+        string sceneString;
         // This needs overall rewrite
-        string sceneString = "World " + SceneManager.GetActiveScene().name.Substring(0, 1);
+        if (gc.lastScene.Length>= 5 && gc.lastScene.Substring(0, 5) == "World")
+        {
+            sceneString = gc.lastScene;
+        }
+        else
+        {
+            sceneString = "World " + SceneManager.GetActiveScene().name.Substring(0, 1);
+        }
+        
 
         //Debug.Log(sceneNames.Contains(sceneString));
         Debug.Log(sceneString);

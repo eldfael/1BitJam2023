@@ -145,6 +145,8 @@ public class GameController : MonoBehaviour
             lastScene = scene.name;
         }
 
+        Debug.Log(lastScene);
+
         //TEMPORARY GAME SAVE
         SaveGame();
 
