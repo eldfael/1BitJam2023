@@ -42,7 +42,7 @@ public class LevelNavigator : MonoBehaviour
             dir.x = Input.GetAxisRaw("Horizontal");
             if (dir.x != 0)
             {
-                hit = Physics2D.Raycast((Vector2)transform.position + dir, dir, 10f);
+                hit = Physics2D.Raycast((Vector2)transform.position + dir, dir, 1f);
                 if (hit.collider != null)
                 {
                     if (hit.collider.tag == "Warp")
@@ -69,16 +69,27 @@ public class LevelNavigator : MonoBehaviour
                 dir.y = Input.GetAxisRaw("Vertical");
                 if (dir.y != 0)
                 {
-                    hit = Physics2D.Raycast((Vector2)transform.position + dir, dir, 10f);
+                    hit = Physics2D.Raycast((Vector2)transform.position + dir, dir, 1f);
                     if (hit.collider != null)
                     {
 
-                        Debug.Log(hit.collider);
-                        target = (Vector2)hit.collider.transform.position;
-                        pos = (Vector2)transform.position;
-                        movedir = target - pos;
-                        moving = true;
-                        readyToMove = false;
+                        if (hit.collider.tag == "Warp")
+                        {
+                            hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.8f, 0f, Vector2.zero);
+                            if (hit.collider != null)
+                            {
+                                hit.collider.gameObject.GetComponent<LevelSelect>().GoToLevel();
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log(hit.collider);
+                            target = (Vector2)hit.collider.transform.position;
+                            pos = (Vector2)transform.position;
+                            movedir = target - pos;
+                            moving = true;
+                            readyToMove = false;
+                        }
 
                     }
                 }
