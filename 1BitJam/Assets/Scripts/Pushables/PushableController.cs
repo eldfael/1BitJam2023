@@ -6,7 +6,7 @@ public class PushableController : MonoBehaviour, Pushable
 {
     // GLASS SHOULD BE SET TO TRUE
     public bool breakable = false;
-
+    int breakcounter;
 
     Vector2 pos;
     Vector2 target;
@@ -20,6 +20,7 @@ public class PushableController : MonoBehaviour, Pushable
     private void Start()
     {
         lmask = LayerMask.GetMask("Default") + LayerMask.GetMask("TransparentFX") + LayerMask.GetMask("AxeBlock");
+        breakcounter = 0;
     }
     public List<(Vector2, GameObject)> OnPush(Vector2 moveDirection, List<(Vector2, GameObject)> tupleList)
     {
@@ -107,6 +108,14 @@ public class PushableController : MonoBehaviour, Pushable
                 moveDirection = Vector2.zero;
             }
         }
+        if (breakcounter != 0)
+        {
+            breakcounter--;
+            if (breakcounter == 0)
+            {
+                GetComponent<BoxCollider2D>().enabled = false;
+            }
+        }
     }
 
     public bool IsMoving()
@@ -122,7 +131,7 @@ public class PushableController : MonoBehaviour, Pushable
     public void OnBreak()
     {
         GetComponent<Animator>().SetBool("smash", true);
-        StartCoroutine(WaitToBreak());
+        breakcounter = 3;
     }
 
     public Vector2 GetAxe()
