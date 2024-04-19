@@ -1160,8 +1160,8 @@ RectTransform:
   - {fileID: 1608292018}
   - {fileID: 1671253498}
   - {fileID: 254509681}
-  - {fileID: 1238128275}
   - {fileID: 1742958302}
+  - {fileID: 1238128275}
   - {fileID: 1177355655}
   - {fileID: 1093708837}
   - {fileID: 1335210171}
@@ -1749,19 +1749,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: pickLevel
-      value: 503-2
+      value: 504-2
       objectReference: {fileID: 0}
     - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: Prerequisite1
-      value: 503-1
+      value: 504-1
       objectReference: {fileID: 0}
     - target: {fileID: 3649380711062045064, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3649380711062045064, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3649380711062045064, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1797,7 +1797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6181226451582301326, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: m_Name
-      value: Level 503-2
+      value: Level 504-2
       objectReference: {fileID: 0}
     - target: {fileID: 6181226451582301326, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: m_IsActive
@@ -2524,11 +2524,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: pickLevel
-      value: 505-1
+      value: 504-1
       objectReference: {fileID: 0}
     - target: {fileID: 3613730274407535290, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: Prerequisite1
-      value: 505
+      value: 504
       objectReference: {fileID: 0}
     - target: {fileID: 3649380711062045064, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2536,7 +2536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3649380711062045064, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3649380711062045064, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2572,7 +2572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6181226451582301326, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: m_Name
-      value: Level 505-1
+      value: Level 504-1
       objectReference: {fileID: 0}
     - target: {fileID: 6181226451582301326, guid: 0a15ba8420d43d84f999cde0910b2430, type: 3}
       propertyPath: m_IsActive
