@@ -6,7 +6,7 @@ public class PushableController : MonoBehaviour, Pushable
 {
     // GLASS SHOULD BE SET TO TRUE
     public bool breakable = false;
-    int breakcounter;
+    public int breakcounter;
 
     Vector2 pos;
     Vector2 target;
@@ -130,8 +130,11 @@ public class PushableController : MonoBehaviour, Pushable
 
     public void OnBreak()
     {
-        GetComponent<Animator>().SetBool("smash", true);
-        breakcounter = 3;
+        if (breakcounter == 0)
+        {
+            GetComponent<Animator>().SetBool("smash", true);
+            breakcounter = 2;
+        }       
     }
 
     public Vector2 GetAxe()
