@@ -390,6 +390,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/512-2.unity
     guid: d41a44d5ac9fa574982a1ea0de5ecf61
   - enabled: 1
+    path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/512-3.unity
+    guid: b0d9dc0caac6b274a8b81290c71802b1
+  - enabled: 1
     path: Assets/Scenes/Levels RESTRUCTURED/5 Spikes/513-1.unity
     guid: bea87f07253a7e04e9a0e18002c9746a
   - enabled: 1
