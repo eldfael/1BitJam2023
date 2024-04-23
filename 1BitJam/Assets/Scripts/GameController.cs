@@ -63,6 +63,21 @@ public class GameController : MonoBehaviour
             lastScene = "World 1";
         }
         //Debug.Log(lastScene);
+
+        //PlayerPrefs stuff
+        //Checking if all keys exist
+        if(!PlayerPrefs.HasKey("MusicVolume"))
+        {
+            PlayerPrefs.SetInt("MusicVolume", 1); //Volume goes from 1.0 to 0.0 - will visually multiply this by 100
+        }
+        if(!PlayerPrefs.HasKey("EffectsVolume"))
+        {
+            PlayerPrefs.SetInt("EffectsVolume", 1);
+        }
+        PlayerPrefs.Save();
+        Debug.Log("Music Volume: " + PlayerPrefs.GetInt("MusicVolume"));
+        Debug.Log("Effects Volume: " + PlayerPrefs.GetInt("EffectsVolume"));
+
     }
 
     private void OnEnable()
