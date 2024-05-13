@@ -64,7 +64,6 @@ public class LevelNavigator : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log(hit.collider);
                         target = (Vector2)hit.collider.transform.position;
                         pos = (Vector2)transform.position;
                         movedir = target - pos;
