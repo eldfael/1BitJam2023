@@ -57,6 +57,7 @@ public class GameController : MonoBehaviour
         }
 
         lastScene = saveData.data[0].Substring(3,saveData.data[0].Length-3);
+        lastLevel = lastScene;
         if (!sceneList.Contains(lastScene))
         {
             Debug.Log("Failed to load last level");
@@ -118,6 +119,7 @@ public class GameController : MonoBehaviour
             {
                 try
                 {
+                    Debug.Log("Last scene was a World Select");
                     //Last Level in scene
                     pos = GameObject.Find("WorldSelect (" + lastScene + ")").transform.position;
                 }
@@ -132,8 +134,10 @@ public class GameController : MonoBehaviour
             {
                 try
                 {
+                    Debug.Log("Last scene was a level");
+                    Debug.Log(lastLevel);
                     //Last Level in scene
-                    pos = GameObject.Find("Level " + lastScene).transform.position;
+                    pos = GameObject.Find("Level " + lastLevel).transform.position;
                 }
                 catch (Exception e)
                 {
@@ -150,8 +154,8 @@ public class GameController : MonoBehaviour
         else if (scene.buildIndex > 1)
         {
             lastScene = scene.name;
-            lastLevel = "lvl"+scene.name;
-            saveData.data[0] = lastLevel;
+            lastLevel = scene.name;
+            saveData.data[0] = "lvl"+lastLevel;
             //Debug.Log(lastLevel);
         }
         else
@@ -160,7 +164,6 @@ public class GameController : MonoBehaviour
             lastScene = scene.name;
         }
 
-        Debug.Log(lastScene);
 
         //TEMPORARY GAME SAVE
         SaveGame();

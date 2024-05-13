@@ -45,6 +45,7 @@ public class Menu : MonoBehaviour
     }
     public void LevelSelect()
     {
+        /*
         string sceneString;
         // This needs overall rewrite
         if (gc.lastScene.Length>= 5 && gc.lastScene.Substring(0, 5) == "World")
@@ -58,7 +59,6 @@ public class Menu : MonoBehaviour
         
 
         //Debug.Log(sceneNames.Contains(sceneString));
-        Debug.Log(sceneString);
         if (sceneNames.Contains(sceneString))
         {
             SceneManager.LoadScene(sceneString);
@@ -82,6 +82,12 @@ public class Menu : MonoBehaviour
                 SceneManager.LoadScene("World 1");
             }
         }
+        Debug.Log("Loaded level: " + sceneString);
+        */
+        // ok im rewriting it, fine
+        gc.lastScene = gc.lastLevel;
+        SceneManager.LoadScene("World " + gc.lastLevel.Substring(0, 1));
+        // surely this isnt enough
     }
 
     public void Resume()
