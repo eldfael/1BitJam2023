@@ -100,5 +100,16 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void OpenOptionsMenu()
+    {
+        gc.OpenOptions();
+    }
+
+    public void CloseOptionsMenu()
+    {
+        gc.CloseOptions();
+    }
+
+
 
 }

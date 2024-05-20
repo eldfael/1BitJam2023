@@ -13,8 +13,10 @@ public class GameController : MonoBehaviour
     public AudioSource mainMusic;
     public PlayerController playerController;
     public GameObject pauseScreen;
+    public GameObject optionsMenu;
     bool playerInScene;
     bool paused;
+    bool inoptions;
     public List<string> levelsCompleted;
     List<string> sceneList;
 
@@ -35,6 +37,8 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         cheat = false;
+        paused = false;
+        inoptions = false;
 
         sceneList = new();
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
@@ -180,6 +184,10 @@ public class GameController : MonoBehaviour
                 {
                     OnGamePause();
                 }
+                else if(inoptions)
+                {
+                    CloseOptions();
+                }
                 else
                 {
                     OnGameUnpause();
@@ -222,6 +230,20 @@ public class GameController : MonoBehaviour
             playerController.SetPause(false);
             pauseScreen.SetActive(false);
         }
+    }
+
+    public void OpenOptions()
+    {
+        inoptions = true;
+        pauseScreen.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+
+    public void CloseOptions()
+    {
+        inoptions = false;
+        optionsMenu.SetActive(false);
+        pauseScreen.SetActive(true);
     }
 
     public bool GetLevelCompleted(string levelNum)
