@@ -235,7 +235,10 @@ public class GameController : MonoBehaviour
     public void OpenOptions()
     {
         inoptions = true;
-        pauseScreen.SetActive(false);
+        if (playerInScene)
+        {
+            pauseScreen.SetActive(false);
+        }
         optionsMenu.SetActive(true);
     }
 
@@ -243,7 +246,11 @@ public class GameController : MonoBehaviour
     {
         inoptions = false;
         optionsMenu.SetActive(false);
-        pauseScreen.SetActive(true);
+        if(playerInScene)
+        {
+            pauseScreen.SetActive(true);
+        }
+        
     }
 
     public bool GetLevelCompleted(string levelNum)
