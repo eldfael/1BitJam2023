@@ -306,6 +306,7 @@ MonoBehaviour:
   cutsceneMusic: {fileID: 1173919453}
   mainMusic: {fileID: 2080447281}
   playerController: {fileID: 0}
+  MainCanvas: {fileID: 0}
   pauseScreen: {fileID: 741034683}
   optionsMenu: {fileID: 1938861208}
   levelsCompleted: []
@@ -719,7 +720,7 @@ GameObject:
   - component: {fileID: 557074544}
   - component: {fileID: 557074548}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MainCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
