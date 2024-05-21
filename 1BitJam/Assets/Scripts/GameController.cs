@@ -12,9 +12,11 @@ public class GameController : MonoBehaviour
     public AudioSource cutsceneMusic;
     public AudioSource mainMusic;
     public PlayerController playerController;
+    public GameObject MainCanvas;
     public GameObject pauseScreen;
     public GameObject optionsMenu;
     bool playerInScene;
+    bool mainMenu;
     bool paused;
     bool inoptions;
     public List<string> levelsCompleted;
@@ -108,6 +110,17 @@ public class GameController : MonoBehaviour
         {
             //Debug.Log(e);
             playerInScene = false;
+        }
+        try
+        {
+            MainCanvas = GameObject.Find("MainCanvas");
+
+            mainMenu = true;
+        }
+        catch (Exception e)
+        {
+            //Debug.Log(e);
+            mainMenu = false;
         }
 
 
@@ -206,6 +219,16 @@ public class GameController : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            if (Input.GetKeyDown("escape"))
+            {
+                if (inoptions)
+                {
+                    CloseOptions();
+                }
+            }
+        }
     }
 
     public void OnGamePause()
@@ -239,6 +262,10 @@ public class GameController : MonoBehaviour
         {
             pauseScreen.SetActive(false);
         }
+        else if (mainMenu)
+        {
+            MainCanvas.SetActive(false);
+        }
         optionsMenu.SetActive(true);
     }
 
@@ -249,6 +276,10 @@ public class GameController : MonoBehaviour
         if(playerInScene)
         {
             pauseScreen.SetActive(true);
+        }
+        else if (mainMenu)
+        {
+            MainCanvas.SetActive(true);
         }
         
     }
