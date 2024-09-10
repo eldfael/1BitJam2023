@@ -74,7 +74,7 @@ public class LevelNavigator : MonoBehaviour
                         moving = true;
                         readyToMove = false;
 
-                        //remove speech bubble
+                        //REMOVE SPEECH BUBBLE ON MOVE (ANIMATION MAYBE ADDED HERE)
                         hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.8f, 0f, Vector2.zero);
                         if (hit.collider != null && hit.collider.transform.childCount >= 1)
                         {
@@ -111,7 +111,7 @@ public class LevelNavigator : MonoBehaviour
                             moving = true;
                             readyToMove = false;
 
-                            //remove speech bubble
+                            //REMOVE SPEECH BUBBLE ON MOVE (ANIMATION MAYBE ADDED HERE)
                             hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.8f, 0f, Vector2.zero);
                             if (hit.collider != null && hit.collider.transform.childCount >= 1)
                             {
@@ -123,6 +123,7 @@ public class LevelNavigator : MonoBehaviour
                     }
                 }
             }
+            //IF NOT MOVING ADD SPEECH BUBBLE (ANIMATION MAYBE ADDED HERE)
             if (moving == false && bubblebool == true)
             {
                 
