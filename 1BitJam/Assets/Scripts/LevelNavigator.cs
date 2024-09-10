@@ -18,6 +18,7 @@ public class LevelNavigator : MonoBehaviour
     RaycastHit2D hit;
     float counter;
     float speed;
+    bool bubblebool = true;
 
     private void Start()
     {
@@ -51,6 +52,9 @@ public class LevelNavigator : MonoBehaviour
             dir.x = Input.GetAxisRaw("Horizontal");
             if (dir.x != 0)
             {
+                
+
+
                 hit = Physics2D.Raycast((Vector2)transform.position + dir, dir, 1f);
                 if (hit.collider != null)
                 {
@@ -69,6 +73,13 @@ public class LevelNavigator : MonoBehaviour
                         movedir = target - pos;
                         moving = true;
                         readyToMove = false;
+
+                        //remove speech bubble
+                        hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.8f, 0f, Vector2.zero);
+                        if (hit.collider != null && hit.collider.transform.childCount >= 1)
+                        {
+                            hit.collider.transform.GetChild(0).gameObject.SetActive(false);
+                        }
                     }
                 }
             }
@@ -77,6 +88,8 @@ public class LevelNavigator : MonoBehaviour
                 dir.y = Input.GetAxisRaw("Vertical");
                 if (dir.y != 0)
                 {
+                    
+
                     hit = Physics2D.Raycast((Vector2)transform.position + dir, dir, 1f);
                     if (hit.collider != null)
                     {
@@ -97,12 +110,33 @@ public class LevelNavigator : MonoBehaviour
                             movedir = target - pos;
                             moving = true;
                             readyToMove = false;
+
+                            //remove speech bubble
+                            hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.8f, 0f, Vector2.zero);
+                            if (hit.collider != null && hit.collider.transform.childCount >= 1)
+                            {
+                                hit.collider.transform.GetChild(0).gameObject.SetActive(false);
+
+                            }
                         }
 
                     }
                 }
             }
-            
+            if (moving == false && bubblebool == true)
+            {
+                
+                hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.8f, 0f, Vector2.zero);
+                if (hit.collider != null && hit.collider.transform.childCount >= 1)
+                {
+                    hit.collider.transform.GetChild(0).gameObject.SetActive(true);
+                    bubblebool = false;
+                }
+                
+            }
+
+
+
 
             dir = Vector2.zero;
         }
@@ -144,6 +178,7 @@ public class LevelNavigator : MonoBehaviour
     {
         yield return new WaitForSeconds(0.08f);
         readyToMove = true;
+        bubblebool = true;
     }
 
 }
