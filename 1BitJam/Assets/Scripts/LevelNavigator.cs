@@ -18,7 +18,7 @@ public class LevelNavigator : MonoBehaviour
     RaycastHit2D hit;
     float counter;
     float speed;
-    bool bubblebool = true;
+    bool bubblebool = false;
 
     private void Start()
     {
@@ -26,6 +26,7 @@ public class LevelNavigator : MonoBehaviour
         moving = false;
         readyToMove = false;
         StartCoroutine(WaitToMove());
+        StartCoroutine(WaitToBubble());
         dir = Vector2.zero;
         counter = 0;
     }
@@ -52,9 +53,8 @@ public class LevelNavigator : MonoBehaviour
             dir.x = Input.GetAxisRaw("Horizontal");
             if (dir.x != 0)
             {
+
                 
-
-
                 hit = Physics2D.Raycast((Vector2)transform.position + dir, dir, 1f);
                 if (hit.collider != null)
                 {
@@ -68,6 +68,8 @@ public class LevelNavigator : MonoBehaviour
                     }
                     else
                     {
+                        StopAllCoroutines();
+
                         target = (Vector2)hit.collider.transform.position;
                         pos = (Vector2)transform.position;
                         movedir = target - pos;
@@ -88,8 +90,8 @@ public class LevelNavigator : MonoBehaviour
                 dir.y = Input.GetAxisRaw("Vertical");
                 if (dir.y != 0)
                 {
-                    
 
+                    
                     hit = Physics2D.Raycast((Vector2)transform.position + dir, dir, 1f);
                     if (hit.collider != null)
                     {
@@ -104,6 +106,8 @@ public class LevelNavigator : MonoBehaviour
                         }
                         else
                         {
+                            StopAllCoroutines();
+
                             Debug.Log(hit.collider);
                             target = (Vector2)hit.collider.transform.position;
                             pos = (Vector2)transform.position;
@@ -151,6 +155,7 @@ public class LevelNavigator : MonoBehaviour
                 counter = 0;
                 moving = false;
                 StartCoroutine(WaitToMove());
+                StartCoroutine(WaitToBubble());
             }
         }
     }
@@ -179,6 +184,11 @@ public class LevelNavigator : MonoBehaviour
     {
         yield return new WaitForSeconds(0.08f);
         readyToMove = true;
+    }
+
+    IEnumerator WaitToBubble()
+    {
+        yield return new WaitForSeconds(0.40f);
         bubblebool = true;
     }
 
