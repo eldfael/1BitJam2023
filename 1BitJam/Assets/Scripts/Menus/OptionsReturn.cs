@@ -74,5 +74,10 @@ public class OptionsReturn : MonoBehaviour, MenuObject, IPointerDownHandler, IPo
             ms.SwapToMouse();
         }
     }
+
+    public void OnSlide(int i)
+    {
+
+    }
 }
 

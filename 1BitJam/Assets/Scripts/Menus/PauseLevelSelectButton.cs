@@ -74,4 +74,9 @@ public class PauseLevelSelectButton : MonoBehaviour, MenuObject, IPointerDownHan
             ms.SwapToMouse();
         }
     }
+
+    public void OnSlide(int i)
+    {
+
+    }
 }

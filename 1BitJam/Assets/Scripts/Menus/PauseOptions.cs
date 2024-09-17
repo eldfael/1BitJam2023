@@ -74,5 +74,10 @@ public class PauseOptions : MonoBehaviour, MenuObject, IPointerDownHandler, IPoi
             ms.SwapToMouse();
         }
     }
+
+    public void OnSlide(int i)
+    {
+
+    }
 }
 

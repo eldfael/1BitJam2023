@@ -76,4 +76,9 @@ public class PauseRestartButton : MonoBehaviour, MenuObject, IPointerDownHandler
             ms.SwapToMouse();
         }
     }
+    
+    public void OnSlide(int i)
+    {
+
+    }    
 }

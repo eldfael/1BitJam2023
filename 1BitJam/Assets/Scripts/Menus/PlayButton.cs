@@ -74,4 +74,9 @@ public class PlayButton : MonoBehaviour, MenuObject, IPointerDownHandler, IPoint
             ms.SwapToMouse();
         }
     }
+
+    public void OnSlide(int i)
+    {
+
+    }
 }

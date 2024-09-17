@@ -5,7 +5,7 @@ using UnityEngine;
 public class MenuSelector : MonoBehaviour
 {
     public GameController gc;
-    
+    public GameObject lastobject;
     // Select mode
     // 1: Keyboard
     // 2: Mouse Hovering
@@ -91,7 +91,38 @@ public class MenuSelector : MonoBehaviour
                 }
                 readyToMove = false;
                 StartCoroutine(WaitToSelect());
-            }           
+            }
+            else if (Input.GetAxisRaw("Horizontal") == 1)
+            {
+                if (current != -1)
+                {
+                    menuObjects[current].OnSlide(1);
+                    readyToMove = false;
+                    StartCoroutine(WaitToSelect());
+                }
+                else if (lastobject != null)
+                {
+                    lastobject.GetComponent<MenuObject>().OnSlide(1);
+                    readyToMove = false;
+                    StartCoroutine(WaitToSelect());
+                }
+                
+            }
+            else if (Input.GetAxisRaw("Horizontal") == -1)
+            {
+                if (current != -1)
+                {
+                    menuObjects[current].OnSlide(-1);
+                    readyToMove = false;
+                    StartCoroutine(WaitToSelect());
+                }
+                else if (lastobject != null)
+                {
+                    lastobject.GetComponent<MenuObject>().OnSlide(-1);
+                    readyToMove = false;
+                    StartCoroutine(WaitToSelect());
+                }
+            }
         }       
     }
 

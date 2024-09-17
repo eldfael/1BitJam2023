@@ -74,4 +74,9 @@ public class PauseMenuButton : MonoBehaviour, MenuObject, IPointerDownHandler, I
             ms.SwapToMouse();
         }
     }
+
+    public void OnSlide(int i)
+    {
+
+    }
 }

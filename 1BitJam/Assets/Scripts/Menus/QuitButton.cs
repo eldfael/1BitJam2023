@@ -74,4 +74,9 @@ public class QuitButton : MonoBehaviour, MenuObject, IPointerDownHandler, IPoint
             ms.SwapToMouse();
         }
     }
+
+    public void OnSlide(int i)
+    {
+
+    }
 }
