@@ -29,7 +29,20 @@ public class OptionsSlider : MonoBehaviour, MenuObject, IPointerDownHandler, IPo
 
     private void Update()
     {
-        //nothing
+        // Need sprites for this / rewrite code specifically for this part
+        /*
+        if (highlighted)
+        {
+            // Stuff to do here later!!
+            //Debug.Log("Resume button is highlighted");
+            im.sprite = highlightedSprite;
+
+        }
+        else
+        {
+            im.sprite = normalSprite;
+        }
+        */
     }
 
     public void OnSelect()
